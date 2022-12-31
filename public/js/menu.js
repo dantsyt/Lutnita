@@ -4,16 +4,29 @@ const navBtns = document.querySelectorAll('.nav-btns');
 
 const mediaQueryList = window.matchMedia('(hover:none)');
 
-const displayNavBar = () => {
-    navbar.className = 'navbar';
-    for (let one of navBtns) {
-        one.style.visibility = 'visible';
-    };
-};
 
-/* if (mediaQueryList.matches) {
 
+if (mediaQueryList.matches) {
+    const pageTitle = document.querySelector('h2');
+    const centerImage = document.querySelector('.center_image');
+    pageTitle.addEventListener('click', () => {
+        navbar.className = 'navbar';
+        for (let one of navBtns) {
+            one.style.visibility = 'visible';
+        };
+        const navbarX = centerImage.offsetTop;
+        const navbarY = centerImage.offsetLeft;
+        navbar.style.top = `${navbarX}px`;
+        navbar.style.left = `${navbarY}px`;
+    });
 } else {
+    const displayNavBar = () => {
+        navbar.className = 'navbar';
+        for (let one of navBtns) {
+            one.style.visibility = 'visible';
+        };
+    };
+
     logo.addEventListener('mouseenter', displayNavBar);
 
     logo.addEventListener('mouseleave', () => {
@@ -27,4 +40,4 @@ const displayNavBar = () => {
             };
         }, 6000);
     });
-}; */
+};
