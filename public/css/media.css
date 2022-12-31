@@ -22,6 +22,7 @@
         flex-grow: 0;
         justify-content: unset;
         flex-wrap: unset;
+        height: unset;
     }
 
     main>section {
