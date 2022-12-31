@@ -106,11 +106,13 @@ h4 {
 /* --------- NAVBAR --------- */
 
 .navbar_hidden {
-    opacity: 0;
+    opacity: 100;
+    /* 0 */
     display: flex;
     width: 50%;
     justify-content: space-between;
-    margin-inline-start: 2em;
+    margin-inline-start: 4em;
+    /* 2em */
     transition: all 2s cubic-bezier(0.94, 0.53, 1, 0.99);
 }
 
@@ -124,7 +126,8 @@ h4 {
 }
 
 .nav-btns {
-    visibility: hidden;
+    visibility: visible;
+    /* hidden */
     display: block;
     font-weight: 600;
     font-size: 1.1em;
@@ -135,7 +138,8 @@ h4 {
 }
 
 .nav-btns_hidden {
-    visibility: hidden;
+    visibility: visible;
+    /* hidden */
 }
 
 /* .navbar>a:first-of-type {
