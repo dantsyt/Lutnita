@@ -2,6 +2,7 @@ const logo = document.querySelector('#logo');
 const navbar = document.querySelector('#navbar');
 const navBtns = document.querySelectorAll('.nav-btns');
 
+// Add comment
 const displayNavBar = () => {
     navbar.className = 'navbar';
     for (let one of navBtns) {
