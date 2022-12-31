@@ -19,4 +19,59 @@ Min-width: 768px (most tablets)
 Min-width: 992px (smaller desktop viewpoints)
 Min-width: 1200px (large devices and wide screens) */
 
-@media (width >=320px) {}
+@media (width <=480px) {
+
+    /* --------- GENERAL --------- */
+
+    header {
+        min-height: 5vh;
+    }
+
+    main {
+        flex-grow: 0;
+        justify-content: unset;
+        flex-wrap: unset;
+    }
+
+    main>section {
+        width: 100vw;
+        height: unset;
+    }
+
+    footer {
+        flex-direction: column;
+        height: 14vh;
+        justify-content: center;
+    }
+
+    /* --------- TEXT --------- */
+
+    h2 {
+        margin-bottom: 1em;
+    }
+
+    .text_container {
+        margin-inline-start: 2em;
+    }
+
+    /* --------- CENTER --------- */
+
+    .center_image {
+        max-height: unset;
+        padding: 0 2em;
+    }
+
+    /* --------- ** {{ FOOTER }} ** --------- */
+
+    .navbar_hidden {
+        display: none;
+    }
+
+    #logo_container {
+        display: inherit;
+        align-self: center;
+        justify-content: unset;
+        width: unset;
+        margin-inline-end: unset;
+    }
+}
