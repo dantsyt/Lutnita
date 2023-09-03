@@ -57,6 +57,7 @@
         text-align: left;
         transform: scaleY(1.2);
         font-size: 1.15em;
+        padding: unset;
     }
 
     /* --------- CENTER --------- */
