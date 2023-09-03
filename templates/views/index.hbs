@@ -23,14 +23,32 @@
     <main class="main">
         <section id="text_section" class="text_section">
             <div id="text_container" class="text_container">
-                <h2 class="first_name">{{title}}</h2>
+                <h2 class="title">{{title}}</h2>
+                <h3 class="first_name">Flaviu</h3>
+                <h3 class="last_name indent">Cacoveanu</h3>
+                <h4 class="exhibition_date more_indent"><span class="date">18 Aug. 2023 — </span><span
+                        class="date">15 Oct. 2023</span></h4>
             </div>
         </section>
-        <section class="image_container"><img class="center_image" src="img/center_image.png" alt="center_image">
+        <section class="image_container"><img class="center_image" src="img/center.png" alt="center_image">
         </section>
         <section class="right_space"></section>
     </main>
-    {{>footer}}
+<footer class="footer">
+    <section id="navbar" class="navbar_hidden">
+        {{!-- <a id="nav-menu" href="/">MENU</a> --}}
+        <a id="nav-exhibitions" class="nav-btns" href="/exhibitions">EXHIBITIONS</a>
+        <a id="nav-artists" class="nav-btns" href="/artists">ARTISTS</a>
+        <a id="nav-news" class="nav-btns" href="/news">NEWS</a>
+        <a id="nav-info" class="nav-btns" href="/info">INFO</a>
+    </section>
+    <div id="logo_container">
+        {{!-- <h1 id="logo"><a href="/"><span id="lut">LUT</span><span id="nita">NIȚA</span></a></h1> --}}
+        <a href="https://www.instagram.com/galerialutnita/" target="_blank"><img id="logo_img" src="img/lutnita_logo_transparent_black.png" alt="lutnita"></a>
+    </div>
+</footer>
+
+{{!-- <script src="js/menu.js"></script> --}}
 </body>
 
 </html>

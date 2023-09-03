@@ -1,4 +1,4 @@
-const logo = document.querySelector('#logo');
+const logo = document.querySelector('#logo_img');
 const navbar = document.querySelector('#navbar');
 const navBtns = document.querySelectorAll('.nav-btns');
 
