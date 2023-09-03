@@ -78,18 +78,6 @@ h4 {
     text-align: right;
 }
 
-.description {
-    margin-inline-end: 2.2em;
-}
-
-.indent {
-    margin-inline-start: .5em;
-}
-
-.more_indent {
-    margin-inline-start: 1em;
-}
-
 .first_name {
     font-weight: 500;
     letter-spacing: -0.8px;
@@ -99,10 +87,11 @@ h4 {
 .last_name {
     font-family: 'Times', serif;
     font-style: italic;
-    font-size: 1.4em;
-    transform: scaleX(0.8);
+    transform: scaleY(1.3);
+    font-size: 1.1em;
     letter-spacing: 0.1em;
-    margin-right: -1.1em;
+    padding: 0.1em 0;
+    margin-right: -2px;
 }
 
 /* --------- CENTER --------- */
@@ -120,7 +109,7 @@ h4 {
 /* --------- ** {{ FOOTER }} ** --------- */
 
 #logo_img {
-    height: 2em;
+    height: 2.3em;
 }
 
 /* --------- NAVBAR --------- */
