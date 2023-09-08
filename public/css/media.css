@@ -1,4 +1,4 @@
-@media (hover:none) {
+@media screen and (max-width: 1024px) {
     /* --------- GENERAL --------- */
 
     header {
@@ -24,6 +24,11 @@
     }
 
     /* --------- TEXT --------- */
+
+    h4:first-of-type {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
 
     h2 {
         margin-bottom: unset;
@@ -59,12 +64,43 @@
         font-size: 1.15em;
         padding: unset;
     }
+    
+    #name {
+        background: url('../img/flaviu_mob.png') no-repeat;
+        background-size: contain; /* scales the image */
+        background-position: left; /* centers the image */
+        align-self: flex-start;
+        height: 100vh !important;
+    }
 
     /* --------- CENTER --------- */
 
     .center_image {
         max-height: unset;
         padding: 0 2em;
+    }
+
+    #sign_left {
+        display: flex;
+        object-fit: contain;
+        margin-left: 63vw;
+        margin-top: 4.1vw;
+        align-items: center;
+        max-height: 9%;
+        position: absolute;
+        /* transform: translate(17.1em, 1.3em); */
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    
+    #sign_right {
+        display: none;
+    }
+    
+    .right_space {
+        justify-content: center;
+        align-items: center;
     }
 
     /* --------- ** {{ FOOTER }} ** --------- */
