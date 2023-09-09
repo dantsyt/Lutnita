@@ -1,4 +1,4 @@
-@media (hover:none) {
+@media screen and (max-width: 1024px) {
     /* --------- GENERAL --------- */
 
     header {
@@ -24,6 +24,11 @@
     }
 
     /* --------- TEXT --------- */
+
+    h4:first-of-type {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
 
     h2 {
         margin-bottom: unset;
@@ -57,6 +62,15 @@
         text-align: left;
         transform: scaleY(1.2);
         font-size: 1.15em;
+        padding: unset;
+    }
+    
+    #name {
+        background: url('../img/flaviu_mob.png') no-repeat;
+        background-size: contain; /* scales the image */
+        background-position: left; /* centers the image */
+        align-self: flex-start;
+        height: 100vh !important;
     }
 
     /* --------- CENTER --------- */
