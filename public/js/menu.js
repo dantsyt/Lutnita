@@ -2,7 +2,7 @@ const logo = document.querySelector('#logo_img');
 const navbar = document.querySelector('#navbar');
 const navBtns = document.querySelectorAll('.nav-btns');
 
-const mediaQueryList = window.matchMedia('(hover:none)');
+const mediaQueryList = window.matchMedia('screen and (max-width: 1024px)');
 
 
 

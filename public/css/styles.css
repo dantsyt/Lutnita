@@ -1,3 +1,5 @@
+@media screen and (min-width: 769px) {}
+
 /* --------- GENERAL --------- */
 
 body {
@@ -5,9 +7,10 @@ body {
     flex-direction: column;
     /* height: 100vh; */
     overflow: auto;
+    overflow-x: hidden !important;
 }
 
-main {
+/* main {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -16,26 +19,43 @@ main {
     flex-grow: 1;
     width: 100%;
     height: 70vh;
+} */
+
+main {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
 }
 
 main>section {
     display: flex;
-    width: 33.3vw;
+    /* width: 33.3vw; */
     height: 100%;
 }
 
 header {
     width: 100%;
-    min-height: 13vh;
+    min-height: 12vh;
 }
 
 footer {
     display: flex;
     width: 100%;
     height: 17vh;
+    position: fixed;
+    top: 85%;
 }
 
 /* --------- TEXT --------- */
+
+.text_section {
+    flex-direction: column;
+    width: 20vw;
+    z-index: 1;
+}
 
 h2 {
     font-family: 'Barlow', sans-serif;
@@ -46,6 +66,7 @@ h2 {
     text-transform: uppercase;
     margin-bottom: 2em;
     text-align: left;
+    margin-inline-start: 3em;
 }
 
 h3 {
@@ -57,12 +78,12 @@ h3 {
 h4:first-of-type {
     margin-top: 0.6em;
     margin-bottom: 0.2em;
-    color: #666;
 }
 
 h4 {
     font-size: 1.05em;
     font-weight: 400;
+    color: #666;
 }
 
 .text_container>h5 {
@@ -75,8 +96,20 @@ h4 {
 .text_container {
     display: flex;
     flex-direction: column;
-    margin-inline-start: 4em;
     text-align: right;
+    font-size: 13rem;
+    margin-bottom: 2em;
+    margin-inline-start: 5em;
+    padding: 1em 0;
+}
+
+.text_container:hover {
+    border: 1px solid gray;
+    border-left: none;
+    border-right: none;
+    margin-bottom: calc(2em + -1px);
+    margin-top: -1px;
+    cursor: pointer;
 }
 
 .first_name {
@@ -99,8 +132,10 @@ h4 {
 
 #name {
     background: url('../img/flaviu.png') no-repeat;
-    background-size: contain; /* scales the image */
-    background-position: right; /* centers the image */
+    background-size: contain;
+    /* scales the image */
+    background-position: right;
+    /* centers the image */
     max-height: 2.6em;
     object-fit: contain;
     align-self: flex-end;
@@ -110,24 +145,37 @@ h4 {
     transform: scaleY(1.05);
 }
 
+
+/* --------- CENTER --------- */
+
+.image_container_mob,
+.center_image_mob {
+    display: none;
+}
+
+.image_container {
+    justify-content: center;
+    width: 60vw;
+    position: sticky;
+    top: 12vh;
+}
+
+.center_image_index,
+.center_image_exhib {
+    /* max-width: 40%; */
+    max-height: 72vh;
+    object-fit: contain;
+}
+
+/* --------- RIGHT ---------- */
+
 .right_space {
+    width: 20vw;
     justify-content: center;
     align-items: center;
 }
 
-/* --------- CENTER --------- */
-
-.image_container {
-    justify-content: center;
-}
-
-.center_image {
-    max-width: 100%;
-    max-height: 90%;
-    object-fit: contain;
-}
-
-/* --------- ** {{ FOOTER }} ** --------- */
+/* --------- FOOTER --------- */
 
 #logo_img {
     height: 2.3em;
@@ -144,6 +192,7 @@ h4 {
     margin-inline-start: 2em;
     /* 2em */
     transition: all 2s cubic-bezier(0.94, 0.53, 1, 0.99);
+    z-index: 0;
 }
 
 .navbar {
@@ -156,15 +205,16 @@ h4 {
 }
 
 .nav-btns {
-    visibility: hidden;
+    visibility: visible;
     /* hidden */
     display: block;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 1.1em;
-    letter-spacing: 1px;
+    letter-spacing: 3rem;
     align-self: center;
     text-align: center;
     cursor: pointer;
+    color: #2a2a2a;
 }
 
 .nav-btns_hidden {
@@ -172,31 +222,10 @@ h4 {
     /* hidden */
 }
 
-/* .navbar>a:first-of-type {
-    display: block;
-} */
-
-h1 {
-    font-weight: 500;
-    font-size: 2em;
-    letter-spacing: 10rem;
-    cursor: pointer;
-}
-
-/* --------- LOGO --------- */
-
 #logo_container {
     display: flex;
     justify-content: flex-end;
     align-self: center;
     width: 50vw;
     margin-inline-end: 4em;
-}
-
-#lut {
-    font-family: 'Nunito', sans-serif;
-}
-
-#nita {
-    font-family: 'Lora', serif;
 }

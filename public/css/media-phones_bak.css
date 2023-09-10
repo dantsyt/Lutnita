@@ -1,4 +1,4 @@
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 480px) {
     /* --------- GENERAL --------- */
 
     header {
@@ -7,6 +7,7 @@
 
     main {
         flex-grow: 0;
+        flex-direction: column;
         justify-content: unset;
         flex-wrap: unset;
         height: unset;
@@ -46,12 +47,8 @@
         padding: 0 2em;
     }
 
-    .indent {
-        margin-inline-start: unset;
-    }
-
-    .more_indent {
-        margin-inline-start: unset;
+    .text_section {
+        width: unset;
     }
 
     .first_name {
@@ -64,16 +61,24 @@
         font-size: 1.15em;
         padding: unset;
     }
-    
+
     #name {
         background: url('../img/flaviu_mob.png') no-repeat;
-        background-size: contain; /* scales the image */
-        background-position: left; /* centers the image */
+        background-size: contain;
+        /* scales the image */
+        background-position: left;
+        /* centers the image */
         align-self: flex-start;
         height: 100vh !important;
     }
 
     /* --------- CENTER --------- */
+
+    .image_container {
+        width: unset;
+        position: unset;
+        top: unset;
+    }
 
     .center_image {
         max-height: unset;
