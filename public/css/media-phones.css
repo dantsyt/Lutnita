@@ -11,6 +11,7 @@
         justify-content: unset;
         flex-wrap: unset;
         height: unset;
+        padding-bottom: unset;
     }
 
     main>section {
