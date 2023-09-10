@@ -195,7 +195,7 @@ h4 {
     display: flex;
     width: 50%;
     justify-content: space-between;
-    margin-inline-start: 2em;
+    margin-inline-start: 3.5vw;
     /* 2em */
     transition: all 1s cubic-bezier(0.94, 0.53, 1, 0.99);
     z-index: 0;
