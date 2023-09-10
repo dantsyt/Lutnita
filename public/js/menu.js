@@ -1,8 +1,9 @@
 const logo = document.querySelector('#logo_img');
+const footer = document.querySelector('.footer');
 const navbar = document.querySelector('#navbar');
 const navBtns = document.querySelectorAll('.nav-btns');
 
-const mediaQueryList = window.matchMedia('screen and (max-width: 1024px)');
+const mediaQueryList = window.matchMedia('screen and (max-width: 480px)');
 
 
 
@@ -27,17 +28,24 @@ if (mediaQueryList.matches) {
         };
     };
 
-    logo.addEventListener('mouseenter', displayNavBar);
+    footer.addEventListener('mouseenter', displayNavBar);
 
-    logo.addEventListener('mouseleave', () => {
-        setTimeout(() => {
-            navbar.className = 'navbar_hidden';
-            navBtns.className = 'nav-btns_hidden';
-        }, 4000);
-        setTimeout(() => {
-            for (let one of navBtns) {
-                one.style.visibility = 'hidden';
-            };
-        }, 6000);
-    });
+    footer.addEventListener('mouseleave', () => {
+        navbar.className = 'navbar_hidden';
+        navBtns.className = 'nav-btns_hidden';
+    })
+
+    // logo.addEventListener('mouseenter', displayNavBar);
+
+    // logo.addEventListener('mouseleave', () => {
+    //     setTimeout(() => {
+    //         navbar.className = 'navbar_hidden';
+    //         navBtns.className = 'nav-btns_hidden';
+    //     }, 4000);
+    //     setTimeout(() => {
+    //         for (let one of navBtns) {
+    //             one.style.visibility = 'hidden';
+    //         };
+    //     }, 6000);
+    // });
 };
