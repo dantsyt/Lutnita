@@ -96,6 +96,9 @@ h4 {
 }
 
 .text_container {
+    border: 1px solid #ffffff;
+    border-left: none;
+    border-right: none;
     display: flex;
     flex-direction: column;
     text-align: right;
@@ -103,14 +106,15 @@ h4 {
     margin-bottom: 2em;
     margin-inline-start: 5em;
     padding: 1em 0;
+    transition: border 0.3s ease-out;
 }
 
 .text_container:hover {
-    border: 1px solid gray;
+    border: 1px solid #666;
     border-left: none;
     border-right: none;
-    margin-bottom: calc(2em + -1px);
-    margin-top: -1px;
+    /* margin-bottom: calc(2em + -1px);
+    margin-top: -1px; */
     cursor: pointer;
 }
 
