@@ -11,14 +11,3 @@ const client = new MongoClient(uri, {
     }
 });
 const database = client.db('lutnita');
-
-    database.collection('testdoi')
-    .deleteOne({
-        _id: 10
-    })
-    .then(result => {
-        console.log(result);
-    })
-    .catch(error => {
-        console.log(error);
-    });

@@ -3,6 +3,11 @@ const express = require('express');
 const hbs = require('hbs');
 const port = process.env.PORT || 3000;
 
+// DB and routers
+require('./db/mongoose');
+const artistsRouter = require('./routers/artistRouter');
+const exhibRouter = require('./routers/exhibitionRouter')
+
 const app = express();
 
 // Paths setup
@@ -24,9 +29,11 @@ hbs.registerPartials(partialsPath);
 //       next()
 //   })
 
-// Set static directory
+// Set static directory and routers
 
 app.use(express.static(publicPath));
+app.use(artistsRouter);
+app.use(exhibRouter);
 
 app.get('/', (req, res) => {
     res.render('index', {
