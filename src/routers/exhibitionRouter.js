@@ -1,38 +1,34 @@
 const express = require('express');
+const path = require('node:path');
 const exhibRouter = new express.Router();
+const publicPath = path.join(__dirname, '../../public');
 
 const Exhibition = require('../models/exhibitionMod');
 
-exhibRouter.use(express.json());
+exhibRouter.use(express.static(publicPath));
 
-exhibRouter.get('/getExhibs', async (req, res) => {
-    try {
-        const exhib = await Exhibition.find({});
-        res.send(exhib);
-    } catch (e) {
-        res.status(500).send(e.message);
-    }
+exhibRouter.get('/', (req, res) => {
+    res.render('exhibitions', {
+        title: 'Exhibitions'
+    });
 });
 
-exhibRouter.get('/getExhibs/:id', async (req, res) => {
-    const _id = req.params.id;
+exhibRouter.get('/:exhibname', async (req, res) => {
+    const exhibname = req.params.exhibname
     try {
-        const exhibition = await Exhibition.findById(_id)
-        if (!exhibition) { return res.status(404).send('404 exhibitions, not one found') }
-        res.send(exhibition)
+        const exhibition = await Exhibition.findOne({ exhibname: exhibname });
+        if (!exhibition) {
+            return res.status(404).render('404', {
+                title: '404 exhibitions, not one found...'
+            });
+        }
+        res.render('exhibitions_id', {
+            title: exhibname
+        });
     } catch (e) {
-        res.status(400).send(e.message);
+        console.log(e.message);
     }
-});
 
-exhibRouter.post('/postExhib', async (req, res) => {
-    const exhibition = new Exhibition(req.body);
-    try {
-        await exhibition.save();
-        res.status(201).send(exhibition);
-    } catch (e) {
-        res.status(400).send(e.message);
-    }
 });
 
 module.exports = exhibRouter

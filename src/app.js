@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000;
 // DB and routers
 require('./db/mongoose');
 const artistsRouter = require('./routers/artistRouter');
+const exhibDBRouter = require('./routers/exhibitionDBRouter');
 const exhibRouter = require('./routers/exhibitionRouter')
 
 const app = express();
@@ -33,7 +34,7 @@ hbs.registerPartials(partialsPath);
 
 app.use(express.static(publicPath));
 app.use(artistsRouter);
-app.use(exhibRouter);
+app.use(exhibDBRouter);
 
 app.get('/', (req, res) => {
     res.render('index', {
@@ -55,11 +56,7 @@ app.get('/info', (req, res) => {
         title: 'Info'
     });
 });
-app.get('/exhibitions', (req, res) => {
-    res.render('exhibitions', {
-        title: 'Exhibitions'
-    });
-});
+app.use('/exhibitions', exhibRouter);
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404'

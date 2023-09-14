@@ -1,12 +1,14 @@
 const mongoose = require('mongoose')
 
 const exhibSchema = new mongoose.Schema({
+    exhibname: String,
     firstname: String,
     lastname: String,
     exhibname: String,
     date: String,
     description: String,
-    imgpath: String,
+    imgpath: Array,
+    captions: Array
 })
 
 const Exhibition = mongoose.model('Exhibition', exhibSchema);

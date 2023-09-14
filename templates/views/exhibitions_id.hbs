@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>head}}
+
+<body>
+    {{>header}}
+    <main class="main">
+        <section id="text_section" class="text_section">
+            <h2 id="title" class="title">{{title}}</h2>
+            <div id="solo" class="text_container">
+                <h3 class="first_name">Flaviu</h3>
+                <h3 class="last_name">Cacoveanu</h3>
+                <h4 class="exhibition_date">15 Aug 2023 — 18 Oct 2023</h4>
+                <h4 class="description">Guess who's back.</h4>
+            </div>
+            {{!-- for phones - images as array in DB and loop OR get to separate hbs --}}
+            <div class="image_container_mob">
+                <img class="center_image_mob" src="img/flaviucacoveanu.png" alt="center_image">
+            </div>
+        </section>
+        <section class="image_container"><img class="center_image_exhib" src="img/main.png" alt="center_image">
+        </section>
+        <section class="right_space"></section>
+    </main>
+    {{!--
+    <script src="js/exhib.js"></script> --}}
+    {{>footer}}
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+{"_id":{"$oid":"6500d68e70d45e8970b3406b"},"firstname":"Andrei","lastname":"Sclifos","exhibname":"Genesis","date":"10 Apr 2023 — 25 May 2023","description":"Lorem ipsum dolor sit amet","imgpath":"img/andreisclifos.png","__v":0}
+{"_id":{"$oid":"6500d69570d45e8970b3406d"},"firstname":"Alexe","lastname":"Pupazan","exhibname":"Abubilla","date":"1 Jan 2023 — 15 May 2023","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt","imgpath":"img/alexepupazan.png","__v":0}
+{"_id":{"$oid":"6500d69e70d45e8970b3406f"},"firstname":"Lucian","lastname":"Spataru","exhibname":"Light","date":"14 Nov 2022 — 20 Dec 2022","description":"Minimal","imgpath":"img/lucianspataru.png","__v":0}
+{"_id":{"$oid":"6500d6a670d45e8970b34071"},"firstname":"Samson","lastname":"Flexor","exhibname":"Oranj","date":"10 Apr 2023 — 25 May 2023","description":"His image was the first on this website.","imgpath":"img/samsonflexor.png","__v":0}
+{"_id":{"$oid":"6500d6df70d45e8970b34074"},"firstname":"Mark","lastname":"Verlan","exhibname":"Mark Verlan","date":"15 Jun 2023 — 15 Jul 2023","description":"Nice one, Mark.","imgpath":"img/markverlan.png","__v":0}
+{"_id":{"$oid":"6500d6e370d45e8970b34076"},"firstname":"Flaviu","lastname":"Cacoveanu","exhibname":"Solo","date":"15 Aug 2023 — 18 Oct 2023","description":"Guess who's back.","imgpath":[""],"__v":0}
