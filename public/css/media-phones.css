@@ -144,11 +144,15 @@
     }
 
     .nav-btns {
+        font-family: unset;
         visibility: hidden;
         align-self: unset;
         text-align: unset;
+        letter-spacing: 3rem;
+        font-weight: 400;
         padding: 1vh;
         font-size: 18rem;
+        color: #2a2a2a;
     }
 
     .nav-btns_hidden {

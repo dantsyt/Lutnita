@@ -252,16 +252,20 @@ h4 {
 }
 
 .nav-btns {
+    font-family: 'Barlow', sans-serif;
+    /*none*/
     visibility: visible;
-    /* hidden */
     display: block;
-    font-weight: 400;
-    font-size: 1.1em;
-    letter-spacing: 3rem;
+    font-weight: 600;
+    /*400*/
+    font-size: 1.15em;
+    /*1.1*/
+    /* letter-spacing: 3rem; */
     align-self: center;
     text-align: center;
     cursor: pointer;
-    color: #2a2a2a;
+    color: #777777;
+    /*2a2a2a*/
 }
 
 .nav-btns_hidden {
