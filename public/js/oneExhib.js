@@ -27,7 +27,7 @@ async function getOneExhib(exh) {
             container.insertAdjacentHTML('afterend', `
         <div class="image_container_mob_one">
         <img class="center_image_mob" src="${imgArr[i]}" alt="center_image">
-        <p class="captions">${captionsArr[i]}</p>
+        <p class="captions">${captionsArr[i].replace(/\\n/g, '<br>')}</p>
         </div>
             `);
         };
@@ -44,14 +44,15 @@ async function getOneExhib(exh) {
 
 getOneExhib(exhName).then(() => {
     const image = document.querySelector('.center_image_exhib');
-    const captions = document.querySelector('.captions');
+    const captions = document.querySelector('#captions_desk');
     const viewsCount = document.querySelector('#counter_num');
     let counter = 0;
     const nextImage = () => {
         if (counter >= 0 && counter < imgArr.length - 1) {
             counter++;
             image.src = imgArr[counter];
-            captions.innerText = captionsArr[counter];
+            captions.innerText = captionsArr[counter].replace(/\\n/g, '\n');
+            console.log(captionsArr[counter]);
             viewsCount.innerText = ` ${counter + 1}`;
         }
     }
