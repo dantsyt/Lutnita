@@ -10,7 +10,6 @@ async function getExhibs() {
         <h3 class="first_name">${one.firstname}</h3>
         <h3 class="last_name">${one.lastname}</h3>
         <h4 class="exhibition_date">${one.date}</h4>
-        <h4 class="description">${one.description}</h4>
         </div>
         <div class="image_container_mob">
         <img class="center_image_mob" src="img/${one.exhibname}.png" alt="center_image">

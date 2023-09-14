@@ -4,7 +4,6 @@ const exhibSchema = new mongoose.Schema({
     exhibname: String,
     firstname: String,
     lastname: String,
-    exhibname: String,
     date: String,
     description: String,
     imgpath: Array,

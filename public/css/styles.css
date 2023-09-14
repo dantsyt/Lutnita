@@ -95,7 +95,8 @@ h4 {
     margin-inline-start: 1.2em;
 }
 
-.text_container {
+.text_container,
+.text_container_nohover {
     border: 1px solid #ffffff;
     border-left: none;
     border-right: none;
@@ -106,6 +107,9 @@ h4 {
     margin-bottom: 2em;
     margin-inline-start: 5em;
     padding: 1em 0;
+}
+
+.text_container {
     transition: border 0.3s ease-out;
 }
 
@@ -155,7 +159,8 @@ h4 {
 /* --------- CENTER --------- */
 
 .image_container_mob,
-.center_image_mob {
+.center_image_mob,
+.image_container_mob_one {
     display: none;
 }
 
@@ -166,11 +171,46 @@ h4 {
     top: 12vh;
 }
 
+.one_exhib {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .center_image_index,
 .center_image_exhib {
     /* max-width: 40%; */
     max-height: 72vh;
     object-fit: contain;
+}
+
+.center_image_one_exhib {
+    width: 43vw;
+    max-height: 66vh;
+}
+
+.captions {
+    font-size: 10rem;
+    letter-spacing: 1rem;
+    color: #666;
+    padding: 12rem 0;
+}
+
+.img_counter {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-inline-start: 5em;
+}
+
+#counter_text {
+    padding-right: 25rem;
+}
+
+.counters {
+    font-size: 12rem;
+    letter-spacing: 1rem;
+    color: #666;
 }
 
 /* --------- RIGHT ---------- */

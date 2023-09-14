@@ -14,10 +14,10 @@ exhibDBRouter.get('/getExhibs', async (req, res) => {
     }
 });
 
-exhibDBRouter.get('/getExhibs/:id', async (req, res) => {
-    const _id = req.params.id;
+exhibDBRouter.get('/getOneExhib/:exhibname', async (req, res) => {
+    const exhibname = req.params.exhibname;
     try {
-        const exhibition = await Exhibition.findById(_id)
+        const exhibition = await Exhibition.findOne({ exhibname: exhibname });
         if (!exhibition) { return res.status(404).send('404 exhibitions, not one found') }
         res.send(exhibition)
     } catch (e) {
