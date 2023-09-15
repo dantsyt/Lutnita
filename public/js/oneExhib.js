@@ -23,8 +23,8 @@ async function getOneExhib(exh) {
         </div>
         `);
         const container = document.querySelector('.text_container_nohover');
-        for (let i = imgArr.length - 1; i > -1; i--) {
-            container.insertAdjacentHTML('afterend', `
+        for (let i = 0; i < imgArr.length; i++) {
+            imgContainer.insertAdjacentHTML('beforeend', `
         <div class="image_container_mob_one">
         <img class="center_image_mob" src="${imgArr[i]}" alt="center_image">
         <p class="captions">${captionsArr[i].replace(/\\n/g, '<br>')}</p>
@@ -55,7 +55,6 @@ getOneExhib(exhName).then(() => {
             console.log(captionsArr[counter]);
             viewsCount.innerText = ` ${counter + 1}`;
         }
-    }
-
+    };
     image.addEventListener('click', nextImage);
-});
+}).catch((e) => { console.log(e.message); })
