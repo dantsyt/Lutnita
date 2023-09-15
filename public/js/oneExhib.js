@@ -32,7 +32,7 @@ async function getOneExhib(exh) {
             `);
         };
         imgContainer.insertAdjacentHTML('afterbegin', `
-        <img class="center_image_exhib center_image_one_exhib" src="${imgArr[0]}" alt="center_image">
+        <img class="center_image_exhib center_image_one_exhib" src="img/solo1.webp" alt="center_image">
         `);
         imgContainer.insertAdjacentHTML('beforeend', `
         <p id="captions_desk" class="captions">${captionsArr[0]}</p>
