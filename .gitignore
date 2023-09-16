@@ -1,4 +1,3 @@
 node_modules/
 resources/
 README.md
-src/db/mongoose.js
