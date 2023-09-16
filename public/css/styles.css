@@ -182,6 +182,7 @@ h4 {
     /* max-width: 40%; */
     max-height: 72vh;
     object-fit: contain;
+    cursor: pointer;
 }
 
 .center_image_one_exhib {
