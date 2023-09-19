@@ -22,12 +22,6 @@ async function getOneExhib(exh) {
         <p class="counters"><span id="counter_num"> 1</span>/<span id="counter_total">${countTotal}</span></p>
         </div>
         `)
-        // imgContainer.insertAdjacentHTML('afterbegin', `
-        // <div class="arrow_container">
-        // <div id="left_gradient" class="arrows">&#8249;</div>
-        // <div id="right_gradient" class="arrows">&#8250;</div>
-        // </div>
-        // `)
         for (let i = 0; i < imgArr.length; i++) {
             imgContainer.insertAdjacentHTML('beforeend', `
         <div class="image_container_mob_one">
@@ -71,9 +65,9 @@ getOneExhib(exhName).then(() => {
         if (counter == imgArr.length) {
             counter = 0
         }
+        image.src = imgArr[counter]
         image.classList.remove('fade')
         captions.classList.remove('fade_captions')
-        image.src = imgArr[counter]
         setTimeout(() => {
             image.classList.add('fade')
         }, 1)
@@ -88,9 +82,9 @@ getOneExhib(exhName).then(() => {
         if (counter == -1) {
             counter = imgArr.length - 1
         }
+        image.src = imgArr[counter]
         image.classList.remove('fade')
         captions.classList.remove('fade_captions')
-        image.src = imgArr[counter]
         setTimeout(() => {
             image.classList.add('fade')
         }, 1)
@@ -116,5 +110,13 @@ getOneExhib(exhName).then(() => {
                 nextImage()
                 break;
         }
-    });
+    })
+    // image.onclick = (e) => {
+    //     let center = image.width / 2
+    //     if (e.offsetX > center) {
+    //         nextImage()
+    //     } else {
+    //         prevImage()
+    //     }
+    // }
 }).catch((e) => { console.log(e.message) })
