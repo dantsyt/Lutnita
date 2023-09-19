@@ -74,6 +74,10 @@
 
     /* --------- CENTER --------- */
 
+    .arrow_container {
+        display: none;
+    }
+
     .center_image_exhib {
         display: none;
     }
