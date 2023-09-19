@@ -2,6 +2,8 @@ const title = document.querySelector('#title')
 const exhName = title.innerText.toLowerCase()
 const imgContainer = document.querySelector('.image_container')
 
+// const mediaQueryList = window.matchMedia('screen and (max-width: 480px)');
+
 // for phones - images as array in DB and loop OR get to separate hbs
 
 async function getOneExhib(exh) {
@@ -22,14 +24,11 @@ async function getOneExhib(exh) {
         <p class="counters"><span id="counter_num"> 1</span>/<span id="counter_total">${countTotal}</span></p>
         </div>
         `)
-        for (let i = 0; i < imgArr.length; i++) {
-            imgContainer.insertAdjacentHTML('beforeend', `
+        imgContainer.insertAdjacentHTML('beforeend', `
         <div class="image_container_mob_one">
-        <img class="center_image_mob" src="${imgArr[i]}" alt="center_image">
-        <p class="captions">${captionsArr[i].replace(/\\n/g, '<br>')}</p>
+        <img class="center_image_mob mob_one_exhib" src="${imgArr[0]}" alt="center_image">
         </div>
-            `)
-        }
+        `)
         imgContainer.insertAdjacentHTML('afterbegin', `
         <div id="image_wrapper">
         <div class="arrow_container">
@@ -48,7 +47,14 @@ async function getOneExhib(exh) {
 }
 
 getOneExhib(exhName).then(() => {
-    const image = document.querySelector('.center_image_exhib')
+    if (mediaQueryList.matches) {
+        document.querySelector('footer').style.position = 'fixed'
+        image = document.querySelector('.mob_one_exhib')
+    } else {
+        document.querySelector('footer').style.position = 'fixed'
+        image = document.querySelector('.center_image_exhib')
+    }
+
     const captions = document.querySelector('#captions_desk')
     const viewsCount = document.querySelector('#counter_num')
     const leftArrow = document.querySelector('#left_arrow')
@@ -111,12 +117,12 @@ getOneExhib(exhName).then(() => {
                 break;
         }
     })
-    // image.onclick = (e) => {
-    //     let center = image.width / 2
-    //     if (e.offsetX > center) {
-    //         nextImage()
-    //     } else {
-    //         prevImage()
-    //     }
-    // }
+    image.onclick = (e) => {
+        let center = image.width / 2
+        if (e.offsetX > center) {
+            nextImage()
+        } else {
+            prevImage()
+        }
+    }
 }).catch((e) => { console.log(e.message) })

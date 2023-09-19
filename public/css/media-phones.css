@@ -97,10 +97,10 @@
     }
 
     .image_container_mob_one {
-        padding-bottom: 3em;
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-top: 6vh;
     }
 
     .center_image_index,
@@ -111,13 +111,27 @@
         padding: 0 8vw;
     }
 
+    .mob_one_exhib {
+        opacity: 0.3;
+        transition: unset;
+    }
+
+    .fade {
+        opacity: 1;
+        transition: opacity .9s cubic-bezier(0.21, 0.51, 0.58, 1);
+    }
+
     .img_counter {
         display: none;
     }
 
-    #captions_desk {
-        display: none;
+    .captions {
+        font-size: 9rem;
     }
+
+    /* #captions_desk {
+        display: none;
+    } */
 
     /* --------- ** {{ FOOTER }} ** --------- */
 
