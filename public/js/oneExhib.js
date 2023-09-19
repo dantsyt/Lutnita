@@ -22,6 +22,12 @@ async function getOneExhib(exh) {
         <p class="counters"><span id="counter_num"> 1</span>/<span id="counter_total">${countTotal}</span></p>
         </div>
         `)
+        // imgContainer.insertAdjacentHTML('afterbegin', `
+        // <div class="arrow_container">
+        // <div id="left_gradient" class="arrows">&#8249;</div>
+        // <div id="right_gradient" class="arrows">&#8250;</div>
+        // </div>
+        // `)
         for (let i = 0; i < imgArr.length; i++) {
             imgContainer.insertAdjacentHTML('beforeend', `
         <div class="image_container_mob_one">
@@ -31,7 +37,13 @@ async function getOneExhib(exh) {
             `)
         }
         imgContainer.insertAdjacentHTML('afterbegin', `
+        <div id="image_wrapper">
+        <div class="arrow_container">
+        <div id="left_arrow" class="arrows">&#10094;</div>
+        <div id="right_arrow" class="arrows">&#10095;</div>
+        </div>
         <img class="center_image_exhib center_image_one_exhib" src="${imgArr[0]}" usemap="#imagemap" alt="center_image">
+        </div>
         `)
         imgContainer.insertAdjacentHTML('beforeend', `
         <p id="captions_desk" class="captions">${captionsArr[0]}</p>
@@ -45,6 +57,8 @@ getOneExhib(exhName).then(() => {
     const image = document.querySelector('.center_image_exhib')
     const captions = document.querySelector('#captions_desk')
     const viewsCount = document.querySelector('#counter_num')
+    const leftArrow = document.querySelector('#left_arrow')
+    const rightArrow = document.querySelector('#right_arrow')
     setTimeout(() => {
         image.classList.add('fade')
     }, 1)
@@ -86,12 +100,21 @@ getOneExhib(exhName).then(() => {
         captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
         viewsCount.innerText = ` ${counter + 1}`
     }
-    image.onclick = (e) => {
-        let center = image.width / 2
-        if (e.offsetX > center) {
-            nextImage()
-        } else {
-            prevImage()
-        }
+    leftArrow.onclick = () => {
+        prevImage()
     }
+    rightArrow.onclick = () => {
+        nextImage()
+    }
+    window.addEventListener('keydown', function (event) {
+        const key = event.key; // "ArrowRight", "ArrowLeft", "ArrowUp", or "ArrowDown"
+        switch (event.key) {
+            case "ArrowLeft":
+                prevImage()
+                break;
+            case "ArrowRight":
+                nextImage()
+                break;
+        }
+    });
 }).catch((e) => { console.log(e.message) })
