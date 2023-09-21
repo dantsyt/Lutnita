@@ -13,6 +13,7 @@ async function getOneExhib(exh) {
         imgArr = oneExhib.imgpath
         captionsArr = oneExhib.captions
         const countTotal = imgArr.length
+        // Append TEXT to desktop
         title.insertAdjacentHTML('afterend', `
         <div id="${oneExhib.exhibname}" class="text_container_nohover">
         <h3 class="first_name">${oneExhib.firstname}</h3>
@@ -24,19 +25,15 @@ async function getOneExhib(exh) {
         <p class="counters"><span id="counter_num"> 1</span>/<span id="counter_total">${countTotal}</span></p>
         </div>
         `)
+        // Append images MOB
         imgContainer.insertAdjacentHTML('beforeend', `
         <div class="image_container_mob_one">
         <img class="center_image_mob mob_one_exhib" src="${imgArr[0]}" alt="center_image">
         </div>
         `)
+        // Append images DESK
         imgContainer.insertAdjacentHTML('afterbegin', `
-        <div id="image_wrapper">
-        <div class="arrow_container">
-        <div id="left_arrow" class="arrows">&#10094;</div>
-        <div id="right_arrow" class="arrows">&#10095;</div>
-        </div>
-        <img class="center_image_exhib center_image_one_exhib" src="${imgArr[0]}" usemap="#imagemap" alt="center_image">
-        </div>
+        <img class="center_image_exhib center_image_one_exhib" src="${imgArr[0]}" alt="center_image">
         `)
         imgContainer.insertAdjacentHTML('beforeend', `
         <p id="captions_desk" class="captions">${captionsArr[0]}</p>
@@ -54,11 +51,8 @@ getOneExhib(exhName).then(() => {
         document.querySelector('footer').style.position = 'fixed'
         image = document.querySelector('.center_image_exhib')
     }
-
     const captions = document.querySelector('#captions_desk')
     const viewsCount = document.querySelector('#counter_num')
-    const leftArrow = document.querySelector('#left_arrow')
-    const rightArrow = document.querySelector('#right_arrow')
     setTimeout(() => {
         image.classList.add('fade')
     }, 1)
@@ -100,14 +94,8 @@ getOneExhib(exhName).then(() => {
         captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
         viewsCount.innerText = ` ${counter + 1}`
     }
-    leftArrow.onclick = () => {
-        prevImage()
-    }
-    rightArrow.onclick = () => {
-        nextImage()
-    }
     window.addEventListener('keydown', function (event) {
-        const key = event.key; // "ArrowRight", "ArrowLeft", "ArrowUp", or "ArrowDown"
+        const key = event.key; // "ArrowRight", "ArrowLeft"
         switch (event.key) {
             case "ArrowLeft":
                 prevImage()
