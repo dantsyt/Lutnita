@@ -87,7 +87,7 @@
     .image_container_mob_one {
         display: flex;
         width: unset;
-        position: unset;
+        /* position: unset; */
         top: unset;
         justify-content: center;
     }
@@ -197,6 +197,7 @@
         margin-inline-start: unset;
         justify-content: center;
         transition: all 0.5s cubic-bezier(0.36, 0.74, 1, 0.99);
+        z-index: 999;
     }
 
     #logo_container {
