@@ -33,7 +33,8 @@ async function getOneExhib(exh) {
         `)
         // Append images DESK
         imgContainer.insertAdjacentHTML('afterbegin', `
-        <img class="center_image_exhib center_image_one_exhib" src="${imgArr[0]}.webp" alt="center_image">
+        <img id="load_image" class="load_image" src="img/spin.svg">
+        <img id="main_image" class="center_image_exhib center_image_one_exhib" src="${imgArr[0]}.webp" alt="center_image">
         `)
         imgContainer.insertAdjacentHTML('beforeend', `
         <p id="captions_desk" class="captions">${captionsArr[0]}</p>
@@ -43,6 +44,12 @@ async function getOneExhib(exh) {
     }
 }
 
+// ==== load image ===
+// imgContainer.insertAdjacentHTML('afterbegin', `
+// <img id="load_image" class="center_image_exhib center_image_one_exhib" src="img/loadimage.webp">
+// <img id="main_image" class="center_image_exhib center_image_one_exhib" src="${imgArr[0]}.webp" alt="center_image">
+// `)
+
 getOneExhib(exhName).then(() => {
     if (mediaQueryList.matches) {
         mob = true
@@ -51,10 +58,11 @@ getOneExhib(exhName).then(() => {
     } else {
         mob = false
         document.querySelector('footer').style.position = 'fixed'
-        image = document.querySelector('.center_image_exhib')
+        image = document.querySelector('#main_image')
     }
     const captions = document.querySelector('#captions_desk')
     const viewsCount = document.querySelector('#counter_num')
+    const loadImage = document.querySelector('.load_image')
     setTimeout(() => {
         image.classList.add('fade')
     }, 1)
@@ -62,47 +70,6 @@ getOneExhib(exhName).then(() => {
         captions.classList.add('fade_captions')
     }, 500)
     let counter = 0
-    const nextImage = () => {
-        counter++
-        if (counter == imgArr.length) {
-            counter = 0
-        }
-        if (mob == true) {
-            image.src = `${imgArr[counter]}_450px.webp`
-        } else {
-            image.src = `${imgArr[counter]}.webp`
-        }
-        image.classList.remove('fade')
-        captions.classList.remove('fade_captions')
-        setTimeout(() => {
-            image.classList.add('fade')
-        }, 1)
-        setTimeout(() => {
-            captions.classList.add('fade_captions')
-        }, 700)
-        captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
-        viewsCount.innerText = ` ${counter + 1}`
-    };
-    const prevImage = () => {
-        counter--
-        if (counter == -1) {
-            counter = imgArr.length - 1
-        } if (mob == true) {
-            image.src = `${imgArr[counter]}_450px.webp`
-        } else {
-            image.src = `${imgArr[counter]}.webp`
-        }
-        image.classList.remove('fade')
-        captions.classList.remove('fade_captions')
-        setTimeout(() => {
-            image.classList.add('fade')
-        }, 1)
-        setTimeout(() => {
-            captions.classList.add('fade_captions')
-        }, 700)
-        captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
-        viewsCount.innerText = ` ${counter + 1}`
-    }
     window.addEventListener('keydown', function (event) {
         const key = event.key; // "ArrowRight", "ArrowLeft"
         switch (event.key) {
@@ -121,5 +88,71 @@ getOneExhib(exhName).then(() => {
         } else {
             prevImage()
         }
+    }
+    const nextImage = () => {
+        loadImage.classList.remove('load_image_hidden')
+        counter++
+        image.classList.remove('fade')
+        if (counter == imgArr.length) {
+            counter = 0
+        }
+        if (mob == true) {
+            image.src = `${imgArr[counter]}_450px.webp`
+        } else {
+            image.src = `${imgArr[counter]}.webp`
+        }
+        captions.classList.remove('fade_captions')
+        image.onload = () => {
+            checkImageLoaded()
+        }
+        const checkImageLoaded = () => {
+            if (image.complete) {
+                loadImage.classList.add('load_image_hidden')
+                setTimeout(() => {
+                    image.classList.add('fade')
+                }, 1)
+                setTimeout(() => {
+                    captions.classList.add('fade_captions')
+                }, 700)
+                captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
+                viewsCount.innerText = ` ${counter + 1}`
+            } else {
+                setTimeout(checkImageLoaded, 50)
+            }
+        }
+
+    };
+    const prevImage = () => {
+        loadImage.classList.remove('load_image_hidden')
+        counter--
+        image.classList.remove('fade')
+        if (counter == -1) {
+            counter = imgArr.length - 1
+        }
+        if (mob == true) {
+            image.src = `${imgArr[counter]}_450px.webp`
+        } else {
+            image.src = `${imgArr[counter]}.webp`
+        }
+        captions.classList.remove('fade_captions')
+        image.onload = () => {
+            checkImageLoaded()
+        }
+        const checkImageLoaded = () => {
+            if (image.complete) {
+                loadImage.classList.add('load_image_hidden')
+                setTimeout(() => {
+                    image.classList.add('fade')
+                }, 1)
+                setTimeout(() => {
+                    captions.classList.add('fade_captions')
+                }, 700)
+                captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
+                viewsCount.innerText = ` ${counter + 1}`
+            } else {
+                setTimeout(checkImageLoaded, 50)
+            }
+        }
+
     }
 }).catch((e) => { console.log(e.message) })

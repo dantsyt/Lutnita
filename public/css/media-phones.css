@@ -74,8 +74,8 @@
 
     /* --------- CENTER --------- */
 
-    .arrow_container {
-        display: none;
+    .load_image {
+        width: 25%;
     }
 
     .center_image_exhib {
@@ -109,6 +109,7 @@
         max-height: unset;
         max-width: 100vw;
         padding: 0 8vw;
+        z-index: 1;
     }
 
     .mob_one_exhib {

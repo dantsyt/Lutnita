@@ -148,6 +148,18 @@ h4 {
 
 /* --------- CENTER --------- */
 
+.load_image {
+    visibility: visible;
+    position: absolute;
+    opacity: 1;
+    z-index: 0;
+    transition: opacity .3s;
+}
+
+.load_image_hidden {
+    opacity: 0;
+}
+
 .image_container_mob,
 .center_image_mob,
 .image_container_mob_one {
@@ -173,6 +185,7 @@ h4 {
     max-height: 72vh;
     object-fit: contain;
     cursor: url('cursors/cursor_full.svg'), pointer;
+    z-index: 1;
 }
 
 .center_image_one_exhib {
