@@ -28,12 +28,12 @@ async function getOneExhib(exh) {
         // Append images MOB
         imgContainer.insertAdjacentHTML('beforeend', `
         <div class="image_container_mob_one">
-        <img class="center_image_mob mob_one_exhib" src="${imgArr[0]}" alt="center_image">
+        <img class="center_image_mob mob_one_exhib" src="${imgArr[0]}_450px.webp" alt="center_image">
         </div>
         `)
         // Append images DESK
         imgContainer.insertAdjacentHTML('afterbegin', `
-        <img class="center_image_exhib center_image_one_exhib" src="${imgArr[0]}" alt="center_image">
+        <img class="center_image_exhib center_image_one_exhib" src="${imgArr[0]}.webp" alt="center_image">
         `)
         imgContainer.insertAdjacentHTML('beforeend', `
         <p id="captions_desk" class="captions">${captionsArr[0]}</p>
@@ -45,9 +45,11 @@ async function getOneExhib(exh) {
 
 getOneExhib(exhName).then(() => {
     if (mediaQueryList.matches) {
+        mob = true
         document.querySelector('footer').style.position = 'fixed'
         image = document.querySelector('.mob_one_exhib')
     } else {
+        mob = false
         document.querySelector('footer').style.position = 'fixed'
         image = document.querySelector('.center_image_exhib')
     }
@@ -65,7 +67,11 @@ getOneExhib(exhName).then(() => {
         if (counter == imgArr.length) {
             counter = 0
         }
-        image.src = imgArr[counter]
+        if (mob == true) {
+            image.src = `${imgArr[counter]}_450px.webp`
+        } else {
+            image.src = `${imgArr[counter]}.webp`
+        }
         image.classList.remove('fade')
         captions.classList.remove('fade_captions')
         setTimeout(() => {
@@ -81,8 +87,11 @@ getOneExhib(exhName).then(() => {
         counter--
         if (counter == -1) {
             counter = imgArr.length - 1
+        } if (mob == true) {
+            image.src = `${imgArr[counter]}_450px.webp`
+        } else {
+            image.src = `${imgArr[counter]}.webp`
         }
-        image.src = imgArr[counter]
         image.classList.remove('fade')
         captions.classList.remove('fade_captions')
         setTimeout(() => {
