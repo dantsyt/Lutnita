@@ -4,6 +4,11 @@ async function getExhibs() {
     try {
         const response = await fetch('/getExhibs');
         const exhibData = await response.json();
+        const image = document.querySelector('.center_image_exhib');
+        image.src = `img/${exhibData[exhibData.length - 1].exhibname}.png`
+        image.onclick = () => {
+            location.assign(`/exhibitions/${exhibData[exhibData.length - 1].exhibname}`);
+        }
         for (let one of exhibData) {
             title.insertAdjacentHTML('afterend', `
         <div id="${one.exhibname}" class="text_container" onclick=location.assign('/exhibitions/${one.exhibname}')>

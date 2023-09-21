@@ -9,7 +9,7 @@
 a {
 	text-decoration: none;
 	color: inherit;
-	cursor: pointer;
+	cursor: url('cursors/cursor_full.svg'), pointer;
 }
 
 button {
@@ -17,7 +17,7 @@ button {
 	color: inherit;
 	border-width: 0;
 	padding: 0;
-	cursor: pointer;
+	cursor: url('cursors/cursor_full.svg'), pointer;
 }
 
 figure {

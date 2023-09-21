@@ -3,6 +3,7 @@
 /* --------- GENERAL --------- */
 
 body {
+    cursor: url('cursors/cursor_empty.svg'), auto;
     display: flex;
     flex-direction: column;
     /* height: 100vh; */
@@ -108,7 +109,7 @@ h4 {
     border-right: none;
     /* margin-bottom: calc(2em + -1px);
     margin-top: -1px; */
-    cursor: pointer;
+    cursor: url('cursors/cursor_full.svg'), pointer;
 }
 
 .first_name {
@@ -171,7 +172,7 @@ h4 {
 .arrows {
     display: flex;
     padding: 0 20rem;
-    cursor: pointer;
+    cursor: url('cursors/cursor_full.svg'), pointer;
     align-content: center;
     flex-wrap: wrap;
     opacity: 0;
@@ -209,7 +210,7 @@ h4 {
     /* max-width: 40%; */
     max-height: 72vh;
     object-fit: contain;
-    cursor: pointer;
+    cursor: url('cursors/cursor_full.svg'), pointer;
 }
 
 .center_image_one_exhib {
@@ -307,7 +308,7 @@ h4 {
     /* letter-spacing: 3rem; */
     align-self: center;
     text-align: center;
-    cursor: pointer;
+    cursor: url('cursors/cursor_full.svg'), pointer;
     color: #777777;
     /*2a2a2a*/
 }
