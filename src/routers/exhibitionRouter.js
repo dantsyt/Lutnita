@@ -22,9 +22,7 @@ exhibRouter.get('/:id', async (req, res) => {
                 title: '404 exhibitions, not one found...'
             });
         }
-        res.render('exhibitions_id', {
-            title: ""
-        });
+        res.render('exhibitions_id');
     } catch (e) {
         console.log(e.message);
     }

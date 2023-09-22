@@ -2,7 +2,6 @@ const logo = document.querySelector('#logo_img');
 const footer = document.querySelector('.footer');
 const navbar = document.querySelector('#navbar');
 const navBtns = document.querySelectorAll('.nav-btns');
-const closeBtn = document.querySelector('#close');
 
 const mediaQueryList = window.matchMedia('screen and (max-width: 480px)');
 
@@ -14,12 +13,6 @@ if (mediaQueryList.matches) {
         navbar.className = 'navbar';
         for (let one of navBtns) {
             one.style.visibility = 'visible';
-        };
-    });
-    closeBtn.addEventListener('click', () => {
-        navbar.className = 'navbar_hidden';
-        for (let one of navBtns) {
-            one.style.visibility = 'hidden';
         };
     });
     navbar.addEventListener('click', (e) => {
