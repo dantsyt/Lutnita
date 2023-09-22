@@ -14,7 +14,7 @@ artistsRouter.get('/getArtists', async (req, res) => {
     }
 });
 
-artistsRouter.get('/getArtists/:id', async (req, res) => {
+artistsRouter.get('/getOneArtist/:id', async (req, res) => {
     const _id = req.params.id;
     try {
         const artist = await Artist.findById(_id)

@@ -1,10 +1,10 @@
 const title = document.querySelector('#title')
-const exhName = title.innerText.toLowerCase()
+const exhPath = window.location.pathname
+const exhId = exhPath.substring(exhPath.indexOf('/', 1) + 1, exhPath.length)
+// const exhName = title.innerText.toLowerCase()
 const imgContainer = document.querySelector('.image_container')
 
 // const mediaQueryList = window.matchMedia('screen and (max-width: 480px)');
-
-// for phones - images as array in DB and loop OR get to separate hbs
 
 async function getOneExhib(exh) {
     try {
@@ -44,13 +44,7 @@ async function getOneExhib(exh) {
     }
 }
 
-// ==== load image ===
-// imgContainer.insertAdjacentHTML('afterbegin', `
-// <img id="load_image" class="center_image_exhib center_image_one_exhib" src="img/loadimage.webp">
-// <img id="main_image" class="center_image_exhib center_image_one_exhib" src="${imgArr[0]}.webp" alt="center_image">
-// `)
-
-getOneExhib(exhName).then(() => {
+getOneExhib(exhId).then(() => {
     if (mediaQueryList.matches) {
         mob = true
         document.querySelector('footer').style.position = 'fixed'
