@@ -43,6 +43,10 @@ footer {
 
 /* --------- TEXT --------- */
 
+.title_menu {
+    visibility: hidden;
+}
+
 .text_section {
     flex-direction: column;
     width: 20vw;

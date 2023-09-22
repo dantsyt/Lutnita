@@ -21,6 +21,10 @@
 
     /* --------- TEXT --------- */
 
+    .title_menu {
+        visibility: visible;
+    }
+
     h4:first-of-type {
         margin: 0.5em 0;
     }

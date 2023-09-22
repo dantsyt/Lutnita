@@ -22,6 +22,14 @@ if (mediaQueryList.matches) {
             one.style.visibility = 'hidden';
         };
     });
+    navbar.addEventListener('click', (e) => {
+        if (e.target == navbar) {
+            navbar.className = 'navbar_hidden';
+            for (let one of navBtns) {
+                one.style.visibility = 'hidden';
+            };
+        }
+    })
 } else {
     const displayNavBar = () => {
         navbar.className = 'navbar';
