@@ -23,6 +23,7 @@
 
     .title_menu {
         visibility: visible;
+        font-size: 24rem;
     }
 
     h4:first-of-type {
@@ -105,6 +106,10 @@
         flex-direction: column;
         align-items: center;
         padding-top: 6vh;
+    }
+
+    .artists_container {
+        margin-top: 0.5em;
     }
 
     .center_image_index,
