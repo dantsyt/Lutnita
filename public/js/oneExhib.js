@@ -49,7 +49,7 @@ async function getOneExhib(exh) {
 getOneExhib(exhId).then(() => {
     if (mediaQueryList.matches) {
         mob = true
-        document.querySelector('footer').style.position = 'fixed'
+        // document.querySelector('footer').style.position = 'fixed'
         image = document.querySelector('.mob_one_exhib')
     } else {
         mob = false

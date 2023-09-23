@@ -1,6 +1,14 @@
 @media screen and (max-width: 480px) {
     /* --------- GENERAL --------- */
 
+    .full_height {
+        height: 100%;
+    }
+
+    .full_body {
+        min-height: 100%;
+    }
+
     header {
         min-height: 4vh;
     }
@@ -12,6 +20,10 @@
         flex-wrap: unset;
         height: unset;
         padding-bottom: unset;
+    }
+
+    .full_main {
+        flex-grow: 1;
     }
 
     main>section {
