@@ -96,14 +96,6 @@
 
     /* --------- CENTER --------- */
 
-    #load_image {
-        display: none;
-    }
-
-    #load_image_mob {
-        display: flex;
-    }
-
     .load_image {
         width: 25%;
     }

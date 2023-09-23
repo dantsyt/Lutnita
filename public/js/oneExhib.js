@@ -32,7 +32,6 @@ async function getOneExhib(exh) {
         // Append images MOB
         imgContainer.insertAdjacentHTML('beforeend', `
         <div class="image_container_mob_one">
-        <img id="load_image_mob" class="load_image" src="img/spin.svg">
         <img class="center_image_mob mob_one_exhib" src="${imgDirMob}/${imgArr[0]}_450px.webp" alt="center_image">
         </div>
         `)
