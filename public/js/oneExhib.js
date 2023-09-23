@@ -21,11 +21,13 @@ async function getOneExhib(exh) {
         <h3 class="first_name">${oneExhib.firstname}</h3>
         <h3 class="last_name">${oneExhib.lastname}</h3>
         <h4 class="exhibition_date">${oneExhib.date}</h4>
+        <h6 class="pdf_mob"><a href="pdf/expo.pdf" target="_blank">PDF</a></h6>
         </div>
         <div class="img_counter">
         <p id="counter_text" class="counters">Exhibition views</p>
-        <p class="counters"><span id="counter_num"> 1</span>/<span id="counter_total">${countTotal}</span></p>
+        <p class="counters"><span id="counter_num"> 1</span>/<span id="counter_total">${countTotal}</span></p>        
         </div>
+        <h6 class="pdf"><a href="pdf/expo.pdf" target="_blank">pdf</a></h6>
         `)
         // Append images MOB
         imgContainer.insertAdjacentHTML('beforeend', `

@@ -149,6 +149,21 @@ h4 {
     transform: scaleY(1.05);
 }
 
+h6 {
+    color: #666;
+    text-decoration: underline;
+    font-size: .8em;
+}
+
+.pdf_mob {
+    display: none;
+}
+
+.pdf {
+    text-align: right;
+    margin: 0.5em 0;
+}
+
 
 /* --------- CENTER --------- */
 
@@ -228,7 +243,7 @@ h4 {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    margin-inline-start: 5em;
+    margin-inline-start: 4em;
 }
 
 #counter_text {
