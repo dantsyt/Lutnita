@@ -198,7 +198,7 @@ h4 {
 
 .center_image_one_exhib {
     width: 43vw;
-    max-height: 64vh;
+    max-height: 59vh;
     cursor: url('cursors/cursor_full.svg'), pointer;
     opacity: 0.3;
     transition: unset;

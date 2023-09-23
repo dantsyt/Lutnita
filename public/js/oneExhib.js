@@ -39,7 +39,7 @@ async function getOneExhib(exh) {
         <img id="main_image" class="center_image_exhib center_image_one_exhib" src="${imgDir}/${imgArr[0]}.webp" alt="center_image">
         `)
         imgContainer.insertAdjacentHTML('beforeend', `
-        <p id="captions_desk" class="captions">${captionsArr[0]}</p>
+        <p id="captions_desk" class="captions">${captionsArr[0].replace(/\\n/g, '<br>')}</p>
         `)
     } catch (e) {
         console.log(e)
@@ -53,7 +53,6 @@ getOneExhib(exhId).then(() => {
         image = document.querySelector('.mob_one_exhib')
     } else {
         mob = false
-        document.querySelector('footer').style.position = 'fixed'
         image = document.querySelector('#main_image')
     }
     const captions = document.querySelector('#captions_desk')
