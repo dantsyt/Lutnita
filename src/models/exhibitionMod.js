@@ -2,8 +2,10 @@ const mongoose = require('mongoose')
 
 const exhibSchema = new mongoose.Schema({
     exhibname: String,
-    firstname: String,
-    lastname: String,
+    artistname: [{
+        firstname: String,
+        lastname: String,
+    }],
     date: String,
     description: String,
     imgpath: Array,

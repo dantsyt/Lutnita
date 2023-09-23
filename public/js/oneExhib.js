@@ -18,8 +18,7 @@ async function getOneExhib(exh) {
         // Append TEXT to desktop
         title.insertAdjacentHTML('afterend', `
         <div id="${oneExhib.exhibname}" class="text_container_nohover">
-        <h3 class="first_name">${oneExhib.firstname}</h3>
-        <h3 class="last_name">${oneExhib.lastname}</h3>
+        <div class="names_wrapper"></div>
         <h4 class="exhibition_date">${oneExhib.date}</h4>
         <h6 class="pdf_mob"><a href="pdf/expo.pdf" target="_blank">PDF</a></h6>
         </div>
@@ -29,6 +28,15 @@ async function getOneExhib(exh) {
         </div>
         <h6 class="pdf"><a href="pdf/expo.pdf" target="_blank">pdf</a></h6>
         `)
+        namesPlace = document.querySelector(`.names_wrapper`)
+        for (let name of oneExhib.artistname) {
+            namesPlace.insertAdjacentHTML('afterbegin', `
+            <div class="names_container">
+            <h3 class="first_name">${name.firstname}</h3>
+            <h3 class="last_name">${name.lastname}</h3>
+            </div>
+            `)
+        }
         // Append images MOB
         imgContainer.insertAdjacentHTML('beforeend', `
         <div class="image_container_mob_one">

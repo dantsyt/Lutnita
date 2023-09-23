@@ -26,14 +26,23 @@ async function getExhibs() {
             title.insertAdjacentHTML('afterend', `
         <div id="${one._id}" class="text_container" onclick=location.assign('/exhibitions/${one._id}')>
         <p id="${one.exhibname}" class="exhnamehidden"></p>
-        <h3 class="first_name">${one.firstname}</h3>
-        <h3 class="last_name">${one.lastname}</h3>
+        <div class="names_wrapper"></div>
         <h4 class="exhibition_date">${one.date}</h4>
         </div>
         <div class="image_container_mob">
         <img class="center_image_mob" src="img/exhibitions/${one.exhibname}.webp" alt="center_image" onclick=location.assign('/exhibitions/${one._id}')>
         </div>
         `)
+            namesPlace = document.querySelector(`.names_wrapper`)
+            for (let name of one.artistname) {
+                namesPlace.insertAdjacentHTML('afterbegin', `
+                <div class="names_container">
+                <h3 class="first_name">${name.firstname}</h3>
+                <h3 class="last_name">${name.lastname}</h3>
+                </div>
+                `)
+            }
+
         }
     } catch (e) {
         console.log(e)

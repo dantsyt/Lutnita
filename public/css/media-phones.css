@@ -39,7 +39,7 @@
     }
 
     h4:first-of-type {
-        margin: 0.5em 0;
+        margin-bottom: 0.5em;
     }
 
     h2 {
@@ -74,8 +74,24 @@
         width: unset;
     }
 
+    .names_wrapper {
+        max-height: 20vh;
+        flex-wrap: wrap;
+    }
+
+    .names_container {
+        padding-bottom: 0.5em;
+        width: 50%;
+    }
+
+    .names_container:nth-child(2n) {
+        padding-bottom: 1em;
+    }
+
     .first_name {
         text-align: left;
+        /* font-size: 1.4em; */
+        padding-bottom: 1.5rem;
     }
 
     .last_name {
