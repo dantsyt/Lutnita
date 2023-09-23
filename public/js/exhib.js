@@ -5,7 +5,7 @@ getExhibs().then(() => {
     const image = document.querySelector('.center_image_exhib')
     for (let name of names) {
         name.addEventListener('mouseenter', () => {
-            image.src = `img/${name.firstElementChild.id}.png`
+            image.src = `img/${name.firstElementChild.id}.webp`
             image.onclick = () => {
                 location.assign(`/exhibitions/${name.id}`)
             }
@@ -18,7 +18,7 @@ async function getExhibs() {
         const response = await fetch('/getExhibs')
         const exhibData = await response.json()
         const image = document.querySelector('.center_image_exhib')
-        image.src = `img/${exhibData[exhibData.length - 1].exhibname}.png`
+        image.src = `img/${exhibData[exhibData.length - 1].exhibname}.webp`
         image.onclick = () => {
             location.assign(`/exhibitions/${exhibData[exhibData.length - 1]._id}`)
         }
@@ -31,7 +31,7 @@ async function getExhibs() {
         <h4 class="exhibition_date">${one.date}</h4>
         </div>
         <div class="image_container_mob">
-        <img class="center_image_mob" src="img/${one.exhibname}.png" alt="center_image" onclick=location.assign('/exhibitions/${one._id}')>
+        <img class="center_image_mob" src="img/${one.exhibname}.webp" alt="center_image" onclick=location.assign('/exhibitions/${one._id}')>
         </div>
         `)
         }
