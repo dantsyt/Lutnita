@@ -37,7 +37,7 @@ async function getOneExhib(exh) {
         `)
         // Append images DESK
         imgContainer.insertAdjacentHTML('afterbegin', `
-        <img id="load_image" class="load_image" src="img/spin.svg">
+        <img id="load_image" class="load_image load_image_mob" src="img/spin.svg">
         <img id="main_image" class="center_image_exhib center_image_one_exhib" src="${imgDir}/${imgArr[0]}.webp" alt="center_image">
         `)
         imgContainer.insertAdjacentHTML('beforeend', `

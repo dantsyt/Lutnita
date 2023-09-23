@@ -100,6 +100,10 @@
         width: 25%;
     }
 
+    .load_image_mob {
+        top: 9vh;
+    }
+
     .center_image_exhib {
         display: none;
     }
