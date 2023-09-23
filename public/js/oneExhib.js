@@ -4,7 +4,7 @@ const exhId = exhPath.substring(exhPath.indexOf('/', 1) + 1, exhPath.length)
 // const exhName = title.innerText.toLowerCase()
 const imgContainer = document.querySelector('.image_container')
 
-// const mediaQueryList = window.matchMedia('screen and (max-width: 480px)');
+// const mediaQueryList = window.matchMedia('screen and (max-width: 480px)')
 
 async function getOneExhib(exh) {
     try {
@@ -13,6 +13,8 @@ async function getOneExhib(exh) {
         imgArr = oneExhib.imgpath
         captionsArr = oneExhib.captions
         const countTotal = imgArr.length
+        imgDir = `img/exhibitions/${oneExhib.exhibname}`
+        imgDirMob = `img/exhibitions/${oneExhib.exhibname}/mob`
         // Append TEXT to desktop
         title.insertAdjacentHTML('afterend', `
         <div id="${oneExhib.exhibname}" class="text_container_nohover">
@@ -28,13 +30,13 @@ async function getOneExhib(exh) {
         // Append images MOB
         imgContainer.insertAdjacentHTML('beforeend', `
         <div class="image_container_mob_one">
-        <img class="center_image_mob mob_one_exhib" src="${imgArr[0]}_450px.webp" alt="center_image">
+        <img class="center_image_mob mob_one_exhib" src="${imgDirMob}/${imgArr[0]}_450px.webp" alt="center_image">
         </div>
         `)
         // Append images DESK
         imgContainer.insertAdjacentHTML('afterbegin', `
         <img id="load_image" class="load_image" src="img/spin.svg">
-        <img id="main_image" class="center_image_exhib center_image_one_exhib" src="${imgArr[0]}.webp" alt="center_image">
+        <img id="main_image" class="center_image_exhib center_image_one_exhib" src="${imgDir}/${imgArr[0]}.webp" alt="center_image">
         `)
         imgContainer.insertAdjacentHTML('beforeend', `
         <p id="captions_desk" class="captions">${captionsArr[0]}</p>
@@ -65,14 +67,14 @@ getOneExhib(exhId).then(() => {
     }, 500)
     let counter = 0
     window.addEventListener('keydown', function (event) {
-        const key = event.key; // "ArrowRight", "ArrowLeft"
+        const key = event.key // "ArrowRight", "ArrowLeft"
         switch (event.key) {
             case "ArrowLeft":
                 prevImage()
-                break;
+                break
             case "ArrowRight":
                 nextImage()
-                break;
+                break
         }
     })
     image.onclick = (e) => {
@@ -91,9 +93,9 @@ getOneExhib(exhId).then(() => {
             counter = 0
         }
         if (mob == true) {
-            image.src = `${imgArr[counter]}_450px.webp`
+            image.src = `${imgDirMob}/${imgArr[counter]}_450px.webp`
         } else {
-            image.src = `${imgArr[counter]}.webp`
+            image.src = `${imgDir}/${imgArr[counter]}.webp`
         }
         captions.classList.remove('fade_captions')
         image.onload = () => {
@@ -115,7 +117,7 @@ getOneExhib(exhId).then(() => {
             }
         }
 
-    };
+    }
     const prevImage = () => {
         loadImage.classList.remove('load_image_hidden')
         counter--
@@ -124,9 +126,9 @@ getOneExhib(exhId).then(() => {
             counter = imgArr.length - 1
         }
         if (mob == true) {
-            image.src = `${imgArr[counter]}_450px.webp`
+            image.src = `${imgDirMob}/${imgArr[counter]}_450px.webp`
         } else {
-            image.src = `${imgArr[counter]}.webp`
+            image.src = `${imgDir}/${imgArr[counter]}.webp`
         }
         captions.classList.remove('fade_captions')
         image.onload = () => {
