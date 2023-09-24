@@ -45,14 +45,15 @@
     h2 {
         margin-bottom: unset;
         padding-bottom: 1em;
-        text-align: right;
-        margin-inline-start: unset;
+        /* text-align: right; */
+        margin-inline-start: 8vw;
         margin-inline-end: 8vw;
     }
 
+    /* 
     h4 {
         text-align: left;
-    }
+    } */
 
     .text_container,
     .text_container_nohover {
@@ -89,13 +90,13 @@
     }
 
     .first_name {
-        text-align: left;
+        /* text-align: left; */
         /* font-size: 1.4em; */
         padding-bottom: 1.5rem;
     }
 
     .last_name {
-        text-align: left;
+        /* text-align: left; */
         transform: scaleY(1.2);
         font-size: 1.15em;
         padding: unset;

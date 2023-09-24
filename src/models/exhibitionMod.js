@@ -6,6 +6,7 @@ const exhibSchema = new mongoose.Schema({
         firstname: String,
         lastname: String,
     }],
+    namepath: Array,
     date: String,
     description: String,
     imgpath: Array,

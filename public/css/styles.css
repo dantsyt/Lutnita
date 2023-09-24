@@ -119,16 +119,21 @@ h4 {
 .names_wrapper {
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
 }
 
 .names_container {
     padding-bottom: 1em;
 }
 
+.artist_name {
+    height: 6vh;
+}
+
 .first_name {
     font-weight: 500;
     letter-spacing: -0.6px;
-    font-size: 1.6em;
+    font-size: 1.4em;
     transform: scaleY(0.97);
     position: relative;
     bottom: 2px;
@@ -136,11 +141,11 @@ h4 {
 
 .last_name {
     font-family: 'times', 'Times', 'Times New Roman', serif;
-    transform: scaleY(1.15);
-    font-size: 1.2em;
-    letter-spacing: 0.1em;
+    /* transform: scaleY(1.15); */
+    font-size: 1.5em;
+    /* letter-spacing: 0.1em; */
     font-weight: 500;
-    margin-right: -2px;
+    /* margin-right: -2px;
 }
 
 #name {
