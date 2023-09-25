@@ -15,7 +15,7 @@ getArtists().then(() => {
     }
     image.onmouseenter = () => {
         str = image.src
-        bio = document.querySelector(`#bio_${str.substring(str.lastIndexOf('/') + 1, str.indexOf('.'))}`)
+        bio = document.querySelector(`#bio_${str.substring(str.lastIndexOf('/') + 1, str.lastIndexOf('.'))}`)
         bio.classList.add('bio')
         bio.style.width = `${image.width}px`
         bio.style.heigth = `${image.heigth}px`
