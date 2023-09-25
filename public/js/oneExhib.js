@@ -30,9 +30,9 @@ async function getOneExhib(exh) {
         `)
         namesPlace = document.querySelector(`.names_wrapper`)
         for (let name of oneExhib.namepath) {
-            if (oneExhib.artistname[0].firstname == "VBMMRDNGMR") {
-                continue
-            }
+            // if (oneExhib.artistname[0].firstname == "VBMMRDNGMR") {
+            //     continue
+            // }
             namesPlace.insertAdjacentHTML('beforeend', `
             <div class="names_container">
             <img class="artist_name" src="img/exhibitions/namepaths/${name}">
