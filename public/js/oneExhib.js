@@ -70,8 +70,8 @@ getOneExhib(exhId).then(() => {
     // Exclude vbmmrdngmr - mob column height
     if (mob && document.querySelector('.text_container_nohover').id == 'vbmmrdngmr') {
         const namesWrapper = document.querySelector('.names_wrapper')
-        namesWrapper.style.maxHeight = '9em'
-        namesWrapper.style.marginBottom = '-5rem'
+        namesWrapper.style.maxHeight = '9.5em'
+        namesWrapper.style.marginBottom = '-2em'
         namesWrapper.style.marginTop = '5rem'
     }
     if (!mob && document.querySelector('.text_container_nohover').id == 'vbmmrdngmr') {
