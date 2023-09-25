@@ -30,9 +30,9 @@ async function getOneExhib(exh) {
         `)
         namesPlace = document.querySelector(`.names_wrapper`)
         for (let name of oneExhib.namepath) {
-            // if (oneExhib.artistname[0].firstname == "VBMMRDNGMR") {
-            //     continue
-            // }
+            if (name == "vbmmrdngmr.svg") {
+                continue
+            }
             namesPlace.insertAdjacentHTML('beforeend', `
             <div class="names_container">
             <img class="artist_name" src="img/exhibitions/namepaths/${name}">
@@ -66,6 +66,10 @@ getOneExhib(exhId).then(() => {
     } else {
         mob = false
         image = document.querySelector('#main_image')
+    }
+    // Exclude vbmmrdngmr - mob column height
+    if (mob && document.querySelector('.text_container_nohover').id == 'vbmmrdngmr') {
+        document.querySelector('.names_wrapper').style.maxHeight = '9em'
     }
     const captions = document.querySelector('#captions_desk')
     const viewsCount = document.querySelector('#counter_num')

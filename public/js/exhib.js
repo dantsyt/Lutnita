@@ -34,20 +34,21 @@ async function getExhibs() {
         </div>
         `)
             namesPlace = document.querySelector(`.names_wrapper`)
-            if (one.artistname[0].firstname == "VBMMRDNGMR") {
-                namesPlace.insertAdjacentHTML('beforeend', `
-                <div class="names_container">
-                <h3 class="first_name">${one.artistname[0].firstname}</h3>
-                </div>
-                `)
-            } else {
-                for (let name of one.namepath) {
+            for (let name of one.namepath) {
+                if (one.namepath[0] == "vbmmrdngmr.svg") {
                     namesPlace.insertAdjacentHTML('beforeend', `
+                        <div class="names_container">
+                        <img class="artist_name" src="img/exhibitions/namepaths/${one.namepath[0]}">
+                        </div>
+                        `)
+                    break
+                }
+                namesPlace.insertAdjacentHTML('beforeend', `
                 <div class="names_container">
                 <img class="artist_name" src="img/exhibitions/namepaths/${name}">
                 </div>
                 `)
-                }
+
             }
         }
     } catch (e) {

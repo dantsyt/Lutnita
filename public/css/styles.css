@@ -100,7 +100,8 @@ h4 {
     font-size: 13rem;
     margin-bottom: 2em;
     margin-inline-start: 5em;
-    padding: 1em 0;
+    padding-bottom: 1em;
+    padding-top: 2em;
 }
 
 .text_container {
