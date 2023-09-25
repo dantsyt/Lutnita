@@ -69,7 +69,14 @@ getOneExhib(exhId).then(() => {
     }
     // Exclude vbmmrdngmr - mob column height
     if (mob && document.querySelector('.text_container_nohover').id == 'vbmmrdngmr') {
-        document.querySelector('.names_wrapper').style.maxHeight = '9em'
+        const namesWrapper = document.querySelector('.names_wrapper')
+        namesWrapper.style.maxHeight = '9em'
+        namesWrapper.style.marginBottom = '-5rem'
+        namesWrapper.style.marginTop = '5rem'
+    }
+    if (!mob && document.querySelector('.text_container_nohover').id == 'vbmmrdngmr') {
+        const namesContainer = document.querySelectorAll('.names_container')
+        namesContainer[5].style.display = 'none'
     }
     const captions = document.querySelector('#captions_desk')
     const viewsCount = document.querySelector('#counter_num')

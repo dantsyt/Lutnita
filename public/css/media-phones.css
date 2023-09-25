@@ -175,8 +175,10 @@
     .img_counter {
         justify-content: unset;
         margin-inline-start: 8vw;
+        margin-inline-end: 8vw;
         padding-top: 5vh;
         padding-bottom: 1vh;
+        justify-content: flex-end;
     }
 
     #counter_text {
