@@ -1,10 +1,7 @@
 const title = document.querySelector('#title')
 const exhPath = window.location.pathname
 const exhId = exhPath.substring(exhPath.indexOf('/', 1) + 1, exhPath.length)
-// const exhName = title.innerText.toLowerCase()
 const imgContainer = document.querySelector('.image_container')
-
-// const mediaQueryList = window.matchMedia('screen and (max-width: 480px)')
 
 async function getOneExhib(exh) {
     try {
@@ -61,7 +58,6 @@ async function getOneExhib(exh) {
 getOneExhib(exhId).then(() => {
     if (mediaQueryList.matches) {
         mob = true
-        // document.querySelector('footer').style.position = 'fixed'
         image = document.querySelector('.mob_one_exhib')
     } else {
         mob = false
