@@ -29,11 +29,13 @@ async function getOneExhib(exh) {
         <h6 class="pdf"><a href="pdf/expo.pdf" target="_blank">pdf</a></h6>
         `)
         namesPlace = document.querySelector(`.names_wrapper`)
-        for (let name of oneExhib.artistname) {
-            namesPlace.insertAdjacentHTML('afterbegin', `
+        for (let name of oneExhib.namepath) {
+            if (oneExhib.artistname[0].firstname == "VBMMRDNGMR") {
+                continue
+            }
+            namesPlace.insertAdjacentHTML('beforeend', `
             <div class="names_container">
-            <h3 class="first_name">${name.firstname}</h3>
-            <h3 class="last_name">${name.lastname}</h3>
+            <img class="artist_name" src="img/exhibitions/namepaths/${name}">
             </div>
             `)
         }

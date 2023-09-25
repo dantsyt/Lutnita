@@ -50,10 +50,10 @@
         margin-inline-end: 8vw;
     }
 
-    /* 
+
     h4 {
-        text-align: left;
-    } */
+        font-size: 0.95em;
+    }
 
     .text_container,
     .text_container_nohover {
@@ -76,17 +76,20 @@
     }
 
     .names_wrapper {
-        max-height: 20vh;
+        max-height: 6em;
         flex-wrap: wrap;
     }
 
     .names_container {
-        padding-bottom: 0.5em;
         width: 50%;
     }
 
-    .names_container:nth-child(2n) {
+    /* .names_container:nth-child(2n) {
         padding-bottom: 1em;
+    } */
+
+    .artist_name {
+        height: 2.2em;
     }
 
     .first_name {
@@ -108,7 +111,7 @@
 
     .pdf_mob {
         display: flex;
-        text-align: left;
+        justify-content: flex-end;
     }
 
     /* --------- CENTER --------- */
@@ -182,6 +185,7 @@
 
     .captions {
         font-size: 9rem;
+        padding: 12rem 8vw;
     }
 
     /* #captions_desk {

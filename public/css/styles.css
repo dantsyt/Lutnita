@@ -72,7 +72,7 @@ h3 {
 }
 
 h4:first-of-type {
-    /* margin-top: 0.6em; */
+    margin-top: 0.5em;
     margin-bottom: 0.2em;
 }
 
@@ -122,12 +122,12 @@ h4 {
     align-items: flex-end;
 }
 
-.names_container {
+/* .names_container {
     padding-bottom: 1em;
-}
+} */
 
 .artist_name {
-    height: 6vh;
+    height: 2.6em;
 }
 
 .first_name {
@@ -141,22 +141,8 @@ h4 {
 
 .last_name {
     font-family: 'times', 'Times', 'Times New Roman', serif;
-    /* transform: scaleY(1.15); */
     font-size: 1.5em;
-    /* letter-spacing: 0.1em; */
     font-weight: 500;
-    /* margin-right: -2px;
-}
-
-#name {
-    background: url('../img/flaviu.png') no-repeat;
-    background-size: contain;
-    /* scales the image */
-    background-position: right;
-    /* centers the image */
-    max-height: 2.6em;
-    object-fit: contain;
-    align-self: flex-end;
 }
 
 .exhibition_date {
