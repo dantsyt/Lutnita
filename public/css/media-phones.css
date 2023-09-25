@@ -55,6 +55,10 @@
         font-size: 0.95em;
     }
 
+    h6 {
+        padding: 2rem 0;
+    }
+
     .text_container,
     .text_container_nohover {
         font-size: unset;

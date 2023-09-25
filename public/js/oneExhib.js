@@ -64,15 +64,22 @@ getOneExhib(exhId).then(() => {
         image = document.querySelector('#main_image')
     }
     // Exclude vbmmrdngmr - mob column height
-    if (mob && document.querySelector('.text_container_nohover').id == 'vbmmrdngmr') {
+    if (document.querySelector('.text_container_nohover').id == 'vbmmrdngmr') {
         const namesWrapper = document.querySelector('.names_wrapper')
-        namesWrapper.style.maxHeight = '9.5em'
-        namesWrapper.style.marginBottom = '-2em'
-        namesWrapper.style.marginTop = '5rem'
-    }
-    if (!mob && document.querySelector('.text_container_nohover').id == 'vbmmrdngmr') {
         const namesContainer = document.querySelectorAll('.names_container')
-        namesContainer[5].style.display = 'none'
+        if (mob) {
+            document.querySelector('.pdf_mob').insertAdjacentHTML('afterend', `
+            <h6 class="videoBtn">video</h6>
+            `)
+            namesWrapper.style.maxHeight = '9.5em'
+            namesWrapper.style.marginBottom = '-2em'
+            namesWrapper.style.marginTop = '5rem'
+        } else {
+            document.querySelector('.pdf').insertAdjacentHTML('afterend', `
+            <h6 class="videoBtn">video</h6>
+            `)
+            namesContainer[5].style.display = 'none'
+        }
     }
     const captions = document.querySelector('#captions_desk')
     const viewsCount = document.querySelector('#counter_num')

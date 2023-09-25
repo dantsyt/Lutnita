@@ -1,6 +1,8 @@
 const title = document.getElementById('title')
+const imgWrapper = document.querySelector('.img_wrapper')
 
 getArtists().then(() => {
+    let bio = document.querySelector('.bio')
     const names = document.querySelectorAll('.text_container')
     const image = document.querySelector('.center_image_exhib')
     for (let name of names) {
@@ -10,6 +12,16 @@ getArtists().then(() => {
             //     location.assign(`/exhibitions/${name.id}`)
             // }
         })
+    }
+    image.onmouseenter = () => {
+        str = image.src
+        bio = document.querySelector(`#bio_${str.substring(str.lastIndexOf('/') + 1, str.indexOf('.'))}`)
+        bio.classList.add('bio')
+        bio.style.width = `${image.width}px`
+        bio.style.heigth = `${image.heigth}px`
+        bio.onmouseleave = () => {
+            bio.classList.remove('bio')
+        }
     }
 })
 
@@ -30,6 +42,9 @@ async function getArtists() {
             <div class="image_container_mob artists_container">
             <img class="center_image_mob" src="img/artists/${one.imgpath[0]}.webp" alt="center_image">
             </div>
+            `)
+            imgWrapper.insertAdjacentHTML('beforeend', `
+            <p id="bio_${one.imgpath[0]}" class="bio_hidden">${one.description}</p>
             `)
         }
     } catch (e) {

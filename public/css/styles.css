@@ -166,6 +166,26 @@ h6 {
     margin: 0.5em 0;
 }
 
+.videoBtn {
+    text-align: right;
+}
+
+.bio_hidden {
+    position: absolute;
+    top: 0;
+    bottom: 5px;
+    background: rgba(26, 26, 26, 0.8);
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s, visibility .2s;
+}
+
+.bio {
+    visibility: visible;
+    opacity: 1;
+}
+
 
 /* --------- CENTER --------- */
 
