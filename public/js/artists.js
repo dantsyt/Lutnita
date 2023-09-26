@@ -23,7 +23,7 @@ getArtists().then(() => {
             bio.classList.remove('bio')
         }
     }
-})
+}).catch((e) => { console.log(e) })
 
 async function getArtists() {
     try {
