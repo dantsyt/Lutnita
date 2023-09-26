@@ -17,7 +17,7 @@ async function getOneExhib(exh) {
         <div id="${oneExhib.exhibname}" class="text_container_nohover">
         <div class="names_wrapper"></div>
         <h4 class="exhibition_date">${oneExhib.date}</h4>
-        <h6 class="pdf_mob"><a href="pdf/expo.pdf" target="_blank">PDF</a></h6>
+        <h6 class="pdf_mob"><a href="pdf/${oneExhib.exhibname}.pdf" target="_blank">PDF</a></h6>
         </div>
         <div class="img_counter">
         <p id="counter_text" class="counters">Exhibition views</p>
