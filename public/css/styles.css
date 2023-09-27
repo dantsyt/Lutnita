@@ -167,7 +167,23 @@ h6 {
 }
 
 .videoBtn {
+    cursor: url('cursors/cursor_empty.svg'), pointer;
     text-align: right;
+}
+
+.videowrapper {
+    opacity: 0;
+    width: 43vw;
+    margin-top: 8vh;
+    transition: opacity .5s;
+}
+
+video {
+    max-width: 100%;
+}
+
+.video_visible {
+    opacity: 1;
 }
 
 .bio_hidden {
@@ -282,8 +298,14 @@ h6 {
 
 .right_space {
     width: 20vw;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+}
+
+#close_video {
+    font-size: 12rem;
+    color: #666;
+    margin-inline-end: 4.5vw;
 }
 
 /* --------- FOOTER --------- */

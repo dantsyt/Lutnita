@@ -194,6 +194,12 @@
         padding: 12rem 8vw;
     }
 
+    .videowrapper {
+        width: unset;
+        margin-top: unset;
+        padding: 0 8vw;
+    }
+
     /* #captions_desk {
         display: none;
     } */

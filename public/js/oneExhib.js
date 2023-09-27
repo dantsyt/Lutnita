@@ -39,13 +39,13 @@ async function getOneExhib(exh) {
         // Append images MOB
         imgContainer.insertAdjacentHTML('beforeend', `
         <div class="image_container_mob_one">
-        <img class="center_image_mob mob_one_exhib" src="${imgDirMob}/${imgArr[0]}_450px.webp" alt="center_image">
+        <img class="center_image_mob mob_one_exhib inverted" src="${imgDirMob}/${imgArr[0]}_450px.webp" alt="center_image">
         </div>
         `)
         // Append images DESK
         imgContainer.insertAdjacentHTML('afterbegin', `
         <img id="load_image" class="load_image load_image_mob" src="img/spin.svg">
-        <img id="main_image" class="center_image_exhib center_image_one_exhib" src="${imgDir}/${imgArr[0]}.webp" alt="center_image">
+        <img id="main_image" class="center_image_exhib center_image_one_exhib inverted" src="${imgDir}/${imgArr[0]}.webp" alt="center_image">
         `)
         imgContainer.insertAdjacentHTML('beforeend', `
         <p id="captions_desk" class="captions">${captionsArr[0].replace(/\\n/g, '<br>')}</p>
@@ -63,27 +63,13 @@ getOneExhib(exhId).then(() => {
         mob = false
         image = document.querySelector('#main_image')
     }
-    // Exclude vbmmrdngmr - mob column height
+    // vbmmrdngmr special
     if (document.querySelector('.text_container_nohover').id == 'vbmmrdngmr') {
-        const namesWrapper = document.querySelector('.names_wrapper')
-        const namesContainer = document.querySelectorAll('.names_container')
-        if (mob) {
-            document.querySelector('.pdf_mob').insertAdjacentHTML('afterend', `
-            <h6 class="videoBtn">video</h6>
-            `)
-            namesWrapper.style.maxHeight = '9.5em'
-            namesWrapper.style.marginBottom = '-2em'
-            namesWrapper.style.marginTop = '5rem'
-        } else {
-            document.querySelector('.pdf').insertAdjacentHTML('afterend', `
-            <h6 class="videoBtn">video</h6>
-            `)
-            namesContainer[5].style.display = 'none'
-        }
+        vbmmrdngmr()
     }
-    const captions = document.querySelector('#captions_desk')
+    captions = document.querySelector('#captions_desk')
     const viewsCount = document.querySelector('#counter_num')
-    const loadImage = document.querySelector('.load_image')
+    loadImage = document.querySelector('.load_image')
     setTimeout(() => {
         image.classList.add('fade')
     }, 1)
@@ -177,3 +163,72 @@ getOneExhib(exhId).then(() => {
 
     }
 }).catch((e) => { console.log(e.message) })
+
+const vbmmrdngmr = () => {
+    const namesWrapper = document.querySelector('.names_wrapper')
+    const namesContainer = document.querySelectorAll('.names_container')
+    if (mob) {
+        document.querySelector('.pdf_mob').insertAdjacentHTML('afterend', `
+        <h6 class="videoBtn">video</h6>
+        `)
+        namesWrapper.style.maxHeight = '9.5em'
+        namesWrapper.style.marginBottom = '-2em'
+        namesWrapper.style.marginTop = '5rem'
+    } else {
+        document.querySelector('.pdf').insertAdjacentHTML('afterend', `
+        <h6 class="videoBtn">video</h6>
+        `)
+        namesContainer[5].style.display = 'none'
+    }
+    videoBtn = document.querySelector('.videoBtn')
+    videoBtn.addEventListener('click', videoAdd)
+}
+
+const videoAdd = () => {
+    document.documentElement.classList.toggle('dark_mode')
+    loadImage.style.top = '15vh'
+    image.style.display = 'none'
+    image.classList.remove('fade')
+    captions.style.display = 'none'
+    captions.classList.remove('fade_captions')
+    document.querySelector('.image_container_mob_one').insertAdjacentHTML('beforebegin', `
+    <div id="videowrapper" class="videowrapper">
+    <video id="video" controls class="inverted">
+    <source src="img/exhibitions/vbmmrdngmr/vbmmrdngmr.mp4" type="video/mp4" />
+    </video>
+    </div>
+    `)
+    document.querySelector('.right_space').insertAdjacentHTML('afterbegin', `
+    <p id="close_video" class="close_video">close video  <span id="close_vid_symb"><sup>&#10005;</sup></span></p>
+    `)
+    const video = document.querySelector('video')
+    videoWrapper = document.querySelector('#videowrapper')
+    document.querySelectorAll('.inverted').forEach((res) => {
+        res.classList.toggle('invert')
+    })
+    video.oncanplay = () => {
+        loadImage.classList.add('load_image_hidden')
+        videoWrapper.classList.add('video_visible')
+    }
+    document.querySelector('#close_video').addEventListener('click', videoRemove)
+    videoBtn.removeEventListener('click', videoAdd)
+}
+
+const videoRemove = () => {
+    document.documentElement.classList.toggle('dark_mode')
+    document.querySelectorAll('.inverted').forEach((res) => {
+        res.classList.toggle('invert')
+    })
+    videoWrapper.remove()
+    loadImage.style.top = 'unset'
+    setTimeout(() => {
+        image.style.display = 'unset'
+        captions.style.display = 'unset'
+    }, 900)
+    setTimeout(() => {
+        image.classList.add('fade')
+        captions.classList.add('fade_captions')
+    }, 1100)
+    document.querySelector('#close_video').remove()
+    videoBtn.addEventListener('click', videoAdd)
+}
