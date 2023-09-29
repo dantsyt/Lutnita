@@ -17,13 +17,13 @@ async function getOneExhib(exh) {
         <div id="${oneExhib.exhibname}" class="text_container_nohover">
         <div class="names_wrapper"></div>
         <h4 class="exhibition_date">${oneExhib.date}</h4>
-        <h6 class="pdf_mob"><a href="pdf/${oneExhib.exhibname}.pdf" target="_blank">PDF</a></h6>
+        <h6 class="pdf_mob"><a href="pdf/${oneExhib.exhibname}.pdf" target="_blank">info</a></h6>
         </div>
         <div class="img_counter">
         <p id="counter_text" class="counters">Exhibition views</p>
         <p class="counters"><span id="counter_num"> 1</span>/<span id="counter_total">${countTotal}</span></p>        
         </div>
-        <h6 class="pdf"><a href="pdf/${oneExhib.exhibname}.pdf" target="_blank">pdf</a></h6>
+        <h6 class="pdf"><a href="pdf/${oneExhib.exhibname}.pdf" target="_blank">info</a></h6>
         `)
         namesPlace = document.querySelector(`.names_wrapper`)
         for (let name of oneExhib.namepath) {
@@ -206,7 +206,7 @@ const videoAdd = () => {
     document.querySelectorAll('.inverted').forEach((res) => {
         res.classList.toggle('invert')
     })
-    video.oncanplay = () => {
+    video.onloadedmetadata = () => {
         loadImage.classList.add('load_image_hidden')
         videoWrapper.classList.add('video_visible')
     }
