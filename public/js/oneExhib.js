@@ -201,6 +201,13 @@ const videoAdd = () => {
     document.querySelector('.right_space').insertAdjacentHTML('afterbegin', `
     <p id="close_video" class="close_video">close video  <span id="close_vid_symb"><sup>&#10005;</sup></span></p>
     `)
+    if (mob) {
+        videoBtn.style.display = 'none'
+        document.querySelector('#vbmmrdngmr').insertAdjacentHTML('beforeend', `
+    <p id="close_video_mob" class="close_video">close video</p>
+    `)
+        document.querySelector('#close_video_mob').addEventListener('click', videoRemove)
+    }
     const video = document.querySelector('video')
     videoWrapper = document.querySelector('#videowrapper')
     document.querySelectorAll('.inverted').forEach((res) => {
@@ -215,6 +222,10 @@ const videoAdd = () => {
 }
 
 const videoRemove = () => {
+    if (mob) {
+        videoBtn.style.display = 'unset'
+        document.querySelector('#close_video_mob').remove()
+    }
     document.documentElement.classList.toggle('dark_mode')
     document.querySelectorAll('.inverted').forEach((res) => {
         res.classList.toggle('invert')

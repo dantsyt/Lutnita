@@ -302,7 +302,7 @@ video {
     align-items: center;
 }
 
-#close_video {
+.close_video {
     font-size: 12rem;
     color: #666;
     margin-inline-end: 4.5vw;

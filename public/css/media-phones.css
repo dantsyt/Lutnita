@@ -200,6 +200,16 @@
         padding: 0 8vw;
     }
 
+    #close_video {
+        display: none;
+    }
+
+    #close_video_mob {
+        margin-inline-end: unset;
+        text-decoration: underline;
+        padding: 2rem 0;
+    }
+
     /* #captions_desk {
         display: none;
     } */
