@@ -13,16 +13,6 @@ getArtists().then(() => {
             // }
         })
     }
-    image.onmouseenter = () => {
-        str = image.src
-        bio = document.querySelector(`#bio_${str.substring(str.lastIndexOf('/') + 1, str.lastIndexOf('.'))}`)
-        bio.classList.add('bio')
-        bio.style.width = `${image.width}px`
-        bio.style.heigth = `${image.heigth}px`
-        bio.onmouseleave = () => {
-            bio.classList.remove('bio')
-        }
-    }
 }).catch((e) => { console.log(e) })
 
 async function getArtists() {
@@ -36,15 +26,15 @@ async function getArtists() {
             title.insertAdjacentHTML('afterend', `
             <div id="${one._id}" class="text_container">
             <p id="${one.imgpath[0]}" class="exhnamehidden"></p>
-            <h3 class="first_name">${one.firstname}</h3>
-            <h3 class="last_name">${one.lastname}</h3>
+            <div class="names_wrapper">
+            <div class="names_container">
+            <img class="artist_name" src="img/artists/namepaths/${one.namepath}">
+            </div></div>
+            </div>
             </div>
             <div class="image_container_mob artists_container">
             <img class="center_image_mob" src="img/artists/${one.imgpath[0]}.webp" alt="center_image">
             </div>
-            `)
-            imgWrapper.insertAdjacentHTML('beforeend', `
-            <p id="bio_${one.imgpath[0]}" class="bio_hidden">${one.description}</p>
             `)
         }
     } catch (e) {
@@ -64,3 +54,14 @@ async function getArtists() {
 //         }
 //     })
 // })
+
+// image.onmouseenter = () => {
+//     str = image.src
+//     bio = document.querySelector(`#bio_${str.substring(str.lastIndexOf('/') + 1, str.lastIndexOf('.'))}`)
+//     bio.classList.add('bio')
+//     bio.style.width = `${image.width}px`
+//     bio.style.heigth = `${image.heigth}px`
+//     bio.onmouseleave = () => {
+//         bio.classList.remove('bio')
+//     }
+// }

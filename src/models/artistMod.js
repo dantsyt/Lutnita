@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 const artistSchema = new mongoose.Schema({
     firstname: String,
     lastname: String,
-    nameImg: String,
-    description: String,
+    namepath: String,
     imgpath: Array,
 })
 
