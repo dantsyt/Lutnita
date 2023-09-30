@@ -6,6 +6,7 @@
     }
 
     .full_body {
+        height: unset;
         min-height: 100%;
     }
 
