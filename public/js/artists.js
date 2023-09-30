@@ -30,10 +30,7 @@ async function getArtists() {
             <p id="${one.imgpath[0]}" class="exhnamehidden"></p>
             <div class="names_wrapper">
             <div class="names_container">
-            <img class="artist_name" src="img/artists/namepaths/${one.namepath}">
-            </div></div>
-            </div>
-            </div>
+            <img class="artist_name" src="img/artists/namepaths/${one.namepath}"></div></div></div>
             <div class="image_container_mob artists_container">
             <img class="center_image_mob" src="img/artists/${one.imgpath[0]}.webp" alt="center_image">
             </div>
