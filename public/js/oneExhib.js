@@ -44,7 +44,6 @@ async function getOneExhib(exh) {
         `)
         // Append images DESK
         imgContainer.insertAdjacentHTML('afterbegin', `
-        <img id="load_image" class="load_image load_image_mob" src="img/spin.svg">
         <img id="main_image" class="center_image_exhib center_image_one_exhib inverted" src="${imgDir}/${imgArr[0]}.webp" alt="center_image">
         `)
         imgContainer.insertAdjacentHTML('beforeend', `
@@ -69,7 +68,7 @@ getOneExhib(exhId).then(() => {
     }
     captions = document.querySelector('#captions_desk')
     const viewsCount = document.querySelector('#counter_num')
-    loadImage = document.querySelector('.load_image')
+    // loadImage = document.querySelector('.load_image')
     setTimeout(() => {
         image.classList.add('fade')
     }, 1)
@@ -97,7 +96,7 @@ getOneExhib(exhId).then(() => {
         }
     }
     const nextImage = () => {
-        loadImage.classList.remove('load_image_hidden')
+        // loadImage.classList.remove('load_image_hidden')
         counter++
         image.classList.remove('fade')
         if (counter == imgArr.length) {
@@ -114,7 +113,7 @@ getOneExhib(exhId).then(() => {
         }
         const checkImageLoaded = () => {
             if (image.complete) {
-                loadImage.classList.add('load_image_hidden')
+                // loadImage.classList.add('load_image_hidden')
                 setTimeout(() => {
                     image.classList.add('fade')
                 }, 1)
@@ -130,7 +129,7 @@ getOneExhib(exhId).then(() => {
 
     }
     const prevImage = () => {
-        loadImage.classList.remove('load_image_hidden')
+        // loadImage.classList.remove('load_image_hidden')
         counter--
         image.classList.remove('fade')
         if (counter == -1) {
@@ -147,7 +146,7 @@ getOneExhib(exhId).then(() => {
         }
         const checkImageLoaded = () => {
             if (image.complete) {
-                loadImage.classList.add('load_image_hidden')
+                // loadImage.classList.add('load_image_hidden')
                 setTimeout(() => {
                     image.classList.add('fade')
                 }, 1)
@@ -175,6 +174,7 @@ const vbmmrdngmr = () => {
         namesWrapper.style.marginBottom = '-2em'
         namesWrapper.style.marginTop = '5rem'
     } else {
+        document.querySelector('.title_menu').style.display = 'none'
         document.querySelector('.pdf').insertAdjacentHTML('afterend', `
         <h6 class="videoBtn">video</h6>
         `)
@@ -186,7 +186,8 @@ const vbmmrdngmr = () => {
 
 const videoAdd = () => {
     document.documentElement.classList.toggle('dark_mode')
-    loadImage.style.top = '15vh'
+    document.documentElement.style.cursor = "url('cursors/cursor_white.svg'), pointer;"
+    // loadImage.style.top = '15vh'
     image.style.display = 'none'
     image.classList.remove('fade')
     captions.style.display = 'none'
@@ -214,7 +215,7 @@ const videoAdd = () => {
         res.classList.toggle('invert')
     })
     video.onloadedmetadata = () => {
-        loadImage.classList.add('load_image_hidden')
+        // loadImage.classList.add('load_image_hidden')
         videoWrapper.classList.add('video_visible')
     }
     document.querySelector('#close_video').addEventListener('click', videoRemove)
@@ -231,7 +232,7 @@ const videoRemove = () => {
         res.classList.toggle('invert')
     })
     videoWrapper.remove()
-    loadImage.style.top = 'unset'
+    // loadImage.style.top = 'unset'
     setTimeout(() => {
         image.style.display = 'unset'
         captions.style.display = 'unset'
@@ -243,3 +244,5 @@ const videoRemove = () => {
     document.querySelector('#close_video').remove()
     videoBtn.addEventListener('click', videoAdd)
 }
+
+//      <img id="load_image" class="load_image load_image_mob" src="img/spin.svg">
