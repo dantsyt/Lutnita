@@ -13,16 +13,16 @@ artistsRouter.get('/', async (req, res) => {
     })
 })
 
-artistsRouter.get('/:id', async (req, res) => {
-    const _id = req.params.id
+artistsRouter.get('/:lastname', async (req, res) => {
+    const lastname = req.params.lastname
     try {
-        const artist = await Artist.findById(_id)
+        const artist = await Artist.findOne({ lastname })
         if (!artist) {
             return res.status(404).render('404', {
                 title: '404 artists, not one found'
             })
         }
-        res.send(artist) //render('artists_id')
+        res.render('artists_id')
     } catch (e) {
         res.status(400).send(e.message)
     }

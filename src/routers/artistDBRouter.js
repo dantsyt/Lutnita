@@ -14,10 +14,10 @@ artistsDBRouter.get('/getArtists', async (req, res) => {
     }
 })
 
-artistsDBRouter.get('/getOneArtist/:id', async (req, res) => {
-    const _id = req.params.id
+artistsDBRouter.get('/getOneArtist/:lastname', async (req, res) => {
+    const lastname = req.params.lastname
     try {
-        const artist = await Artist.findById(_id)
+        const artist = await Artist.findOne({ lastname })
         if (!artist) { return res.status(404).send('404 artists, not one found') }
         res.send(artist)
     } catch (e) {

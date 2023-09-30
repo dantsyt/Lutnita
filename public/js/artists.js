@@ -8,9 +8,9 @@ getArtists().then(() => {
     for (let name of names) {
         name.addEventListener('mouseenter', () => {
             image.src = `img/artists/${name.firstElementChild.id}.webp`
-            // image.onclick = () => {
-            //     location.assign(`/exhibitions/${name.id}`)
-            // }
+            image.onclick = () => {
+                location.assign(`/artists/${name.id}`)
+            }
         })
     }
 }).catch((e) => { console.log(e) })
@@ -21,10 +21,12 @@ async function getArtists() {
         const artistsData = await response.json()
         const image = document.querySelector('.center_image_exhib')
         image.src = `img/artists/${artistsData[artistsData.length - 1].imgpath[0]}.webp`
-        //onclick here
+        image.onclick = () => {
+            location.assign(`/artists/${artistsData[artistsData.length - 1].lastname.toLowerCase()}`) // URL Path
+        }
         for (let one of artistsData) {
             title.insertAdjacentHTML('afterend', `
-            <div id="${one._id}" class="text_container">
+            <div id="${one.lastname.toLowerCase()}" class="text_container">
             <p id="${one.imgpath[0]}" class="exhnamehidden"></p>
             <div class="names_wrapper">
             <div class="names_container">
