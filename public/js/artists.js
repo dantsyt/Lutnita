@@ -27,12 +27,12 @@ async function getArtists() {
         for (let one of artistsData) {
             title.insertAdjacentHTML('afterend', `
             <div id="${one.lastname.toLowerCase()}" class="text_container" onclick=location.assign('/artists/${one.lastname.toLowerCase()}')>
-            <p id="${one.imgpath[0]}" class="exhnamehidden"></p>
+            <p id="${one.lastname.toLowerCase()}" class="exhnamehidden"></p>
             <div class="names_wrapper">
             <div class="names_container">
             <img class="artist_name" src="img/artists/namepaths/${one.namepath}"></div></div></div>
             <div class="image_container_mob artists_container">
-            <img class="center_image_mob" src="img/artists/${one.imgpath[0]}.webp" alt="center_image">
+            <img class="center_image_mob" src="img/artists/${one.lastname.toLowerCase()}.webp" alt="center_image" onclick=location.assign('/artists/${one.lastname.toLowerCase()}')>
             </div>
             `)
         }

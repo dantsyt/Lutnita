@@ -8,7 +8,7 @@ async function getOneArtist(artist) {
         const response = await fetch(`/getOneArtist/${artist}`)
         const oneArtist = await response.json()
         imgArr = oneArtist.imgpath
-        // captionsArr = oneArtist.captions
+        captionsArr = oneArtist.captions
         const countTotal = imgArr.length
         imgDir = `img/artists/${oneArtist.lastname}`
         imgDirMob = `img/artists/${oneArtist.lastname}/mob`
@@ -19,21 +19,25 @@ async function getOneArtist(artist) {
         <img class="artist_name" src="img/artists/namepaths/${oneArtist.namepath}"></div></div>
         <h6 class="pdf_mob"><a href="pdf/bio/${oneArtist.lastname}.pdf" target="_blank">bio</a></h6>
         </div>
+        <div class="img_counter">
+        <p id="counter_text" class="counters">Works</p>
+        <p class="counters"><span id="counter_num"> 1</span>/<span id="counter_total">${countTotal}</span></p>        
+        </div>
         <h6 class="pdf"><a href="pdf/bio/${oneArtist.lastname}.pdf" target="_blank">bio</a></h6>
         `)
         // Append images MOB
         imgContainer.insertAdjacentHTML('beforeend', `
         <div class="image_container_mob_one">
-        <img class="center_image_mob mob_one_exhib" src="${imgDirMob}/${imgArr[0]}.webp" alt="center_image">
+        <img class="center_image_mob mob_one_exhib" src="${imgDirMob}/${imgArr[0]}_450px.webp" alt="center_image">
         </div>
         `)
         // Append images DESK
         imgContainer.insertAdjacentHTML('afterbegin', `
         <img id="main_image" class="center_image_exhib center_image_one_exhib" src="${imgDir}/${imgArr[0]}.webp" alt="center_image">
         `)
-        // imgContainer.insertAdjacentHTML('beforeend', `
-        // <p id="captions_desk" class="captions">${captionsArr[0].replace(/\\n/g, '<br>')}</p>
-        // `)
+        imgContainer.insertAdjacentHTML('beforeend', `
+        <p id="captions_desk" class="captions">${captionsArr[0].replace(/\\n/g, '<br>')}</p>
+        `)
     } catch (e) {
         console.log(e)
     }
@@ -47,15 +51,15 @@ getOneArtist(artistId).then(() => {
         mob = false
         image = document.querySelector('#main_image')
     }
-    // captions = document.querySelector('#captions_desk')
+    captions = document.querySelector('#captions_desk')
     const viewsCount = document.querySelector('#counter_num')
     // loadImage = document.querySelector('.load_image')
     setTimeout(() => {
         image.classList.add('fade')
     }, 1)
-    // setTimeout(() => {
-    //     captions.classList.add('fade_captions')
-    // }, 500)
+    setTimeout(() => {
+        captions.classList.add('fade_captions')
+    }, 500)
     let counter = 0
     window.addEventListener('keydown', function (event) {
         const key = event.key // "ArrowRight", "ArrowLeft"
@@ -88,7 +92,7 @@ getOneArtist(artistId).then(() => {
         } else {
             image.src = `${imgDir}/${imgArr[counter]}.webp`
         }
-        // captions.classList.remove('fade_captions')
+        captions.classList.remove('fade_captions')
         image.onload = () => {
             checkImageLoaded()
         }
@@ -98,10 +102,10 @@ getOneArtist(artistId).then(() => {
                 setTimeout(() => {
                     image.classList.add('fade')
                 }, 1)
-                // setTimeout(() => {
-                //     captions.classList.add('fade_captions')
-                // }, 700)
-                // captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
+                setTimeout(() => {
+                    captions.classList.add('fade_captions')
+                }, 700)
+                captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
                 viewsCount.innerText = ` ${counter + 1}`
             } else {
                 setTimeout(checkImageLoaded, 50)
@@ -121,7 +125,7 @@ getOneArtist(artistId).then(() => {
         } else {
             image.src = `${imgDir}/${imgArr[counter]}.webp`
         }
-        // captions.classList.remove('fade_captions')
+        captions.classList.remove('fade_captions')
         image.onload = () => {
             checkImageLoaded()
         }
@@ -131,10 +135,10 @@ getOneArtist(artistId).then(() => {
                 setTimeout(() => {
                     image.classList.add('fade')
                 }, 1)
-                // setTimeout(() => {
-                //     captions.classList.add('fade_captions')
-                // }, 700)
-                // captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
+                setTimeout(() => {
+                    captions.classList.add('fade_captions')
+                }, 700)
+                captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
                 viewsCount.innerText = ` ${counter + 1}`
             } else {
                 setTimeout(checkImageLoaded, 50)
