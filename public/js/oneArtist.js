@@ -102,7 +102,7 @@ getOneArtist(artistId).then(() => {
             image.style.display = 'none'
             document.querySelector('.image_container_mob_one').insertAdjacentHTML('beforebegin', `
             <div id="videowrapper" class="videowrapper artist_video">
-            <video id="video" autoplay loop class="inverted">
+            <video id="video" playsinline autoplay loop class="inverted">
             <source src=${imgDir}/${imgArr[counter]} type="video/mp4" />
             </video>
             </div>
