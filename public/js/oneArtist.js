@@ -8,6 +8,7 @@ async function getOneArtist(artist) {
         const response = await fetch(`/getOneArtist/${artist}`)
         const oneArtist = await response.json()
         imgArr = oneArtist.imgpath
+        imgArrMob = oneArtist.imgpathmob
         captionsArr = oneArtist.captions
         const countTotal = imgArr.length
         imgDir = `img/artists/${oneArtist.lastname}`
@@ -28,12 +29,12 @@ async function getOneArtist(artist) {
         // Append images MOB
         imgContainer.insertAdjacentHTML('beforeend', `
         <div class="image_container_mob_one">
-        <img class="center_image_mob mob_one_exhib" src="${imgDirMob}/${imgArr[0]}_450px.webp" alt="center_image">
+        <img class="center_image_mob mob_one_exhib" src="${imgDirMob}/${imgArrMob[0]}" alt="center_image">
         </div>
         `)
         // Append images DESK
         imgContainer.insertAdjacentHTML('afterbegin', `
-        <img id="main_image" class="center_image_exhib center_image_one_exhib" src="${imgDir}/${imgArr[0]}.webp" alt="center_image">
+        <img id="main_image" class="center_image_exhib center_image_one_exhib" src="${imgDir}/${imgArr[0]}" alt="center_image">
         `)
         imgContainer.insertAdjacentHTML('beforeend', `
         <p id="captions_desk" class="captions">${captionsArr[0].replace(/\\n/g, '<br>')}</p>
@@ -88,9 +89,9 @@ getOneArtist(artistId).then(() => {
             counter = 0
         }
         if (mob == true) {
-            image.src = `${imgDirMob}/${imgArr[counter]}_450px.webp`
+            image.src = `${imgDirMob}/${imgArrMob[counter]}`
         } else {
-            image.src = `${imgDir}/${imgArr[counter]}.webp`
+            image.src = `${imgDir}/${imgArr[counter]}`
         }
         captions.classList.remove('fade_captions')
         image.onload = () => {
@@ -121,9 +122,9 @@ getOneArtist(artistId).then(() => {
             counter = imgArr.length - 1
         }
         if (mob == true) {
-            image.src = `${imgDirMob}/${imgArr[counter]}_450px.webp`
+            image.src = `${imgDirMob}/${imgArrMob[counter]}`
         } else {
-            image.src = `${imgDir}/${imgArr[counter]}.webp`
+            image.src = `${imgDir}/${imgArr[counter]}`
         }
         captions.classList.remove('fade_captions')
         image.onload = () => {

@@ -37,27 +37,27 @@ artistsDBRouter.post('/postArtist', async (req, res) => {
 
 artistsDBRouter.post('/editArtist', async (req, res) => {
     try {
-        await Artist.updateOne({ lastname: "guțu" }, {
-            captions: ["’’Mădălina’’, Vărăncău, 2021 \nanalog photography",
-                "’’Going home’’, Râșcani, 2022\nanalog photography",
-                "’’Valentina’’, Cobani, 2022\nanalog photography",
-                "’’Sulina’s horses’’, Sulina, 2022\nanalog photography",
-                "’’Farmer with his horse, Stârcea, 2023\nanalog photography",
-                "’’Family portrait’’, Vărăncău, 2021\nanalog photography",
-                "’’Comfort me’’, Hârtop, 2023\nanalog photography",
-                "’’Portrait of the girl with shadow wing’’, Cociulia, 2023\nanalog photography",
-                "’’Abandoned sport hall’’, Costești, 2021 \nanalog photography",
-                "’’Kiril’’, Dumeni, 2021\nanalog photography",
-                "’’Forest lady’’, Cociulia, 2023\nanalog photography",
-                "’’Girl with broken arm’’, Horești, 2023\nanalog photography",
-                "’’Lenin’s statue’’,  Zăicani, 2020\nanalog photography",
-                "‘’Portrait of the girl from local holiday’’, Glodeni, 2022\nanalog photography",
-                "’’Emil with his dog, Max’’, Dumeni, 2020\nanalog photography",
-                "’’Portrait with accidental double exposure with a tree’’, Cobani, 2022\nanalog photography",
-                "’’Fairies’’, Glodeni, 2022",
-                "’’Anghelina’’, Naslavcea, 2023\nanalog photography",
-                "’’Boys on water’’ ,Dumeni, 2021\nanalog photography",
-                "’’Boy playing with rope around his head’’, Izvoare, 2019\nanalog photography"]
+        await Artist.updateMany({}, {
+            imgpathmob: ["1_450px.webp",
+                "2_450px.webp",
+                "3_450px.webp",
+                "4_450px.webp",
+                "5_450px.webp",
+                "6_450px.webp",
+                "7_450px.webp",
+                "8_450px.webp",
+                "9_450px.webp",
+                "10_450px.webp",
+                "11_450px.webp",
+                "12_450px.webp",
+                "13_450px.webp",
+                "14_450px.webp",
+                "15_450px.webp",
+                "16_450px.webp",
+                "17_450px.webp",
+                "18_450px.webp",
+                "19_450px.webp",
+                "20_450px.webp"]
         })
         res.status(201).send("Yeah bby")
     } catch (e) {
