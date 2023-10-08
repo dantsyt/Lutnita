@@ -119,7 +119,6 @@ getOneArtist(artistId).then(() => {
                 captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
                 viewsCount.innerText = ` ${counter + 1}`
             }
-            // Comment
             video.onclick = (e) => {
                 let center = video.clientWidth / 2
                 if (e.offsetX > center) {
