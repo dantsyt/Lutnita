@@ -271,7 +271,7 @@ video {
 }
 
 .center_image_one_exhib {
-    /* width: 43vw; */
+    max-width: 80%;
     max-height: 59vh;
     cursor: url('cursors/cursor_empty.svg'), pointer;
     opacity: 0.3;
