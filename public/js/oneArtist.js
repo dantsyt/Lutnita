@@ -2,6 +2,7 @@ const title = document.querySelector('#title')
 const artistPath = window.location.pathname
 const artistId = artistPath.substring(artistPath.indexOf('/', 1) + 1, artistPath.length)
 const imgContainer = document.querySelector('.image_container')
+videoWrapper = document.querySelector('#videowrapper')
 
 async function getOneArtist(artist) {
     try {
@@ -54,7 +55,6 @@ getOneArtist(artistId).then(() => {
     }
     captions = document.querySelector('#captions_desk')
     const viewsCount = document.querySelector('#counter_num')
-    // loadImage = document.querySelector('.load_image')
     setTimeout(() => {
         image.classList.add('fade')
     }, 1)
@@ -82,8 +82,11 @@ getOneArtist(artistId).then(() => {
         }
     }
     const nextImage = () => {
-        // loadImage.classList.remove('load_image_hidden')
         counter++
+        if (videoWrapper) {
+            videoWrapper.remove()
+            image.style.display = 'unset'
+        }
         image.classList.remove('fade')
         if (counter == imgArr.length) {
             counter = 0
@@ -94,12 +97,43 @@ getOneArtist(artistId).then(() => {
             image.src = `${imgDir}/${imgArr[counter]}`
         }
         captions.classList.remove('fade_captions')
+        // Video
+        if (imgArr[counter].substring(imgArr[counter].indexOf('.', 1) + 1, imgArr[counter].length) == "mp4") {
+            image.style.display = 'none'
+            document.querySelector('.image_container_mob_one').insertAdjacentHTML('beforebegin', `
+            <div id="videowrapper" class="videowrapper">
+            <video id="video" autoplay loop class="inverted">
+            <source src=${imgDir}/${imgArr[counter]} type="video/mp4" />
+            </video>
+            </div>
+            `)
+            const video = document.querySelector('video')
+            video.onloadedmetadata = () => {
+                videoWrapper = document.querySelector('#videowrapper')
+                setTimeout(() => {
+                    videoWrapper.classList.add('video_visible')
+                }, 1)
+                setTimeout(() => {
+                    captions.classList.add('fade_captions')
+                }, 700)
+                captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
+                viewsCount.innerText = ` ${counter + 1}`
+            }
+            video.onclick = (e) => {
+                let center = video.clientWidth / 2
+                if (e.offsetX > center) {
+                    nextImage()
+                } else {
+                    prevImage()
+                }
+            }
+        }
         image.onload = () => {
             checkImageLoaded()
         }
         const checkImageLoaded = () => {
             if (image.complete) {
-                // loadImage.classList.add('load_image_hidden')
+
                 setTimeout(() => {
                     image.classList.add('fade')
                 }, 1)
@@ -115,8 +149,11 @@ getOneArtist(artistId).then(() => {
 
     }
     const prevImage = () => {
-        // loadImage.classList.remove('load_image_hidden')
         counter--
+        if (videoWrapper) {
+            videoWrapper.remove()
+            image.style.display = 'unset'
+        }
         image.classList.remove('fade')
         if (counter == -1) {
             counter = imgArr.length - 1
@@ -127,12 +164,43 @@ getOneArtist(artistId).then(() => {
             image.src = `${imgDir}/${imgArr[counter]}`
         }
         captions.classList.remove('fade_captions')
+        // Video
+        if (imgArr[counter].substring(imgArr[counter].indexOf('.', 1) + 1, imgArr[counter].length) == "mp4") {
+            image.style.display = 'none'
+            document.querySelector('.image_container_mob_one').insertAdjacentHTML('beforebegin', `
+                    <div id="videowrapper" class="videowrapper">
+                    <video id="video" autoplay loop class="inverted">
+                    <source src=${imgDir}/${imgArr[counter]} type="video/mp4" />
+                    </video>
+                    </div>
+                    `)
+            const video = document.querySelector('video')
+            video.onloadedmetadata = () => {
+                videoWrapper = document.querySelector('#videowrapper')
+                setTimeout(() => {
+                    videoWrapper.classList.add('video_visible')
+                }, 1)
+                setTimeout(() => {
+                    captions.classList.add('fade_captions')
+                }, 700)
+                captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
+                viewsCount.innerText = ` ${counter + 1}`
+            }
+            video.onclick = (e) => {
+                let center = video.clientWidth / 2
+                if (e.offsetX > center) {
+                    nextImage()
+                } else {
+                    prevImage()
+                }
+            }
+        }
         image.onload = () => {
             checkImageLoaded()
         }
         const checkImageLoaded = () => {
             if (image.complete) {
-                // loadImage.classList.add('load_image_hidden')
+
                 setTimeout(() => {
                     image.classList.add('fade')
                 }, 1)
@@ -148,5 +216,3 @@ getOneArtist(artistId).then(() => {
 
     }
 }).catch((e) => { console.log(e.message) })
-
-//      <img id="load_image" class="load_image load_image_mob" src="img/spin.svg">

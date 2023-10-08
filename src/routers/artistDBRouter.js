@@ -37,27 +37,29 @@ artistsDBRouter.post('/postArtist', async (req, res) => {
 
 artistsDBRouter.post('/editArtist', async (req, res) => {
     try {
-        await Artist.updateMany({}, {
-            imgpathmob: ["1_450px.webp",
-                "2_450px.webp",
-                "3_450px.webp",
-                "4_450px.webp",
-                "5_450px.webp",
-                "6_450px.webp",
-                "7_450px.webp",
-                "8_450px.webp",
-                "9_450px.webp",
-                "10_450px.webp",
-                "11_450px.webp",
-                "12_450px.webp",
-                "13_450px.webp",
-                "14_450px.webp",
-                "15_450px.webp",
-                "16_450px.webp",
-                "17_450px.webp",
-                "18_450px.webp",
-                "19_450px.webp",
-                "20_450px.webp"]
+        await Artist.updateOne({ lastname: "godzina" }, {
+            captions: ["A Room of One's Own, 2021\nElectric engine, bearing system, gas tube, metal\n5.20m x 0.55m x 0.55m\nM HKA Museum, Antwerp, Belgium",
+                "A Room of One's Own, 2021\nElectric engine, bearing system, gas tube, metal\n5.20m x 0.55m x 0.55m\nM HKA Museum, Antwerp, Belgium",
+                "A Room of One's Own, 2021\nElectric engine, bearing system, gas tube, metal\n5.20m x 0.55m x 0.55m\nM HKA Museum, Antwerp, Belgium",
+                "A Room of One's Own, 2021\nElectric engine, bearing system, gas tube, metal\n5.20m x 0.55m x 0.55m\nM HKA Museum, Antwerp, Belgium",
+                "A Room of One's Own, 2021\nElectric engine, bearing system, gas tube, metal\n5.20m x 0.55m x 0.55m\nM HKA Museum, Antwerp, Belgium",
+                "Future Archaeology, 2020\nMetal tubes, metal chains, electric engines, fluorescent tubes, electrical timers, light bulb, water.\nVariable dimensions\nErgo Collective Art Space, Athens, Greece",
+                "Future Archaeology, 2020\nMetal tubes, metal chains, electric engines, fluorescent tubes, electrical timers, light bulb, water.\nVariable dimensions\nErgo Collective Art Space, Athens, Greece",
+                "Future Archaeology, 2020\nMetal tubes, metal chains, electric engines, fluorescent tubes, electrical timers, light bulb, water.\nVariable dimensions\nErgo Collective Art Space, Athens, Greece",
+                "Future Archaeology, 2020\nMetal tubes, metal chains, electric engines, fluorescent tubes, electrical timers, light bulb, water.\nVariable dimensions\nErgo Collective Art Space, Athens, Greece",
+                "Future Archaeology, 2020\nMetal tubes, metal chains, electric engines, fluorescent tubes, electrical timers, light bulb, water.\nVariable dimensions\nErgo Collective Art Space, Athens, Greece",
+                "Future Archaeology, 2020\nMetal tubes, metal chains, electric engines, fluorescent tubes, electrical timers, light bulb, water.\nVariable dimensions\nErgo Collective Art Space, Athens, Greece",
+                "Future Archaeology, 2020\nMetal tubes, metal chains, electric engines, fluorescent tubes, electrical timers, light bulb, water.\nVariable dimensions\nErgo Collective Art Space, Athens, Greece",
+                "Future Archaeology, 2020\nMetal tubes, metal chains, electric engines, fluorescent tubes, electrical timers, light bulb, water.\nVariable dimensions\nErgo Collective Art Space, Athens, Greece",
+                "Future Archaeology, 2020\nMetal tubes, metal chains, electric engines, fluorescent tubes, electrical timers, light bulb, water.\nVariable dimensions\nErgo Collective Art Space, Athens, Greece",
+                "Horology, 2023\nIron, engines, bamboo branches, stones, wooden containers, hour hands, minute hands, second hands, pendulums, rope\nVariable dimensions\nArt Partout Gallery, Antwerp, Belgium",
+                "Horology, 2023\nIron, engines, bamboo branches, stones, wooden containers, hour hands, minute hands, second hands, pendulums, rope\nVariable dimensions\nArt Partout Gallery, Antwerp, Belgium",
+                "Horology, 2023\nIron, engines, bamboo branches, stones, wooden containers, hour hands, minute hands, second hands, pendulums, rope\nVariable dimensions\nArt Partout Gallery, Antwerp, Belgium",
+                "Noetic, 2022\nIron, magnets, electric engines\n60cm x 60cm x 15cm\nIMAL, Center for digital cultures and technology, Brussels, Belgium",
+                "Noetic, 2022\nIron, magnets, electric engines\n60cm x 60cm x 15cm\nIMAL, Center for digital cultures and technology, Brussels, Belgium",
+                "Noetic, 2022\nIron, magnets, electric engines\n60cm x 60cm x 15cm\nIMAL, Center for digital cultures and technology, Brussels, Belgium",
+                "Noetic, 2022\nIron, magnets, electric engines\n60cm x 60cm x 15cm\nIMAL, Center for digital cultures and technology, Brussels, Belgium",
+                "The Runner’s Body, 2019\nTree trunks, speakers, electronic amplifier.\nVariable dimensions.\nArt’s Institute, Antwerp, Belgium"]
         })
         res.status(201).send("Yeah bby")
     } catch (e) {
