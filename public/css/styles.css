@@ -182,6 +182,10 @@ h6 {
     transition: opacity .5s;
 }
 
+.artist_video {
+    margin-top: unset;
+}
+
 video {
     max-width: 100%;
 }
