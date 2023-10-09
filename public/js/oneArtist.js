@@ -38,8 +38,8 @@ async function getOneArtist(artist) {
         <img id="main_image" class="center_image_exhib center_image_one_exhib" src="${imgDir}/${imgArr[0]}" alt="center_image">
         `)
         imgContainer.insertAdjacentHTML('beforeend', `
-        <p id="captions_desk" class="captions">${captionsArr[0].replace(/\\n/g, '\n')}</p>
-        `)
+        <p id="captions_desk" class="captions">${captionsArr[0].replace(/\n/g, '<br>')}</p>
+            `)
     } catch (e) {
         console.log(e)
     }
@@ -92,20 +92,20 @@ getOneArtist(artistId).then(() => {
             counter = 0
         }
         if (mob == true) {
-            image.src = `${imgDirMob}/${imgArrMob[counter]}`
+            image.src = `${imgDirMob} / ${imgArrMob[counter]}`
         } else {
-            image.src = `${imgDir}/${imgArr[counter]}`
+            image.src = `${imgDir} / ${imgArr[counter]}`
         }
         captions.classList.remove('fade_captions')
         // Video
         if (imgArr[counter].substring(imgArr[counter].indexOf('.', 1) + 1, imgArr[counter].length) == "mp4") {
             image.style.display = 'none'
             document.querySelector('.image_container_mob_one').insertAdjacentHTML('beforebegin', `
-            <div id="videowrapper" class="videowrapper artist_video">
-            <video id="video" playsinline autoplay loop class="inverted">
-            <source src=${imgDir}/${imgArr[counter]} type="video/mp4" />
-            </video>
-            </div>
+        < div id = "videowrapper" class= "videowrapper artist_video" >
+        <video id="video" playsinline autoplay loop class="inverted">
+            <source src=${imgDir} /${imgArr[counter]} type="video/mp4" />
+        </video>
+            </div >
             `)
             const video = document.querySelector('video')
             video.onloadedmetadata = () => {
