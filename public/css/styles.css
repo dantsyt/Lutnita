@@ -263,7 +263,7 @@ video {
 
 .center_image_index,
 .center_image_exhib {
-    /* max-width: 40%; */
+    max-width: 80%;
     max-height: 72vh;
     object-fit: contain;
     cursor: url('cursors/cursor_empty.svg'), pointer;
@@ -313,6 +313,11 @@ video {
     font-size: 12rem;
     letter-spacing: 1rem;
     color: #666;
+}
+
+.img_wrapper {
+    display: flex;
+    justify-content: center;
 }
 
 /* --------- RIGHT ---------- */
