@@ -101,12 +101,12 @@ getOneArtist(artistId).then(() => {
         if (imgArr[counter].substring(imgArr[counter].indexOf('.', 1) + 1, imgArr[counter].length) == "mp4") {
             image.style.display = 'none'
             document.querySelector('.image_container_mob_one').insertAdjacentHTML('beforebegin', `
-        < div id = "videowrapper" class= "videowrapper artist_video" >
-        <video id="video" playsinline autoplay loop class="inverted">
-            <source src=${imgDir} /${imgArr[counter]} type="video/mp4" />
-        </video>
-            </div >
-            `)
+                    <div id="videowrapper" class="videowrapper">
+                    <video id="video" autoplay loop class="inverted">
+                    <source src=${imgDir}/${imgArr[counter]} type="video/mp4" />
+                    </video>
+                    </div>
+                    `)
             const video = document.querySelector('video')
             video.onloadedmetadata = () => {
                 videoWrapper = document.querySelector('#videowrapper')
