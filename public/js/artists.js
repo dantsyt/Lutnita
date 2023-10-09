@@ -2,7 +2,6 @@ const title = document.getElementById('title')
 const imgWrapper = document.querySelector('.img_wrapper')
 
 getArtists().then(() => {
-    let bio = document.querySelector('.bio')
     const names = document.querySelectorAll('.text_container')
     const image = document.querySelector('.center_image_exhib')
     for (let name of names) {
@@ -40,27 +39,3 @@ async function getArtists() {
         console.log(e)
     }
 }
-
-// fetch('/getArtists').then((response) => {
-//     response.json().then((data) => {
-//         for (let one of data) {
-//             title.insertAdjacentHTML('afterend', `
-//         <div id="${one._id}" class="text_container">
-//         <h3 class="first_name">${one.firstname}</h3>
-//         <h3 class="last_name">${one.lastname}</h3>
-//         </div>
-//         `)
-//         }
-//     })
-// })
-
-// image.onmouseenter = () => {
-//     str = image.src
-//     bio = document.querySelector(`#bio_${str.substring(str.lastIndexOf('/') + 1, str.lastIndexOf('.'))}`)
-//     bio.classList.add('bio')
-//     bio.style.width = `${image.width}px`
-//     bio.style.heigth = `${image.heigth}px`
-//     bio.onmouseleave = () => {
-//         bio.classList.remove('bio')
-//     }
-// }

@@ -316,11 +316,6 @@ video {
     color: #666;
 }
 
-.img_wrapper {
-    display: flex;
-    justify-content: center;
-}
-
 /* --------- RIGHT ---------- */
 
 .right_space {
