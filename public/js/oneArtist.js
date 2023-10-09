@@ -30,7 +30,7 @@ async function getOneArtist(artist) {
         // Append images MOB
         imgContainer.insertAdjacentHTML('beforeend', `
         <div class="image_container_mob_one">
-        <img class="center_image_mob mob_one_exhib" src="${imgDirMob}/${imgArrMob[0]}" alt="center_image">
+        <img class="center_image_mob mob_one_exhib" src="${imgDir}/${imgArr[0]}" alt="center_image">
         </div>
         `)
         // Append images DESK
@@ -92,7 +92,7 @@ getOneArtist(artistId).then(() => {
             counter = 0
         }
         if (mob == true) {
-            image.src = `${imgDirMob}/${imgArrMob[counter]}`
+            image.src = `${imgDir}/${imgArr[counter]}`
         } else {
             image.src = `${imgDir}/${imgArr[counter]}`
         }
@@ -159,7 +159,7 @@ getOneArtist(artistId).then(() => {
             counter = imgArr.length - 1
         }
         if (mob == true) {
-            image.src = `${imgDirMob}/${imgArrMob[counter]}`
+            image.src = `${imgDir}/${imgArr[counter]}`
         } else {
             image.src = `${imgDir}/${imgArr[counter]}`
         }
