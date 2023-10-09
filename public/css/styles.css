@@ -188,6 +188,7 @@ h6 {
 
 video {
     max-width: 100%;
+    cursor: url('cursors/cursor_empty.svg'), pointer;
 }
 
 .video_visible {
