@@ -38,7 +38,7 @@ async function getOneArtist(artist) {
         <img id="main_image" class="center_image_exhib center_image_one_exhib" src="${imgDir}/${imgArr[0]}" alt="center_image">
         `)
         imgContainer.insertAdjacentHTML('beforeend', `
-        <p id="captions_desk" class="captions">${captionsArr[0].replace(/\\n/g, '<br>')}</p>
+        <p id="captions_desk" class="captions">${captionsArr[0].replace(/\\n/g, '\n')}</p>
         `)
     } catch (e) {
         console.log(e)
