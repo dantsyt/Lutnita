@@ -92,9 +92,9 @@ getOneArtist(artistId).then(() => {
             counter = 0
         }
         if (mob == true) {
-            image.src = `${imgDirMob} / ${imgArrMob[counter]}`
+            image.src = `${imgDirMob}/${imgArrMob[counter]}`
         } else {
-            image.src = `${imgDir} / ${imgArr[counter]}`
+            image.src = `${imgDir}/${imgArr[counter]}`
         }
         captions.classList.remove('fade_captions')
         // Video
