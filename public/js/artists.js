@@ -19,7 +19,7 @@ async function getArtists() {
         const response = await fetch('/getArtists')
         const artistsData = await response.json()
         const image = document.querySelector('.center_image_exhib')
-        image.src = `img/artists/${artistsData[artistsData.length - 1].imgpath[0]}.webp`
+        image.src = `img/artists/${artistsData[artistsData.length - 1].fullname}.webp`
         image.onclick = () => {
             location.assign(`/artists/${artistsData[artistsData.length - 1].fullname.toLowerCase()}`) // URL Path
         }

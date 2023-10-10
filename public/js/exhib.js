@@ -55,14 +55,3 @@ async function getExhibs() {
         console.log(e)
     }
 }
-
-// {
-//     for (let name of one.artistname) {
-//         namesPlace.insertAdjacentHTML('beforeend', `
-//     <div class="names_container">
-//     <h3 class="first_name">${name.firstname}</h3>
-//     <h3 class="last_name">${name.lastname}</h3>
-//     </div>
-//     `)
-//     }
-// }
