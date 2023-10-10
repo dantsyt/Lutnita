@@ -13,10 +13,10 @@ artistsRouter.get('/', async (req, res) => {
     })
 })
 
-artistsRouter.get('/:lastname', async (req, res) => {
-    const lastname = req.params.lastname
+artistsRouter.get('/:fullname', async (req, res) => {
+    const fullname = req.params.fullname
     try {
-        const artist = await Artist.findOne({ lastname })
+        const artist = await Artist.findOne({ fullname })
         if (!artist) {
             return res.status(404).render('404', {
                 title: '404 artists, not one found'

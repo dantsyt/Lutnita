@@ -4,47 +4,6 @@ const artistId = artistPath.substring(artistPath.indexOf('/', 1) + 1, artistPath
 const imgContainer = document.querySelector('.image_container')
 videoWrapper = document.querySelector('#videowrapper')
 
-async function getOneArtist(artist) {
-    try {
-        const response = await fetch(`/getOneArtist/${artist}`)
-        const oneArtist = await response.json()
-        imgArr = oneArtist.imgpath
-        imgArrMob = oneArtist.imgpathmob
-        captionsArr = oneArtist.captions
-        const countTotal = imgArr.length
-        imgDir = `img/artists/${oneArtist.firstname}${oneArtist.lastname}`
-        imgDirMob = `img/artists/${oneArtist.firstname}${oneArtist.lastname}/mob`
-        // Append TEXT to desktop
-        title.insertAdjacentHTML('afterend', `
-        <div id="${oneArtist.firstname}${oneArtist.lastname}" class="text_container_nohover">
-        <div class="names_wrapper"><div class="names_container">
-        <img class="artist_name" src="img/artists/namepaths/${oneArtist.namepath}"></div></div>
-        <h6 class="pdf_mob"><a href="pdf/bio/${oneArtist.firstname}${oneArtist.lastname}.pdf" target="_blank">bio</a></h6>
-        </div>
-        <div class="img_counter">
-        <p id="counter_text" class="counters">Works</p>
-        <p class="counters"><span id="counter_num"> 1</span>/<span id="counter_total">${countTotal}</span></p>        
-        </div>
-        <h6 class="pdf"><a href="pdf/bio/${oneArtist.firstname}${oneArtist.lastname}.pdf" target="_blank">bio</a></h6>
-        `)
-        // Append images MOB
-        imgContainer.insertAdjacentHTML('beforeend', `
-        <div class="image_container_mob_one">
-        <img class="center_image_mob mob_one_exhib" src="${imgDirMob}/${imgArrMob[0]}" alt="center_image">
-        </div>
-        `)
-        // Append images DESK
-        imgContainer.insertAdjacentHTML('afterbegin', `
-        <img id="main_image" class="center_image_exhib center_image_one_exhib" src="${imgDir}/${imgArr[0]}" alt="center_image">
-        `)
-        imgContainer.insertAdjacentHTML('beforeend', `
-        <p id="captions_desk" class="captions">${captionsArr[0].replace(/\n/g, '<br>')}</p>
-            `)
-    } catch (e) {
-        console.log(e)
-    }
-}
-
 getOneArtist(artistId).then(() => {
     if (mediaQueryList.matches) {
         mob = true
@@ -216,3 +175,44 @@ getOneArtist(artistId).then(() => {
 
     }
 }).catch((e) => { console.log(e.message) })
+
+async function getOneArtist(artist) {
+    try {
+        const response = await fetch(`/getOneArtist/${artist}`)
+        const oneArtist = await response.json()
+        imgArr = oneArtist.imgpath
+        imgArrMob = oneArtist.imgpathmob
+        captionsArr = oneArtist.captions
+        const countTotal = imgArr.length
+        imgDir = `img/artists/${oneArtist.firstname}${oneArtist.lastname}`
+        imgDirMob = `img/artists/${oneArtist.firstname}${oneArtist.lastname}/mob`
+        // Append TEXT to desktop
+        title.insertAdjacentHTML('afterend', `
+        <div id="${oneArtist.firstname}${oneArtist.lastname}" class="text_container_nohover">
+        <div class="names_wrapper"><div class="names_container">
+        <img class="artist_name" src="img/artists/namepaths/${oneArtist.namepath}"></div></div>
+        <h6 class="pdf_mob"><a href="pdf/bio/${oneArtist.firstname}${oneArtist.lastname}.pdf" target="_blank">bio</a></h6>
+        </div>
+        <div class="img_counter">
+        <p id="counter_text" class="counters">Works</p>
+        <p class="counters"><span id="counter_num"> 1</span>/<span id="counter_total">${countTotal}</span></p>        
+        </div>
+        <h6 class="pdf"><a href="pdf/bio/${oneArtist.firstname}${oneArtist.lastname}.pdf" target="_blank">bio</a></h6>
+        `)
+        // Append images MOB
+        imgContainer.insertAdjacentHTML('beforeend', `
+        <div class="image_container_mob_one">
+        <img class="center_image_mob mob_one_exhib" src="${imgDirMob}/${imgArrMob[0]}" alt="center_image">
+        </div>
+        `)
+        // Append images DESK
+        imgContainer.insertAdjacentHTML('afterbegin', `
+        <img id="main_image" class="center_image_exhib center_image_one_exhib" src="${imgDir}/${imgArr[0]}" alt="center_image">
+        `)
+        imgContainer.insertAdjacentHTML('beforeend', `
+        <p id="captions_desk" class="captions">${captionsArr[0].replace(/\n/g, '<br>')}</p>
+            `)
+    } catch (e) {
+        console.log(e)
+    }
+}
