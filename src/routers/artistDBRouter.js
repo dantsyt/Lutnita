@@ -16,7 +16,6 @@ artistsDBRouter.get('/getArtists', async (req, res) => {
 
 artistsDBRouter.get('/getOneArtist/:fullname', async (req, res) => {
     const fullname = req.params.fullname
-    console.log(req.params.fullname)
     try {
         const artist = await Artist.findOne({ fullname })
         if (!artist) { return res.status(404).send('404 artists, not one found') }

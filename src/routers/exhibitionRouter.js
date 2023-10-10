@@ -13,10 +13,10 @@ exhibRouter.get('/', (req, res) => {
     })
 })
 
-exhibRouter.get('/:id', async (req, res) => {
-    const _id = req.params.id
+exhibRouter.get('/:exhibname', async (req, res) => {
+    const exhibname = req.params.exhibname
     try {
-        const exhibition = await Exhibition.findById({ _id })
+        const exhibition = await Exhibition.findOne({ exhibname })
         if (!exhibition) {
             return res.status(404).render('404', {
                 title: '404 exhibitions, not one found...'
