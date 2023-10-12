@@ -191,13 +191,13 @@ async function getOneArtist(artist) {
         <div id="${oneArtist.firstname}${oneArtist.lastname}" class="text_container_nohover">
         <div class="names_wrapper"><div class="names_container">
         <img class="artist_name" src="img/artists/namepaths/${oneArtist.namepath}"></div></div>
-        <h6 class="pdf_mob"><a href="pdf/bio/${oneArtist.firstname}${oneArtist.lastname}.pdf" target="_blank">bio</a></h6>
+        <h6 class="pdf_mob"><a href="pdf/bio/${oneArtist.firstname}${oneArtist.lastname}.pdf" target="_blank">BIO</a></h6>
         </div>
         <div class="img_counter">
         <p id="counter_text" class="counters">Works</p>
-        <p class="counters"><span id="counter_num"> 1</span>/<span id="counter_total">${countTotal}</span></p>        
+        <p class="counters"><span id="counter_num"> 1</span>/<span id="counter_total">${countTotal}</span></p>
         </div>
-        <h6 class="pdf"><a href="pdf/bio/${oneArtist.firstname}${oneArtist.lastname}.pdf" target="_blank">bio</a></h6>
+        <h6 class="pdf"><a href="pdf/bio/${oneArtist.firstname}${oneArtist.lastname}.pdf" target="_blank">BIO</a></h6>
         `)
         // Append images MOB
         imgContainer.insertAdjacentHTML('beforeend', `
