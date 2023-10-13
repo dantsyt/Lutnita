@@ -195,20 +195,36 @@ video {
     opacity: 1;
 }
 
-.bio_hidden {
-    position: absolute;
-    top: 0;
-    bottom: 5px;
-    background: rgba(26, 26, 26, 0.8);
-    color: #fff;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity .2s, visibility .2s;
+#info_mob {
+    display: none;
 }
 
-.bio {
-    visibility: visible;
+.info_hidden {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 0;
+    bottom: 5px;
+    background: rgb(12 12 12 / 93%);
+    color: #cfcfcf;
+    padding: 2em 1.5em;
+    font-size: 15rem;
+    opacity: 0;
+}
+
+.info {
     opacity: 1;
+
+}
+
+#info {
+    transition: opacity .2s;
+    z-index: 9;
+}
+
+.info_text {
+    padding-bottom: 1em;
 }
 
 .info_wrapper {

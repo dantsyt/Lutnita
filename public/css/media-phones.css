@@ -119,6 +119,21 @@
         justify-content: flex-end;
     }
 
+    #info {
+        display: none;
+    }
+
+    #info_mob {
+        display: flex;
+    }
+
+    .info_mob {
+        flex-direction: column;
+        color: #666;
+        /* font-size: 15rem; */
+        padding: 0 8vw;
+    }
+
     /* --------- CENTER --------- */
 
     .load_image {
@@ -156,6 +171,11 @@
 
     .artists_container {
         margin-top: 0.5em;
+    }
+
+    .info_container {
+        padding-top: 4vh;
+        padding-bottom: 6vh;
     }
 
     .center_image_index,
