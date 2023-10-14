@@ -60,11 +60,11 @@ getOneArtist(artistId).then(() => {
 
     function handleGesture() {
         if (touchendX < touchstartX) {
-            prevImage()
+            nextImage()
         }
 
         if (touchendX > touchstartX) {
-            nextImage()
+            prevImage()
         }
     }
     // ExhibLink Mob
