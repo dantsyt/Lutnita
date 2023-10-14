@@ -3,6 +3,8 @@ const artistPath = window.location.pathname
 const artistId = artistPath.substring(artistPath.indexOf('/', 1) + 1, artistPath.length)
 const imgContainer = document.querySelector('.image_container')
 videoWrapper = document.querySelector('#videowrapper')
+const textSection = document.querySelector('.text_section')
+linked = false
 
 getOneArtist(artistId).then(() => {
     if (mediaQueryList.matches) {
@@ -40,6 +42,23 @@ getOneArtist(artistId).then(() => {
             prevImage()
         }
     }
+    // ExhibLink Mob
+    if (linked && mob) {
+        document.querySelector('.text_container_nohover').insertAdjacentHTML('afterend', `
+        <div id="exhib_link_mob" class="exhib_link exhib_link_mob">
+        <h6 class="exhib_link_text">Exhibition</h6>
+        <h4 id="artist_exhib_date" class="exhibition_date">${oneExhib.date}</h4>
+        </div>
+        `)
+    }
+    // ExhibLink click
+    if (linked) {
+        const exhibLink = document.querySelector('.exhib_link')
+        exhibLink.onclick = () => {
+            location.assign(`/exhibitions/${oneExhib.exhibname}`)
+        }
+    }
+    //Next-Prev img funk
     const nextImage = () => {
         counter++
         if (videoWrapper) {
@@ -180,6 +199,15 @@ async function getOneArtist(artist) {
     try {
         const response = await fetch(`/getOneArtist/${artist}`)
         const oneArtist = await response.json()
+        try {
+            const respone_exhib = await fetch(`/getOneExhib/${artist}`)
+            oneExhib = await respone_exhib.json()
+            if (oneArtist.fullname == oneExhib.exhibname) {
+                linked = true
+            } else { linked = false }
+        } catch (e) {
+            console.log(e)
+        }
         imgArr = oneArtist.imgpath
         imgArrMob = oneArtist.imgpathmob
         captionsArr = oneArtist.captions
@@ -191,13 +219,13 @@ async function getOneArtist(artist) {
         <div id="${oneArtist.firstname}${oneArtist.lastname}" class="text_container_nohover">
         <div class="names_wrapper"><div class="names_container">
         <img class="artist_name" src="img/artists/namepaths/${oneArtist.namepath}"></div></div>
-        <h6 class="pdf_mob"><a href="pdf/bio/${oneArtist.firstname}${oneArtist.lastname}.pdf" target="_blank">BIO</a></h6>
+        <h6 class="pdf_mob"><a href="pdf/bio/${oneArtist.firstname}${oneArtist.lastname}.pdf" target="_blank">bio</a></h6>
         </div>
         <div class="img_counter">
         <p id="counter_text" class="counters">Works</p>
         <p class="counters"><span id="counter_num"> 1</span>/<span id="counter_total">${countTotal}</span></p>
         </div>
-        <h6 class="pdf"><a href="pdf/bio/${oneArtist.firstname}${oneArtist.lastname}.pdf" target="_blank">BIO</a></h6>
+        <h6 class="pdf"><a href="pdf/bio/${oneArtist.firstname}${oneArtist.lastname}.pdf" target="_blank">bio</a></h6>
         `)
         // Append images MOB
         imgContainer.insertAdjacentHTML('beforeend', `
@@ -212,6 +240,15 @@ async function getOneArtist(artist) {
         imgContainer.insertAdjacentHTML('beforeend', `
         <p id="captions_desk" class="captions">${captionsArr[0].replace(/\n/g, '<br>')}</p>
             `)
+        // Append Exhib link
+        if (linked) {
+            textSection.insertAdjacentHTML('beforeend', `
+        <div id="exhib_link" class="exhib_link">
+        <h6 class="exhib_link_text">Exhibition</h6>
+        <h4 id="artist_exhib_date" class="exhibition_date">${oneExhib.date}</h4>
+        </div>
+        `)
+        }
     } catch (e) {
         console.log(e)
     }

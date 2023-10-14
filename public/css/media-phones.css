@@ -134,6 +134,16 @@
         padding: 0 8vw;
     }
 
+    #exhib_link {
+        display: none;
+    }
+
+    .exhib_link_mob {
+        margin-bottom: unset;
+        padding-bottom: unset;
+        margin-inline: 8vw;
+    }
+
     /* --------- CENTER --------- */
 
     .load_image {

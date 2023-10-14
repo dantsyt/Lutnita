@@ -108,7 +108,8 @@ h4 {
     padding-top: 2em;
 }
 
-.text_container {
+.text_container,
+.exhib_link {
     transition: border 0.3s ease-out;
 }
 
@@ -238,6 +239,37 @@ video {
     text-decoration: underline;
 }
 
+.exhib_link {
+    border: 1px solid #ffffff;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    font-size: 13rem;
+    margin-bottom: 2em;
+    margin-inline-start: 5em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    margin-top: 1em;
+}
+
+.exhib_link:hover {
+    border: 1px solid #666;
+    border-left: none;
+    border-right: none;
+    cursor: url('cursors/cursor_empty.svg'), pointer;
+}
+
+.exhib_link_text {
+    font-size: unset;
+    letter-spacing: 1rem;
+}
+
+#artist_exhib_date {
+    margin-top: 2rem;
+    margin-bottom: 0.2em;
+}
 
 /* --------- CENTER --------- */
 
