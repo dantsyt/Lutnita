@@ -203,13 +203,13 @@ video {
     position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     top: 0;
     bottom: 5px;
     background: rgb(255 255 255);
     color: #666;
-    padding: 2em 1.5em;
-    font-size: 13rem;
+    padding: 6em 1.5em 0 1.5em;
+    font-size: 14rem;
     opacity: 0;
 }
 
