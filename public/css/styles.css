@@ -206,10 +206,10 @@ video {
     justify-content: center;
     top: 0;
     bottom: 5px;
-    background: rgb(12 12 12 / 93%);
-    color: #cfcfcf;
+    background: rgb(255 255 255);
+    color: #666;
     padding: 2em 1.5em;
-    font-size: 15rem;
+    font-size: 13rem;
     opacity: 0;
 }
 
