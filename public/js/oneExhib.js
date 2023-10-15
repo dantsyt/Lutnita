@@ -194,12 +194,9 @@ const videoAdd = () => {
     captions.classList.remove('fade_captions')
     document.querySelector('.image_container_mob_one').insertAdjacentHTML('beforebegin', `
     <div id="videowrapper" class="videowrapper">
-    <div class="inverted" style="position: relative; padding-top: 52.734375%;">
-    <iframe  id="video"
-    src="https://customer-5koq92y0e8fw2ep0.cloudflarestream.com/fc4fe6a4a9b127d5f5d8cf78a8da8ba9/iframe?poster=https%3A%2F%2Fcustomer-5koq92y0e8fw2ep0.cloudflarestream.com%2Ffc4fe6a4a9b127d5f5d8cf78a8da8ba9%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"
-    style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
-    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-    allowfullscreen="true"></iframe></div>
+    <video id="video" controls controlslist="nodownload" class="inverted">
+    <source src="img/exhibitions/vbmmrdngmr/vbmmrdngmr.mp4" type="video/mp4" />
+    </video>
     </div>
     `)
     document.querySelector('.right_space').insertAdjacentHTML('afterbegin', `
@@ -217,8 +214,10 @@ const videoAdd = () => {
     document.querySelectorAll('.inverted').forEach((res) => {
         res.classList.toggle('invert')
     })
-    videoWrapper.classList.add('video_visible')
-
+    video.onloadedmetadata = () => {
+        // loadImage.classList.add('load_image_hidden')
+        videoWrapper.classList.add('video_visible')
+    }
     document.querySelector('#close_video').addEventListener('click', videoRemove)
     videoBtn.removeEventListener('click', videoAdd)
 }
