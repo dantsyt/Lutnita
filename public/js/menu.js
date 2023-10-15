@@ -3,7 +3,7 @@ const footer = document.querySelector('.footer');
 const navbar = document.querySelector('#navbar');
 const navBtns = document.querySelectorAll('.nav-btns');
 
-const mediaQueryList = window.matchMedia('screen and (max-width: 480px)');
+const mediaQueryList = window.matchMedia('only screen and (max-width: 1024px)');
 
 
 

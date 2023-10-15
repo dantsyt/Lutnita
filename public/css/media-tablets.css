@@ -1,7 +1,5 @@
-/* @media screen and (min-width: 481px) {
-    body {
-        display: contents;
-    }
+/* @media only screen and (min-width: 481px) and (max-width: 1024px) {
+
 } */
 
 /* Min-width: 320px (smaller phone viewpoints)
