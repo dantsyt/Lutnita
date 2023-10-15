@@ -42,31 +42,6 @@ getOneArtist(artistId).then(() => {
             prevImage()
         }
     }
-    let touchstartX = 0
-    let touchstartY = 0
-    let touchendX = 0
-    let touchendY = 0
-
-    image.addEventListener('touchstart', function (event) {
-        touchstartX = event.changedTouches[0].screenX
-        touchstartY = event.changedTouches[0].screenY
-    }, false)
-
-    image.addEventListener('touchend', function (event) {
-        touchendX = event.changedTouches[0].screenX
-        touchendY = event.changedTouches[0].screenY
-        handleGesture()
-    }, false)
-
-    function handleGesture() {
-        if (touchendX < touchstartX) {
-            nextImage()
-        }
-
-        if (touchendX > touchstartX) {
-            prevImage()
-        }
-    }
     // ExhibLink Mob
     if (linked && mob) {
         document.querySelector('.text_container_nohover').insertAdjacentHTML('afterend', `
@@ -278,3 +253,32 @@ async function getOneArtist(artist) {
         console.log(e)
     }
 }
+
+// let touchstartX = 0
+// let touchstartY = 0
+// let touchendX = 0
+// let touchendY = 0
+
+// image.addEventListener('touchstart', function (event) {
+//     touchstartX = event.changedTouches[0].screenX
+//     touchstartY = event.changedTouches[0].screenY
+// }, false)
+
+// image.addEventListener('touchend', function (event) {
+//     touchendX = event.changedTouches[0].screenX
+//     touchendY = event.changedTouches[0].screenY
+//     handleGesture()
+// }, false)
+
+// function handleGesture() {
+//     if (touchendX < touchstartX) {
+//         nextImage()
+//     }
+
+//     if (touchendX > touchstartX) {
+//         prevImage()
+//     }
+//     if (touchendY > touchstartY) {
+
+//     }
+// }
