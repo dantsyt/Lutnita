@@ -21,7 +21,7 @@ async function getOneExhib(exh) {
         </div>
         <div class="img_counter">
         <p id="counter_text" class="counters">Exhibition views</p>
-        <p class="counters"><span id="counter_num"> 1</span>/<span id="counter_total">${countTotal}</span></p>        
+        <p class="counters"><span id="counter_num"> 1</span>/<span id="counter_total">${countTotal}</span></p>
         </div>
         <h6 class="pdf"><a href="pdf/${oneExhib.exhibname}.pdf" target="_blank">info</a></h6>
         `)
@@ -194,9 +194,12 @@ const videoAdd = () => {
     captions.classList.remove('fade_captions')
     document.querySelector('.image_container_mob_one').insertAdjacentHTML('beforebegin', `
     <div id="videowrapper" class="videowrapper">
-    <video id="video" controls controlslist="nodownload" class="inverted">
-    <source src="img/exhibitions/vbmmrdngmr/vbmmrdngmr.mp4" type="video/mp4" />
-    </video>
+    <div class="inverted" style="position: relative; padding-top: 52.734375%;">
+    <iframe  id="video"
+    src="https://customer-5koq92y0e8fw2ep0.cloudflarestream.com/fc4fe6a4a9b127d5f5d8cf78a8da8ba9/iframe?poster=https%3A%2F%2Fcustomer-5koq92y0e8fw2ep0.cloudflarestream.com%2Ffc4fe6a4a9b127d5f5d8cf78a8da8ba9%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"
+    style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
+    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+    allowfullscreen="true"></iframe></div>
     </div>
     `)
     document.querySelector('.right_space').insertAdjacentHTML('afterbegin', `
@@ -214,10 +217,8 @@ const videoAdd = () => {
     document.querySelectorAll('.inverted').forEach((res) => {
         res.classList.toggle('invert')
     })
-    video.onloadedmetadata = () => {
-        // loadImage.classList.add('load_image_hidden')
-        videoWrapper.classList.add('video_visible')
-    }
+    videoWrapper.classList.add('video_visible')
+
     document.querySelector('#close_video').addEventListener('click', videoRemove)
     videoBtn.removeEventListener('click', videoAdd)
 }
