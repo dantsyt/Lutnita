@@ -144,6 +144,10 @@
         margin-inline: 8vw;
     }
 
+    .upcoming {
+        padding: 24vh 8vw;
+    }
+
     /* --------- CENTER --------- */
 
     .content-wrapper {

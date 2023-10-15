@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" class="full_height">
+
+{{>head}}
+
+<body class="full_body">
+    {{>header}}
+    <main class="main full_main">
+        <section id="text_section" class="text_section">
+            <h2 class="title">{{title}}</h2>
+            <div id="text_container" class="text_container upcoming" onclick=location.assign('/exhibitions')>
+                <div class="names_wrapper">
+                    <div class="names_container">
+                        <img class="artist_name" src="img/exhibitions/namepaths/salome.svg">
+                    </div>
+                </div>
+                <h4 class="exhibition_date">28 Oct 2023 — 10 Dec 2023</h4>
+            </div>
+        </section>
+        <section class="image_container">
+            {{!-- <img class="center_image_index" src="img/flaviucacoveanu.webp" alt="center_image"
+                onclick=location.assign('/exhibitions/flaviucacoveanu')> --}}
+        </section>
+        <section class="right_space"></section>
+    </main>
+    {{>footer}}
+</body>
+
+</html>
