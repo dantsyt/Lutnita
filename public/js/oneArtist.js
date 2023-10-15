@@ -77,9 +77,17 @@ getOneArtist(artistId).then(() => {
         captions.classList.remove('fade_captions')
         // Video
         if (imgArr[counter].substring(imgArr[counter].indexOf('.', 1) + 1, imgArr[counter].length) == "mp4") {
+            if (document.querySelector('.content-wrapper')) {
+                document.querySelector('.content-wrapper').remove()
+            }
             image.style.display = 'none'
             document.querySelector('.image_container_mob_one').insertAdjacentHTML('beforebegin', `
-                    <div id="videowrapper" class="videowrapper">
+                    <div class="content-wrapper">
+                    <div class="placeholder">
+                    <div class="animated-background"></div>
+                    </div>
+                    </div>
+                    <div id="videowrapper" class="videowrapper artist_video">
                     <video id="video" autoplay loop class="inverted">
                     <source src=${imgDir}/${imgArr[counter]} type="video/mp4" />
                     </video>
@@ -87,6 +95,7 @@ getOneArtist(artistId).then(() => {
                     `)
             const video = document.querySelector('video')
             video.onloadedmetadata = () => {
+                document.querySelector('.content-wrapper').classList.add('load_image_hidden')
                 videoWrapper = document.querySelector('#videowrapper')
                 setTimeout(() => {
                     videoWrapper.classList.add('video_visible')
@@ -111,7 +120,6 @@ getOneArtist(artistId).then(() => {
         }
         const checkImageLoaded = () => {
             if (image.complete) {
-
                 setTimeout(() => {
                     image.classList.add('fade')
                 }, 1)
@@ -144,16 +152,25 @@ getOneArtist(artistId).then(() => {
         captions.classList.remove('fade_captions')
         // Video
         if (imgArr[counter].substring(imgArr[counter].indexOf('.', 1) + 1, imgArr[counter].length) == "mp4") {
+            if (document.querySelector('.content-wrapper')) {
+                document.querySelector('.content-wrapper').remove()
+            }
             image.style.display = 'none'
             document.querySelector('.image_container_mob_one').insertAdjacentHTML('beforebegin', `
-                    <div id="videowrapper" class="videowrapper">
-                    <video id="video" autoplay loop class="inverted">
-                    <source src=${imgDir}/${imgArr[counter]} type="video/mp4" />
-                    </video>
-                    </div>
-                    `)
+                <div class="content-wrapper">
+                <div class="placeholder">
+                <div class="animated-background"></div>
+                </div>
+                </div>
+                <div id="videowrapper" class="videowrapper artist_video">
+                <video id="video" autoplay loop class="inverted">
+                <source src=${imgDir}/${imgArr[counter]} type="video/mp4" />
+                </video>
+                </div>
+                `)
             const video = document.querySelector('video')
             video.onloadedmetadata = () => {
+                document.querySelector('.content-wrapper').classList.add('load_image_hidden')
                 videoWrapper = document.querySelector('#videowrapper')
                 setTimeout(() => {
                     videoWrapper.classList.add('video_visible')
