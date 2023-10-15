@@ -88,7 +88,7 @@ getOneArtist(artistId).then(() => {
                     </div>
                     </div>
                     <div id="videowrapper" class="videowrapper artist_video">
-                    <video id="video" autoplay loop class="inverted">
+                    <video id="video" autoplay loop playsinline class="inverted">
                     <source src=${imgDir}/${imgArr[counter]} type="video/mp4" />
                     </video>
                     </div>
@@ -102,6 +102,7 @@ getOneArtist(artistId).then(() => {
                 }, 1)
                 setTimeout(() => {
                     captions.classList.add('fade_captions')
+                    document.querySelector('.content-wrapper').remove()
                 }, 700)
                 captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
                 viewsCount.innerText = ` ${counter + 1}`
@@ -163,7 +164,7 @@ getOneArtist(artistId).then(() => {
                 </div>
                 </div>
                 <div id="videowrapper" class="videowrapper artist_video">
-                <video id="video" autoplay loop class="inverted">
+                <video id="video" playsinline autoplay loop class="inverted">
                 <source src=${imgDir}/${imgArr[counter]} type="video/mp4" />
                 </video>
                 </div>
@@ -177,6 +178,7 @@ getOneArtist(artistId).then(() => {
                 }, 1)
                 setTimeout(() => {
                     captions.classList.add('fade_captions')
+                    document.querySelector('.content-wrapper').remove()
                 }, 700)
                 captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
                 viewsCount.innerText = ` ${counter + 1}`
