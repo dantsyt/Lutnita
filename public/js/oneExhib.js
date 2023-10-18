@@ -195,7 +195,7 @@ const videoAdd = () => {
     captions.classList.remove('fade_captions')
     document.querySelector('.image_container_mob_one').insertAdjacentHTML('beforebegin', `
     <div id="videowrapper" class="videowrapper">
-    <video id="video" controls controlslist="nodownload" class="inverted">
+    <video id="video" playsinline autoplay loop class="inverted">
     <source src="${assetUrl}/img/exhibitions/vbmmrdngmr/vbmmrdngmr.mp4" type="video/mp4" />
     </video>
     </div>
