@@ -1,11 +1,12 @@
 const title = document.getElementById('title')
+const assetUrl = "https://d3m5h3ndrov00p.cloudfront.net"
 
 getExhibs().then(() => {
     const names = document.querySelectorAll('.text_container')
     const image = document.querySelector('.center_image_exhib')
     for (let name of names) {
         name.addEventListener('mouseenter', () => {
-            image.src = `img/exhibitions/${name.firstElementChild.id}.webp`
+            image.src = `${assetUrl}/img/exhibitions/${name.firstElementChild.id}.webp`
             image.onclick = () => {
                 location.assign(`/exhibitions/${name.id}`)
             }
@@ -18,7 +19,7 @@ async function getExhibs() {
         const response = await fetch('/getExhibs')
         const exhibData = await response.json()
         const image = document.querySelector('.center_image_exhib')
-        image.src = `img/exhibitions/${exhibData[exhibData.length - 1].exhibname}.webp` // Image Path
+        image.src = `${assetUrl}/img/exhibitions/${exhibData[exhibData.length - 1].exhibname}.webp` // Image Path
         image.onclick = () => {
             location.assign(`/exhibitions/${exhibData[exhibData.length - 1].exhibname}`) // URL Path
         }
@@ -30,7 +31,7 @@ async function getExhibs() {
         <h4 class="exhibition_date">${one.date}</h4>
         </div>
         <div class="image_container_mob">
-        <img class="center_image_mob" src="img/exhibitions/${one.exhibname}.webp" alt="center_image" onclick=location.assign('/exhibitions/${one.exhibname}')>
+        <img class="center_image_mob" src="${assetUrl}/img/exhibitions/${one.exhibname}.webp" alt="center_image" onclick=location.assign('/exhibitions/${one.exhibname}')>
         </div>
         `)
             namesPlace = document.querySelector(`.names_wrapper`)
@@ -38,14 +39,14 @@ async function getExhibs() {
                 if (one.namepath[0] == "vbmmrdngmr.svg") {
                     namesPlace.insertAdjacentHTML('beforeend', `
                         <div class="names_container">
-                        <img class="artist_name" src="img/exhibitions/namepaths/${one.namepath[0]}">
+                        <img class="artist_name" src="${assetUrl}/img/exhibitions/namepaths/${one.namepath[0]}">
                         </div>
                         `)
                     break
                 }
                 namesPlace.insertAdjacentHTML('beforeend', `
                 <div class="names_container">
-                <img class="artist_name" src="img/exhibitions/namepaths/${name}">
+                <img class="artist_name" src="${assetUrl}/img/exhibitions/namepaths/${name}">
                 </div>
                 `)
 

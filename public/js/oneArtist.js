@@ -5,6 +5,7 @@ const imgContainer = document.querySelector('.image_container')
 videoWrapper = document.querySelector('#videowrapper')
 const textSection = document.querySelector('.text_section')
 linked = false
+const assetUrl = "https://d3m5h3ndrov00p.cloudfront.net"
 
 getOneArtist(artistId).then(() => {
     if (mediaQueryList.matches) {
@@ -236,13 +237,13 @@ async function getOneArtist(artist) {
         imgArrMob = oneArtist.imgpathmob
         captionsArr = oneArtist.captions
         const countTotal = imgArr.length
-        imgDir = `img/artists/${oneArtist.firstname}${oneArtist.lastname}`
-        imgDirMob = `img/artists/${oneArtist.firstname}${oneArtist.lastname}/mob`
+        imgDir = `${assetUrl}/img/artists/${oneArtist.firstname}${oneArtist.lastname}`
+        imgDirMob = `${assetUrl}/img/artists/${oneArtist.firstname}${oneArtist.lastname}/mob`
         // Append TEXT to desktop
         title.insertAdjacentHTML('afterend', `
         <div id="${oneArtist.firstname}${oneArtist.lastname}" class="text_container_nohover">
         <div class="names_wrapper"><div class="names_container">
-        <img class="artist_name" src="img/artists/namepaths/${oneArtist.namepath}"></div></div>
+        <img class="artist_name" src="${assetUrl}/img/artists/namepaths/${oneArtist.namepath}"></div></div>
         <h6 class="pdf_mob"><a href="pdf/bio/${oneArtist.firstname}${oneArtist.lastname}.pdf" target="_blank">bio</a></h6>
         </div>
         <div class="img_counter">

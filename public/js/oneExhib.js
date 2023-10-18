@@ -2,6 +2,7 @@ const title = document.querySelector('#title')
 const exhPath = window.location.pathname
 const exhId = exhPath.substring(exhPath.indexOf('/', 1) + 1, exhPath.length)
 const imgContainer = document.querySelector('.image_container')
+const assetUrl = "https://d3m5h3ndrov00p.cloudfront.net"
 
 async function getOneExhib(exh) {
     try {
@@ -10,8 +11,8 @@ async function getOneExhib(exh) {
         imgArr = oneExhib.imgpath
         captionsArr = oneExhib.captions
         const countTotal = imgArr.length
-        imgDir = `img/exhibitions/${oneExhib.exhibname}`
-        imgDirMob = `img/exhibitions/${oneExhib.exhibname}/mob`
+        imgDir = `${assetUrl}/img/exhibitions/${oneExhib.exhibname}`
+        imgDirMob = `${assetUrl}/img/exhibitions/${oneExhib.exhibname}/mob`
         // Append TEXT to desktop
         title.insertAdjacentHTML('afterend', `
         <div id="${oneExhib.exhibname}" class="text_container_nohover">
@@ -32,7 +33,7 @@ async function getOneExhib(exh) {
             }
             namesPlace.insertAdjacentHTML('beforeend', `
             <div class="names_container">
-            <img class="artist_name" src="img/exhibitions/namepaths/${name}">
+            <img class="artist_name" src="${assetUrl}/img/exhibitions/namepaths/${name}">
             </div>
             `)
         }
@@ -195,7 +196,7 @@ const videoAdd = () => {
     document.querySelector('.image_container_mob_one').insertAdjacentHTML('beforebegin', `
     <div id="videowrapper" class="videowrapper">
     <video id="video" controls controlslist="nodownload" class="inverted">
-    <source src="img/exhibitions/vbmmrdngmr/vbmmrdngmr.mp4" type="video/mp4" />
+    <source src="${assetUrl}/img/exhibitions/vbmmrdngmr/vbmmrdngmr.mp4" type="video/mp4" />
     </video>
     </div>
     `)
