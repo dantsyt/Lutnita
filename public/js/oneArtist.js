@@ -24,6 +24,9 @@ const handleTouchMove = (event) => {
     xDiff = x2 - x1
     yDiff = y2 - y1
     move = true
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        if (xDiff > 30 || xDiff < -30) { document.body.style.overflowY = 'none' }
+    } else { document.body.style.overflowY = 'unset' }
 }
 
 
@@ -33,8 +36,8 @@ getOneArtist(artistId).then(() => {
             return false
         }
         if (Math.abs(xDiff) > Math.abs(yDiff)) {
-            if (xDiff > 30) { nextImage() }
-            else if (xDiff < -30) { prevImage() }
+            if (xDiff > 30) { prevImage() }
+            else if (xDiff < -30) { nextImage() }
         }
         x1 = null
         y1 = null
@@ -126,6 +129,12 @@ getOneArtist(artistId).then(() => {
                     </div>
                     `)
             const video = document.querySelector('video')
+            function addListenerMulti(el, s, fn) {
+                s.split(' ').forEach(e => el.addEventListener(e, fn, false));
+            }
+            addListenerMulti(video, 'abort canplay canplaythrough durationchange emptied encrypted ended error interruptbegin interruptend loadeddata loadedmetadata loadstart mozaudioavailable pause play playing progress ratechange seeked seeking stalled suspend timeupdate volumechange waiting', function (e) {
+                console.log(e.type);
+            });
             video.onloadedmetadata = () => {
                 document.querySelector('.content-wrapper').classList.add('load_image_hidden')
                 videoWrapper = document.querySelector('#videowrapper')
@@ -147,9 +156,6 @@ getOneArtist(artistId).then(() => {
                     prevImage()
                 }
             }
-            video.addEventListener('touchstart', handleTouchStart, false)
-            video.addEventListener('touchmove', handleTouchMove, false)
-            video.addEventListener('touchend', handleTouchEnd, false)
         }
         image.onload = () => {
             checkImageLoaded()
@@ -225,9 +231,6 @@ getOneArtist(artistId).then(() => {
                     prevImage()
                 }
             }
-            video.addEventListener('touchstart', handleTouchStart, false)
-            video.addEventListener('touchmove', handleTouchMove, false)
-            video.addEventListener('touchend', handleTouchEnd, false)
         }
         image.onload = () => {
             checkImageLoaded()
