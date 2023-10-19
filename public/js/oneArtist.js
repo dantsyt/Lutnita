@@ -7,7 +7,38 @@ const textSection = document.querySelector('.text_section')
 linked = false
 const assetUrl = "https://d3m5h3ndrov00p.cloudfront.net"
 
+let x1 = null
+let y1 = null
+
+const handleTouchStart = (event) => {
+    const firstTouch = event.touches[0]
+    x1 = firstTouch.clientX
+    y1 = firstTouch.clientY
+    move = false
+}
+
+const handleTouchMove = (event) => {
+    if (!x1 || !y1) { return false }
+    let x2 = event.touches[0].clientX
+    let y2 = event.touches[0].clientY
+    xDiff = x2 - x1
+    yDiff = y2 - y1
+    move = true
+}
+
+
 getOneArtist(artistId).then(() => {
+    const handleTouchEnd = () => {
+        if (!move) {
+            return false
+        }
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {
+            if (xDiff > 30) { nextImage() }
+            else if (xDiff < -30) { prevImage() }
+        }
+        x1 = null
+        y1 = null
+    }
     if (mediaQueryList.matches) {
         mob = true
         image = document.querySelector('.mob_one_exhib')
@@ -116,6 +147,9 @@ getOneArtist(artistId).then(() => {
                     prevImage()
                 }
             }
+            video.addEventListener('touchstart', handleTouchStart, false)
+            video.addEventListener('touchmove', handleTouchMove, false)
+            video.addEventListener('touchend', handleTouchEnd, false)
         }
         image.onload = () => {
             checkImageLoaded()
@@ -134,7 +168,6 @@ getOneArtist(artistId).then(() => {
                 setTimeout(checkImageLoaded, 50)
             }
         }
-
     }
     const prevImage = () => {
         counter--
@@ -192,6 +225,9 @@ getOneArtist(artistId).then(() => {
                     prevImage()
                 }
             }
+            video.addEventListener('touchstart', handleTouchStart, false)
+            video.addEventListener('touchmove', handleTouchMove, false)
+            video.addEventListener('touchend', handleTouchEnd, false)
         }
         image.onload = () => {
             checkImageLoaded()
@@ -213,6 +249,9 @@ getOneArtist(artistId).then(() => {
         }
 
     }
+    image.addEventListener('touchstart', handleTouchStart, false)
+    image.addEventListener('touchmove', handleTouchMove, false)
+    image.addEventListener('touchend', handleTouchEnd, false)
     // TEMP Remove bio salt
     if (document.querySelector('.text_container_nohover').id == 'saltsalome') {
         document.querySelector('.pdf').remove()
@@ -278,32 +317,3 @@ async function getOneArtist(artist) {
         console.log(e)
     }
 }
-
-// let touchstartX = 0
-// let touchstartY = 0
-// let touchendX = 0
-// let touchendY = 0
-
-// image.addEventListener('touchstart', function (event) {
-//     touchstartX = event.changedTouches[0].screenX
-//     touchstartY = event.changedTouches[0].screenY
-// }, false)
-
-// image.addEventListener('touchend', function (event) {
-//     touchendX = event.changedTouches[0].screenX
-//     touchendY = event.changedTouches[0].screenY
-//     handleGesture()
-// }, false)
-
-// function handleGesture() {
-//     if (touchendX < touchstartX) {
-//         nextImage()
-//     }
-
-//     if (touchendX > touchstartX) {
-//         prevImage()
-//     }
-//     if (touchendY > touchstartY) {
-
-//     }
-// }
