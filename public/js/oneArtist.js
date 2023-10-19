@@ -25,8 +25,10 @@ const handleTouchMove = (event) => {
     yDiff = y2 - y1
     move = true
     if (Math.abs(xDiff) > Math.abs(yDiff)) {
-        if (xDiff > 30 || xDiff < -30) { document.body.style.overflowY = 'none' }
-    } else { document.body.style.overflowY = 'unset' }
+        if (xDiff > 30 || xDiff < -30) { document.body.style.overscrollBehaviorY = 'none' }
+    } else {
+        if (yDiff > 30 || yDiff < -30) { document.body.style.overflowY = 'unset' }
+    }
 }
 
 
