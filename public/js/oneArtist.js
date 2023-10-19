@@ -31,7 +31,6 @@ const handleTouchMove = (event) => {
     }
 }
 
-
 getOneArtist(artistId).then(() => {
     const handleTouchEnd = () => {
         if (!move) {
@@ -252,7 +251,6 @@ getOneArtist(artistId).then(() => {
                 setTimeout(checkImageLoaded, 50)
             }
         }
-
     }
     image.addEventListener('touchstart', handleTouchStart, false)
     image.addEventListener('touchmove', handleTouchMove, false)
