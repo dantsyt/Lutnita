@@ -125,18 +125,12 @@ getOneArtist(artistId).then(() => {
                     </div>
                     </div>
                     <div id="videowrapper" class="videowrapper artist_video">
-                    <video id="video" autoplay loop playsinline class="inverted">
+                    <video id="video" muted autoplay loop playsinline class="inverted">
                     <source src=${imgDir}/${imgArr[counter]} type="video/mp4" />
                     </video>
                     </div>
                     `)
             const video = document.querySelector('video')
-            function addListenerMulti(el, s, fn) {
-                s.split(' ').forEach(e => el.addEventListener(e, fn, false));
-            }
-            addListenerMulti(video, 'abort canplay canplaythrough durationchange emptied encrypted ended error interruptbegin interruptend loadeddata loadedmetadata loadstart mozaudioavailable pause play playing progress ratechange seeked seeking stalled suspend timeupdate volumechange waiting', function (e) {
-                console.log(e.type);
-            });
             video.onloadedmetadata = () => {
                 document.querySelector('.content-wrapper').classList.add('load_image_hidden')
                 videoWrapper = document.querySelector('#videowrapper')
@@ -158,6 +152,9 @@ getOneArtist(artistId).then(() => {
                     prevImage()
                 }
             }
+            video.addEventListener('touchstart', handleTouchStart, false)
+            video.addEventListener('touchmove', handleTouchMove, false)
+            video.addEventListener('touchend', handleTouchEnd, false)
         }
         image.onload = () => {
             checkImageLoaded()
@@ -206,7 +203,7 @@ getOneArtist(artistId).then(() => {
                 </div>
                 </div>
                 <div id="videowrapper" class="videowrapper artist_video">
-                <video id="video" playsinline autoplay loop class="inverted">
+                <video id="video" muted playsinline autoplay loop class="inverted">
                 <source src=${imgDir}/${imgArr[counter]} type="video/mp4" />
                 </video>
                 </div>
@@ -233,6 +230,9 @@ getOneArtist(artistId).then(() => {
                     prevImage()
                 }
             }
+            video.addEventListener('touchstart', handleTouchStart, false)
+            video.addEventListener('touchmove', handleTouchMove, false)
+            video.addEventListener('touchend', handleTouchEnd, false)
         }
         image.onload = () => {
             checkImageLoaded()
