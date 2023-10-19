@@ -5,8 +5,6 @@ const navBtns = document.querySelectorAll('.nav-btns');
 
 const mediaQueryList = window.matchMedia('only screen and (max-width: 1024px)');
 
-
-
 if (mediaQueryList.matches) {
     const pageTitle = document.querySelector('h2');
     pageTitle.addEventListener('click', () => {
@@ -38,3 +36,5 @@ if (mediaQueryList.matches) {
         navBtns.className = 'nav-btns_hidden';
     });
 };
+
+document.oncontextmenu = () => { return false }

@@ -4,8 +4,8 @@ let info = document.querySelector('#info')
 
 info.onmouseenter = () => {
     info.classList.add('info')
-    info.style.width = `${image.width}px`
-    info.style.height = `${image.height}px`
+    info.style.width = `${image.width + 2}px`
+    info.style.height = `${image.height + 2}px`
 }
 
 info.onmouseleave = () => {
