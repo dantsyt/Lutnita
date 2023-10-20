@@ -4,30 +4,6 @@ const exhId = exhPath.substring(exhPath.indexOf('/', 1) + 1, exhPath.length)
 const imgContainer = document.querySelector('.image_container')
 const assetUrl = "https://d3m5h3ndrov00p.cloudfront.net"
 
-let x1 = null
-let y1 = null
-
-const handleTouchStart = (event) => {
-    const firstTouch = event.touches[0]
-    x1 = firstTouch.clientX
-    y1 = firstTouch.clientY
-    move = false
-}
-
-const handleTouchMove = (event) => {
-    if (!x1 || !y1) { return false }
-    let x2 = event.touches[0].clientX
-    let y2 = event.touches[0].clientY
-    xDiff = x2 - x1
-    yDiff = y2 - y1
-    move = true
-    if (Math.abs(xDiff) > Math.abs(yDiff)) {
-        if (xDiff > 30 || xDiff < -30) { document.body.style.overscrollBehaviorY = 'none' }
-    } else {
-        if (yDiff > 30 || yDiff < -30) { document.body.style.overflowY = 'unset' }
-    }
-}
-
 async function getOneExhib(exh) {
     try {
         const response = await fetch(`/getOneExhib/${exh}`)
@@ -80,17 +56,6 @@ async function getOneExhib(exh) {
 }
 
 getOneExhib(exhId).then(() => {
-    const handleTouchEnd = () => {
-        if (!move) {
-            return false
-        }
-        if (Math.abs(xDiff) > Math.abs(yDiff)) {
-            if (xDiff > 30) { prevImage() }
-            else if (xDiff < -30) { nextImage() }
-        }
-        x1 = null
-        y1 = null
-    }
     if (mediaQueryList.matches) {
         mob = true
         image = document.querySelector('.mob_one_exhib')
@@ -196,9 +161,6 @@ getOneExhib(exhId).then(() => {
             }
         }
     }
-    image.addEventListener('touchstart', handleTouchStart, false)
-    image.addEventListener('touchmove', handleTouchMove, false)
-    image.addEventListener('touchend', handleTouchEnd, false)
 }).catch((e) => { console.log(e.message) })
 
 const vbmmrdngmr = () => {
@@ -282,5 +244,3 @@ const videoRemove = () => {
     document.querySelector('#close_video').remove()
     videoBtn.addEventListener('click', videoAdd)
 }
-
-//      <img id="load_image" class="load_image load_image_mob" src="img/spin.svg">

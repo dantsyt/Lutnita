@@ -7,42 +7,7 @@ const textSection = document.querySelector('.text_section')
 linked = false
 const assetUrl = "https://d3m5h3ndrov00p.cloudfront.net"
 
-let x1 = null
-let y1 = null
-
-const handleTouchStart = (event) => {
-    const firstTouch = event.touches[0]
-    x1 = firstTouch.clientX
-    y1 = firstTouch.clientY
-    move = false
-}
-
-const handleTouchMove = (event) => {
-    if (!x1 || !y1) { return false }
-    let x2 = event.touches[0].clientX
-    let y2 = event.touches[0].clientY
-    xDiff = x2 - x1
-    yDiff = y2 - y1
-    move = true
-    if (Math.abs(xDiff) > Math.abs(yDiff)) {
-        if (xDiff > 30 || xDiff < -30) { document.body.style.overscrollBehaviorY = 'none' }
-    } else {
-        if (yDiff > 30 || yDiff < -30) { document.body.style.overflowY = 'unset' }
-    }
-}
-
 getOneArtist(artistId).then(() => {
-    const handleTouchEnd = () => {
-        if (!move) {
-            return false
-        }
-        if (Math.abs(xDiff) > Math.abs(yDiff)) {
-            if (xDiff > 30) { prevImage() }
-            else if (xDiff < -30) { nextImage() }
-        }
-        x1 = null
-        y1 = null
-    }
     if (mediaQueryList.matches) {
         mob = true
         image = document.querySelector('.mob_one_exhib')
@@ -124,7 +89,7 @@ getOneArtist(artistId).then(() => {
                     </div>
                     </div>
                     <div id="videowrapper" class="videowrapper artist_video">
-                    <video id="video" muted autoplay loop playsinline class="inverted">
+                    <video id="video" autoplay loop playsinline class="inverted">
                     <source src=${imgDir}/${imgArr[counter]} type="video/mp4" />
                     </video>
                     </div>
@@ -151,9 +116,6 @@ getOneArtist(artistId).then(() => {
                     prevImage()
                 }
             }
-            video.addEventListener('touchstart', handleTouchStart, false)
-            video.addEventListener('touchmove', handleTouchMove, false)
-            video.addEventListener('touchend', handleTouchEnd, false)
         }
         image.onload = () => {
             checkImageLoaded()
@@ -202,7 +164,7 @@ getOneArtist(artistId).then(() => {
                 </div>
                 </div>
                 <div id="videowrapper" class="videowrapper artist_video">
-                <video id="video" muted playsinline autoplay loop class="inverted">
+                <video id="video" playsinline autoplay loop class="inverted">
                 <source src=${imgDir}/${imgArr[counter]} type="video/mp4" />
                 </video>
                 </div>
@@ -229,9 +191,6 @@ getOneArtist(artistId).then(() => {
                     prevImage()
                 }
             }
-            video.addEventListener('touchstart', handleTouchStart, false)
-            video.addEventListener('touchmove', handleTouchMove, false)
-            video.addEventListener('touchend', handleTouchEnd, false)
         }
         image.onload = () => {
             checkImageLoaded()
@@ -252,9 +211,6 @@ getOneArtist(artistId).then(() => {
             }
         }
     }
-    image.addEventListener('touchstart', handleTouchStart, false)
-    image.addEventListener('touchmove', handleTouchMove, false)
-    image.addEventListener('touchend', handleTouchEnd, false)
     // TEMP Remove bio salt
     if (document.querySelector('.text_container_nohover').id == 'saltsalome') {
         document.querySelector('.pdf').remove()
