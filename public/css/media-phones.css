@@ -144,6 +144,12 @@
         margin-inline: 8vw;
     }
 
+    .exhib_link_mob:hover {
+        border: 1px solid #ffffff;
+        border-left: none;
+        border-right: none;
+    }
+
     .upcoming {
         padding: 10vh 8vw 0;
     }
