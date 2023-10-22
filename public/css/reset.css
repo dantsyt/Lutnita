@@ -6,10 +6,24 @@
 	box-sizing: border-box;
 }
 
+html {
+	background-color: #ffffff;
+	filter: unset;
+	transition: filter 1s;
+}
+
+.dark_mode {
+	filter: invert(1) hue-rotate(180deg);
+}
+
+.invert {
+	filter: invert(1) hue-rotate(180deg);
+}
+
 a {
 	text-decoration: none;
 	color: inherit;
-	cursor: pointer;
+	cursor: url('cursors/cursor_empty.svg'), pointer;
 }
 
 button {
@@ -17,7 +31,7 @@ button {
 	color: inherit;
 	border-width: 0;
 	padding: 0;
-	cursor: pointer;
+	cursor: url('cursors/cursor_empty.svg'), pointer;
 }
 
 figure {

@@ -1,35 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="full_height">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L U T N I Ț A {{title}}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lora&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/typography.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/media.css">
-</head>
+{{>head}}
 
-<body>
+<body class="full_body">
     {{>header}}
     <main class="main">
         <section id="text_section" class="text_section">
-            <div id="text_container" class="text_container">
-                <h2 class="title">{{title}}</h2>
+            <h2 class="title">{{title}}</h2>
+            <div id="text_container" class="text_container_nohover">
+                <div class="info_wrapper">
+                    <p>Galeria LUTNIȚA</p>
+                    <p>Str. Alexei Șciusev nr. 63</p>
+                    <p>MD-2012, Chișinău</p>
+                    <p>Republic of Moldova</p>
+                    <p><a href="https://maps.app.goo.gl/KokYkeqvUajQLGvx7" target="_blank"
+                            rel="noopener noreferrer">Google Map</a></p>
+                    <br>
+                    <p><a href="mailto:galerialutnita@gmail.com">galerialutnita@gmail.com</a></p>
+                    <p><a href="https://www.instagram.com/galerialutnita/" target="_blank">@galerialutnita</a></p>
+                    <br>
+                    <p>W — F:&nbsp;&nbsp;&nbsp;2PM - 8PM</p>
+                    <p>S — U:&nbsp;&nbsp;noon - 6PM</p>
+                </div>
             </div>
         </section>
-        <section class="image_container"><img class="center_image" src="img/center_image.png" alt="center_image">
+        <section class="image_container one_exhib">
+            <div id="info" class="info_hidden">
+                <p class="info_text">Galeria LUTNIȚA, based in Chișinău is a project initiated by the Moldovan
+                    artist Andrei Sclifos with the support of the Plan B Foundation in Cluj - coordinated by Mihai
+                    Pop.</p>
+                <p class="info_text">Inaugurated in the autumn of 2022, the gallery is dedicated to curating and
+                    showcasing a diverse range of contemporary, emerging and established figures, from both local
+                    and international art community.</p>
+                <p class="info_text">Therefore, LUTNIȚA is commited to furthering relevant contemporary practices,
+                    thus to build future meaningful and valuable connections across different art scenes, while also
+                    providing care for the vast, multifaceted artistic heritage and cultural background of the local
+                    artistic community.</p>
+            </div>
+            <img id="main_image" class="center_image_exhib center_image_one_exhib fade"
+                src="https://d3m5h3ndrov00p.cloudfront.net/img/info.webp" alt="center_image">
+            <div class="image_container_mob info_container">
+                <img class="center_image_mob" src="https://d3m5h3ndrov00p.cloudfront.net/img/info.webp"
+                    alt="center_image">
+            </div>
+            <div id="info_mob" class="info_mob">
+                <p class="info_text">Galeria LUTNIȚA, based in Chișinău is a project initiated by the Moldovan
+                    artist Andrei Sclifos with the support of the Plan B Foundation in Cluj - coordinated by Mihai
+                    Pop.</p>
+                <p class="info_text">Inaugurated in the autumn of 2022, the gallery is dedicated to curating and
+                    showcasing a diverse range of contemporary, emerging and established figures, from both local
+                    and international art community.</p>
+                <p class="info_text">Therefore, LUTNIȚA is commited to furthering relevant contemporary practices,
+                    thus to build future meaningful and valuable connections across different art scenes, while also
+                    providing care for the vast, multifaceted artistic heritage and cultural background of the local
+                    artistic community.</p>
+            </div>
         </section>
         <section class="right_space"></section>
     </main>
+    <script src="js/info.js"></script>
     {{>footer}}
 </body>
 

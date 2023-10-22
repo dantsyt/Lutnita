@@ -1,54 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L U T N I Ț A</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lora&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/typography.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/media.css">
-</head>
+{{>head}}
 
 <body>
     {{>header}}
     <main class="main">
         <section id="text_section" class="text_section">
-            <div id="text_container" class="text_container">
-                <h2 class="title">{{title}}</h2>
-                <h3 class="first_name">Flaviu</h3>
-                <h3 class="last_name indent">Cacoveanu</h3>
-                <h4 class="exhibition_date more_indent"><span class="date">18 Aug. 2023 — </span><span
-                        class="date">15 Oct. 2023</span></h4>
+            <h2 class="title">{{title}}</h2>
+            <div id="text_container" class="text_container" onclick=location.assign('/exhibitions/flaviucacoveanu')>
+                <div class="names_wrapper">
+                    <div class="names_container">
+                        <img class="artist_name"
+                            src="https://d3m5h3ndrov00p.cloudfront.net/img/exhibitions/namepaths/cacoveanu.svg">
+                    </div>
+                </div>
+
+                <h4 class="exhibition_date">18 Aug 2023 — 15 Oct 2023</h4>
             </div>
         </section>
-        <section class="image_container"><img class="center_image" src="img/center.png" alt="center_image">
+        <section class="image_container"><img class="center_image_index"
+                src="https://d3m5h3ndrov00p.cloudfront.net/img/flaviucacoveanu.webp" alt="center_image"
+                onclick=location.assign('/exhibitions/flaviucacoveanu')>
         </section>
         <section class="right_space"></section>
     </main>
-<footer class="footer">
-    <section id="navbar" class="navbar_hidden">
-        {{!-- <a id="nav-menu" href="/">MENU</a> --}}
-        <a id="nav-exhibitions" class="nav-btns" href="/exhibitions">EXHIBITIONS</a>
-        <a id="nav-artists" class="nav-btns" href="/artists">ARTISTS</a>
-        <a id="nav-news" class="nav-btns" href="/news">NEWS</a>
-        <a id="nav-info" class="nav-btns" href="/info">INFO</a>
-    </section>
-    <div id="logo_container">
-        {{!-- <h1 id="logo"><a href="/"><span id="lut">LUT</span><span id="nita">NIȚA</span></a></h1> --}}
-        <a href="https://www.instagram.com/galerialutnita/" target="_blank"><img id="logo_img" src="img/lutnita_logo_transparent_black.png" alt="lutnita"></a>
-    </div>
-</footer>
-
-{{!-- <script src="js/menu.js"></script> --}}
+    {{>footer}}
 </body>
 
 </html>
