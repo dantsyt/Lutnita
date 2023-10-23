@@ -1,4 +1,6 @@
 node_modules/
 resources/
 README.md
-src/db/mongoose.js
+./src/db/mongoose.js
+./artists_*.json
+./exhibs_*.json
