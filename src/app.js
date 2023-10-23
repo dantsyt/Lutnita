@@ -16,6 +16,7 @@ const app = express()
 const templatesPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
 const publicPath = path.join(__dirname, '../public')
+const sitemapPath = path.join(__dirname, '../sitemap.xml')
 
 // Handlebars engine and views setup
 app.set('view engine', 'hbs')
@@ -54,6 +55,9 @@ app.get('/info', (req, res) => {
     })
 })
 app.use('/exhibitions', exhibRouter)
+app.get('/sitemap.xml', (req, res) => {
+    res.sendFile(sitemapPath)
+})
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404'
