@@ -22,7 +22,12 @@ artistsRouter.get('/:fullname', async (req, res) => {
                 title: '404 artists, not one found'
             })
         }
-        res.render('artists_id')
+        const firstName = artist.firstname.charAt(0).toUpperCase() + artist.firstname.slice(1)
+        const lastName = artist.lastname.charAt(0).toUpperCase() + artist.lastname.slice(1)
+        const fullName = `${firstName} ${lastName}`
+        res.render('artists_id', {
+            title: fullName
+        })
     } catch (e) {
         res.status(400).send(e.message)
     }
