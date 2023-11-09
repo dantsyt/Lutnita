@@ -1,45 +1,50 @@
-const logo = document.querySelector('#logo_img');
-const footer = document.querySelector('.footer');
-const navbar = document.querySelector('#navbar');
-const navBtns = document.querySelectorAll('.nav-btns');
+const logo = document.querySelector('#logo_img')
+const footer = document.querySelector('.footer')
+const navbar = document.querySelector('#navbar')
+const navBtns = document.querySelectorAll('.nav-btns')
+const header = document.querySelector('.header')
+const indexTitle = document.querySelector('.title')
 
-const mediaQueryList = window.matchMedia('only screen and (max-width: 1024px)');
+const mediaQueryList = window.matchMedia('only screen and (max-width: 1024px)')
 
 if (mediaQueryList.matches) {
-    navbar.className = 'navbar_hidden';
-    const pageTitle = document.querySelector('h2');
+    const pageTitle = document.querySelector('h2')
     pageTitle.addEventListener('click', () => {
-        navbar.className = 'navbar';
+        navbar.className = 'navbar'
         for (let one of navBtns) {
-            one.style.visibility = 'visible';
-        };
-    });
+            one.style.visibility = 'visible'
+        }
+    })
     navbar.addEventListener('click', (e) => {
         if (e.target == navbar) {
-            navbar.className = 'navbar_hidden';
+            navbar.className = 'navbar_hidden'
             for (let one of navBtns) {
-                one.style.visibility = 'hidden';
-            };
+                one.style.visibility = 'hidden'
+            }
         }
     })
 } else {
-    setTimeout(() => {
-        navbar.className = 'navbar_hidden'
-    }, 2000)
     const displayNavBar = () => {
-        navbar.className = 'navbar';
+        navbar.className = 'navbar'
         for (let one of navBtns) {
-            one.style.visibility = 'visible';
-        };
-    };
-
-    footer.addEventListener('mouseenter', displayNavBar);
-
+            one.style.visibility = 'visible'
+        }
+    }
+    footer.addEventListener('mouseenter', displayNavBar)
     footer.addEventListener('mouseleave', () => {
-        navbar.className = 'navbar_hidden';
-        navBtns.className = 'nav-btns_hidden';
-    });
-};
+        navbar.className = 'navbar_hidden'
+        navBtns.className = 'nav-btns_hidden'
+    })
+    if (indexTitle.innerText == 'CURRENT') {
+        header.addEventListener('mouseenter', displayNavBar, { once: true })
+        header.addEventListener('mouseleave', () => {
+            setTimeout(() => {
+                navbar.className = 'navbar_hidden'
+                navBtns.className = 'nav-btns_hidden'
+            }, 5000)
+        }, { once: true })
+    }
+}
 
 document.oncontextmenu = () => { return false }
 
