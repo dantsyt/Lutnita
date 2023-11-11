@@ -24,7 +24,7 @@ if (mediaQueryList.matches) {
         }
     })
 } else {
-    const displayNavBar = () => {
+    displayNavBar = () => {
         navbar.className = 'navbar'
         for (let one of navBtns) {
             one.style.visibility = 'visible'
@@ -35,40 +35,25 @@ if (mediaQueryList.matches) {
         navbar.className = 'navbar_hidden'
         navBtns.className = 'nav-btns_hidden'
     })
-    if (indexTitle.innerText == 'CURRENT') {
+    if (indexTitle.innerText != 'CURRENT') {
+        indexTitle.addEventListener('mouseenter', displayNavBar)
+        indexTitle.addEventListener('mouseleave', () => {
+            setTimeout(() => {
+
+            }, 3000)
+        })
+        setTimeout(() => {
+            navbar.className = 'navbar_hidden'
+            navBtns.className = 'nav-btns_hidden'
+        }, 3000)
         header.addEventListener('mouseenter', displayNavBar, { once: true })
         header.addEventListener('mouseleave', () => {
             setTimeout(() => {
                 navbar.className = 'navbar_hidden'
                 navBtns.className = 'nav-btns_hidden'
-            }, 5000)
+            }, 3000)
         }, { once: true })
     }
 }
 
 document.oncontextmenu = () => { return false }
-
-// (function (mouseStopDelay) {
-//     var timeout;
-//     document.addEventListener('mousemove', function (e) {
-//         clearTimeout(timeout);
-//         timeout = setTimeout(function () {
-//             var event = new CustomEvent("mousestop", {
-//                 detail: {
-//                     clientX: e.clientX,
-//                     clientY: e.clientY
-//                 },
-//                 bubbles: true,
-//                 cancelable: true
-//             });
-//             e.target.dispatchEvent(event);
-//         }, mouseStopDelay);
-//     });
-// }(1000));
-
-// // Example use
-// document.querySelector('body').addEventListener('mousestop', function (e) {
-//     console.log('You stopped your mouse while on the link');
-//     console.log('Mouse coordinates are: ', e.detail.clientX, e.detail.clientY);
-//     // The event will bubble up to parent elements.
-// });
