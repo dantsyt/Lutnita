@@ -30,29 +30,25 @@ if (mediaQueryList.matches) {
             one.style.visibility = 'visible'
         }
     }
-    footer.addEventListener('mouseenter', displayNavBar)
-    footer.addEventListener('mouseleave', () => {
+    hideNavBar = () => {
         navbar.className = 'navbar_hidden'
         navBtns.className = 'nav-btns_hidden'
-    })
+    }
     if (indexTitle.innerText != 'CURRENT') {
+        footer.addEventListener('mouseenter', displayNavBar)
+        footer.addEventListener('mouseleave', hideNavBar)
         indexTitle.addEventListener('mouseenter', displayNavBar)
         indexTitle.addEventListener('mouseleave', () => {
             setTimeout(() => {
-
+                hideNavBar()
             }, 3000)
         })
-        setTimeout(() => {
-            navbar.className = 'navbar_hidden'
-            navBtns.className = 'nav-btns_hidden'
-        }, 3000)
-        header.addEventListener('mouseenter', displayNavBar, { once: true })
+        header.addEventListener('mouseenter', displayNavBar)
         header.addEventListener('mouseleave', () => {
             setTimeout(() => {
-                navbar.className = 'navbar_hidden'
-                navBtns.className = 'nav-btns_hidden'
+                hideNavBar()
             }, 3000)
-        }, { once: true })
+        })
     }
 }
 

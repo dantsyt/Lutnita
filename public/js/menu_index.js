@@ -14,7 +14,7 @@
             e.target.dispatchEvent(event)
         }, mouseStopDelay)
     })
-}(1500));
+}(3000));
 
 (function (mouseStartDelay) {
     let timeout
