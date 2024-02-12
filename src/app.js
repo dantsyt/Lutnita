@@ -39,8 +39,8 @@ app.use(artistsDBRouter)
 app.use(exhibDBRouter)
 
 app.get('/', (req, res) => {
-    res.render('current', {
-        title: 'Current'
+    res.render('upcoming', {
+        title: 'upcoming'
     })
 })
 app.use('/artists', artistsRouter)
