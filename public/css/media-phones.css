@@ -49,7 +49,7 @@
 
     h2 {
         margin-bottom: unset;
-        padding-bottom: 1em;
+        padding-bottom: 2em;
         /* text-align: right; */
         margin-inline-start: 8vw;
         margin-inline-end: 8vw;
@@ -196,7 +196,7 @@
     }
 
     .image_container_mob {
-        padding-bottom: 8vh;
+        padding-bottom: 11vh;
     }
 
     .image_container_mob_one {
