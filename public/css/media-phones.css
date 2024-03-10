@@ -10,6 +10,10 @@
         min-height: 100%;
     }
 
+    .artists_body {
+        height: 100vh;
+    }
+
     header {
         min-height: 4vh;
     }
@@ -60,7 +64,14 @@
         padding: 2rem 0;
     }
 
-    .text_container,
+    .text_container {
+        font-size: unset;
+        margin-inline-start: unset;
+        min-width: 100%;
+        padding: 1.9vh 8vw;
+        margin-bottom: unset;
+    }
+
     .text_container_nohover {
         font-size: unset;
         margin-inline-start: unset;

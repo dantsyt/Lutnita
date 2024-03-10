@@ -12,9 +12,6 @@ async function getArtists() {
         const response = await fetch('/getArtists')
         const artistsData = await response.json()
         const image = document.querySelector('.center_image_exhib')
-        image.onclick = () => {
-            location.assign(`/artists/${artistsData[artistsData.length - 1].fullname.toLowerCase()}`) // URL Path
-        }
         for (let one of artistsData) {
             title.insertAdjacentHTML('afterend', `
             <div id="${one.fullname.toLowerCase()}" class="text_container" onclick=location.assign('/artists/${one.fullname.toLowerCase()}')>
@@ -22,9 +19,6 @@ async function getArtists() {
             <div class="names_wrapper">
             <div class="names_container">
             <img class="artist_name" src="${assetUrl}/img/artists/namepaths/${one.namepath}"></div></div></div>
-            <div class="image_container_mob artists_container">
-            <img class="center_image_mob" src="${assetUrl}/img/artists/${one.fullname.toLowerCase()}.webp" alt="center_image" onclick=location.assign('/artists/${one.fullname.toLowerCase()}')>
-            </div>
             `)
         }
     } catch (e) {
