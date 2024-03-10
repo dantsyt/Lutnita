@@ -40,11 +40,7 @@ app.use(exhibDBRouter)
 
 app.get('/', (req, res) => {
     res.render('upcoming', {
-<<<<<<< HEAD
-        title: 'upcoming'
-=======
         title: 'current'
->>>>>>> 1da30f6 (10 MAR site update as live)
     })
 })
 app.use('/artists', artistsRouter)
