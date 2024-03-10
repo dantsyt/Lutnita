@@ -5,14 +5,6 @@ const assetUrl = "https://d3m5h3ndrov00p.cloudfront.net"
 getArtists().then(() => {
     const names = document.querySelectorAll('.text_container')
     const image = document.querySelector('.center_image_exhib')
-    for (let name of names) {
-        name.addEventListener('mouseenter', () => {
-            image.src = `${assetUrl}/img/artists/${name.firstElementChild.id}.webp`
-            image.onclick = () => {
-                location.assign(`/artists/${name.id}`)
-            }
-        })
-    }
 }).catch((e) => { console.log(e) })
 
 async function getArtists() {
@@ -20,7 +12,6 @@ async function getArtists() {
         const response = await fetch('/getArtists')
         const artistsData = await response.json()
         const image = document.querySelector('.center_image_exhib')
-        image.src = `${assetUrl}/img/artists/${artistsData[artistsData.length - 1].fullname}.webp`
         image.onclick = () => {
             location.assign(`/artists/${artistsData[artistsData.length - 1].fullname.toLowerCase()}`) // URL Path
         }
