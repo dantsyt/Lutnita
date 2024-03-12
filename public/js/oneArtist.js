@@ -211,11 +211,6 @@ getOneArtist(artistId).then(() => {
             }
         }
     }
-    // TEMP Remove bio salt
-    if (document.querySelector('.text_container_nohover').id == 'saltsalome') {
-        document.querySelector('.pdf').remove()
-        document.querySelector('.pdf_mob').remove()
-    }
 }).catch((e) => { console.log(e.message) })
 
 async function getOneArtist(artist) {
