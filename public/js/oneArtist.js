@@ -230,20 +230,20 @@ async function getOneArtist(artist) {
         imgArrMob = oneArtist.imgpathmob
         captionsArr = oneArtist.captions
         const countTotal = imgArr.length
-        imgDir = `${assetUrl}/img/artists/${oneArtist.firstname}${oneArtist.lastname}`
-        imgDirMob = `${assetUrl}/img/artists/${oneArtist.firstname}${oneArtist.lastname}/mob`
+        imgDir = `${assetUrl}/img/artists/${oneArtist.fullname}`
+        imgDirMob = `${assetUrl}/img/artists/${oneArtist.fullname}/mob`
         // Append TEXT to desktop
         title.insertAdjacentHTML('afterend', `
-        <div id="${oneArtist.firstname}${oneArtist.lastname}" class="text_container_nohover">
+        <div id="${oneArtist.fullname}" class="text_container_nohover">
         <div class="names_wrapper"><div class="names_container">
         <img class="artist_name" src="${assetUrl}/img/artists/namepaths/${oneArtist.namepath}"></div></div>
-        <h6 class="pdf_mob"><a href="pdf/bio/${oneArtist.firstname}${oneArtist.lastname}.pdf" target="_blank">bio</a></h6>
+        <h6 class="pdf_mob"><a href="pdf/bio/${oneArtist.fullname}.pdf" target="_blank">bio</a></h6>
         </div>
         <div class="img_counter">
         <p id="counter_text" class="counters">Works</p>
         <p class="counters"><span id="counter_num"> 1</span>/<span id="counter_total">${countTotal}</span></p>
         </div>
-        <h6 class="pdf"><a href="pdf/bio/${oneArtist.firstname}${oneArtist.lastname}.pdf" target="_blank">bio</a></h6>
+        <h6 class="pdf"><a href="pdf/bio/${oneArtist.fullname}.pdf" target="_blank">bio</a></h6>
         `)
         // Append images MOB
         imgContainer.insertAdjacentHTML('beforeend', `
