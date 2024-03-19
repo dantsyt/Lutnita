@@ -23,6 +23,10 @@ main {
     padding-bottom: 16vh;
 }
 
+#main_artists>section {
+    width: unset;
+}
+
 main>section {
     display: flex;
     /* width: 33.3vw; */
@@ -53,6 +57,11 @@ footer {
     flex-direction: column;
     width: 20vw;
     z-index: 0;
+}
+
+#text_section_artists {
+    display: flex;
+    width: 100vw !important;
 }
 
 h2 {
@@ -120,6 +129,11 @@ h4 {
     cursor: url('cursors/cursor_empty.svg'), pointer;
 }
 
+.text_container_artists {
+    margin-inline-start: 8vw;
+    width: 12vw;
+}
+
 .upcoming {
     padding-top: 4vh;
 }
@@ -137,6 +151,23 @@ h4 {
 .artist_name {
     height: 2.8em;
     margin-top: -1em;
+}
+
+#list_wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+#artist_list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 54vh;
+    align-items: flex-end;
+}
+
+#artist_space {
+    width: 40%;
 }
 
 .first_name {

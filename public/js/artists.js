@@ -1,4 +1,4 @@
-const title = document.getElementById('title')
+const list = document.getElementById('artist_list')
 const imgWrapper = document.querySelector('.img_wrapper')
 const assetUrl = "https://d3m5h3ndrov00p.cloudfront.net"
 
@@ -13,8 +13,8 @@ async function getArtists() {
         const artistsData = await response.json()
         const image = document.querySelector('.center_image_exhib')
         for (let one of artistsData) {
-            title.insertAdjacentHTML('afterend', `
-            <div id="${one.fullname.toLowerCase()}" class="text_container" onclick=location.assign('/artists/${one.fullname.toLowerCase()}')>
+            list.insertAdjacentHTML('afterbegin', `
+            <div id="${one.fullname.toLowerCase()}" class="text_container text_container_artists" onclick=location.assign('/artists/${one.fullname.toLowerCase()}')>
             <p id="${one.fullname.toLowerCase()}" class="exhnamehidden"></p>
             <div class="names_wrapper">
             <div class="names_container">
