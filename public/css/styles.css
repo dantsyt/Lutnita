@@ -13,6 +13,10 @@ body {
     height: 100vh;
 }
 
+.artists_body {
+    overflow-y: hidden;
+}
+
 main {
     display: flex;
     flex-direction: row;
@@ -162,7 +166,7 @@ h4 {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    max-height: 54vh;
+    max-height: 70vh;
     align-items: flex-end;
 }
 
@@ -237,7 +241,7 @@ video {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 65%;
+    width: 75%;
     background: rgb(255 255 255);
     color: #666;
     padding: 6em 1.5em 0 1.5em;
