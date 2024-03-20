@@ -138,6 +138,10 @@ h4 {
     width: 12vw;
 }
 
+.text_container_info {
+    margin-inline-start: 3em;
+}
+
 .upcoming {
     padding-top: 4vh;
 }
@@ -266,6 +270,10 @@ video {
 
 .info_wrapper a {
     text-decoration: underline;
+}
+
+#team_button {
+    display: none;
 }
 
 .exhib_link {

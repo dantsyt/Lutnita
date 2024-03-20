@@ -12,7 +12,7 @@
     <main class="main">
         <section id="text_section" class="text_section">
             <h2 class="title">{{title}}</h2>
-            <div id="text_container" class="text_container_nohover">
+            <div id="text_container" class="text_container_nohover text_container_info">
                 <div class="info_wrapper">
                     <p>Galeria LUTNIȚA</p>
                     <p>Str. Alexei Șciusev nr. 63</p>
@@ -21,52 +21,57 @@
                     <p><a href="https://maps.app.goo.gl/KokYkeqvUajQLGvx7" target="_blank"
                             rel="noopener noreferrer">Google Map</a></p>
                     <br>
-                    <p><a href="mailto:galeria@lutnita.md">galeria@lutnita.md</a></p>
-                    <p><a href="https://www.instagram.com/galerialutnita/" target="_blank">@galerialutnita</a></p>
-                    <br>
                     <p>W — F:&nbsp;&nbsp;&nbsp;2PM - 8PM</p>
                     <p>S — U:&nbsp;&nbsp;noon - 6PM</p>
                     <br>
+                    <p><a href="mailto:galeria@lutnita.md">galeria@lutnita.md</a></p>
+                    <p><a href="https://www.instagram.com/galerialutnita/" target="_blank">@galerialutnita</a></p>
+                    <br class="team_wrapper">
                     <br>
-                    <p>TEAM</p>
+                    <p id="team_button"><a href="/team">TEAM</a></p>
+                    <p id="team_desktop">TEAM</p>
                     <br>
-                    <div class="team">
-                        <p class="team_name">Andrei Sclifos</p>
-                        <p class="team_role">director</p>
-                        <p class="team_email"><a href="mailto:andrei@lutnita.md">andrei@lutnita.md</a></p>
+                    <br>
+                    <div class="team_wrapper">
+                        <div class="team">
+                            <p class="team_name">Andrei Sclifos</p>
+                            <p class="team_role">director</p>
+                            <p class="team_email"><a href="mailto:andrei@lutnita.md">andrei@lutnita.md</a></p>
+                        </div>
+                        <br>
+                        <div class="team">
+                            <p class="team_name">Alisa Bakalova</p>
+                            <p class="team_role">gallery assistance &amp; archive</p>
+                            <p class="team_email"><a href="mailto:alisa@lutnita.md">alisa@lutnita.md</a></p>
+                        </div>
+                        <br>
+                        <div class="team">
+                            <p class="team_name">Olivia Furtună</p>
+                            <p class="team_role">gallery assistance &amp; communication</p>
+                            <p class="team_email"><a href="mailto:olivia@lutnita.md">olivia@lutnita.md</a></p>
+                        </div>
+                        <br>
+                        <div class="team">
+                            <p class="team_name">Nichita Prepeliță</p>
+                            <p class="team_role">gallery assistance</p>
+                        </div>
+                        <br>
+                        <div class="team">
+                            <p class="team_name">Sergiu Cebotarenco</p>
+                            <p class="team_role">technical assistance &amp; production</p>
+                        </div>
+                        <br>
+                        <div class="team">
+                            <p class="team_name">Constantin Coada</p>
+                            <p class="team_role">media technology assistance</p>
+                        </div>
+                        <br>
+                        <div class="team">
+                            <p class="team_name">Lucian Spătaru</p>
+                            <p class="team_role">photo/video assistance</p>
+                        </div>
                     </div>
-                    <br>
-                    <div class="team">
-                        <p class="team_name">Alisa Bakalova</p>
-                        <p class="team_role">gallery assistance &amp; archive</p>
-                        <p class="team_email"><a href="mailto:alisa@lutnita.md">alisa@lutnita.md</a></p>
-                    </div>
-                    <br>
-                    <div class="team">
-                        <p class="team_name">Olivia Furtună</p>
-                        <p class="team_role">gallery assistance &amp; communication</p>
-                        <p class="team_email"><a href="mailto:olivia@lutnita.md">olivia@lutnita.md</a></p>
-                    </div>
-                    <br>
-                    <div class="team">
-                        <p class="team_name">Nichita Prepeliță</p>
-                        <p class="team_role">gallery assistance</p>
-                    </div>
-                    <br>
-                    <div class="team">
-                        <p class="team_name">Sergiu Cebotarenco</p>
-                        <p class="team_role">technical assistance &amp; production</p>
-                    </div>
-                    <br>
-                    <div class="team">
-                        <p class="team_name">Constantin Coada</p>
-                        <p class="team_role">media technology assistance</p>
-                    </div>
-                    <br>
-                    <div class="team">
-                        <p class="team_name">Lucian Spătaru</p>
-                        <p class="team_role">photo/video assistance</p>
-                    </div>
+
                 </div>
             </div>
         </section>
@@ -83,12 +88,6 @@
                     providing care for the vast, multifaceted artistic heritage and cultural background of the local
                     artistic community.</p>
             </div>
-            {{!-- <img id="main_image" class="center_image_exhib center_image_one_exhib fade"
-                src="https://d3m5h3ndrov00p.cloudfront.net/img/info.webp" alt="center_image">
-            <div class="image_container_mob info_container">
-                <img class="center_image_mob" src="https://d3m5h3ndrov00p.cloudfront.net/img/info.webp"
-                    alt="center_image">
-            </div> --}}
             <div id="info_mob" class="info_mob">
                 <p class="info_text">Galeria LUTNIȚA, based in Chișinău is a project initiated by the Moldovan
                     artist Andrei Sclifos with the support of the Plan B Foundation in Cluj - coordinated by Mihai
@@ -96,7 +95,7 @@
                 <p class="info_text">Inaugurated in the autumn of 2022, the gallery is dedicated to curating and
                     showcasing a diverse range of contemporary, emerging and established figures, from both local
                     and international art community.</p>
-                <p class="info_text">Therefore, LUTNIȚA is commited to furthering relevant contemporary practices,
+                <p class="info_text">Therefore, LUTNIȚA is committed to furthering relevant contemporary practices,
                     thus to build future meaningful and valuable connections across different art scenes, while also
                     providing care for the vast, multifaceted artistic heritage and cultural background of the local
                     artistic community.</p>
@@ -104,8 +103,7 @@
         </section>
         <section class="right_space"></section>
     </main>
-    {{!--
-    <script src="js/info.js"></script> --}}
+    <script src="js/info.js"></script>
     {{>footer}}
 </body>
 

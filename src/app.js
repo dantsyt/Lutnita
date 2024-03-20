@@ -55,6 +55,11 @@ app.get('/info', (req, res) => {
     })
 })
 app.use('/exhibitions', exhibRouter)
+app.get('/team', (req, res) => {
+    res.render('team', {
+        title: 'team'
+    })
+})
 app.get('/sitemap.xml', (req, res) => {
     res.sendFile(sitemapPath)
 })
