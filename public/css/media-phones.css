@@ -178,14 +178,6 @@
         display: none;
     }
 
-    #team_desktop {
-        display: none;
-    }
-
-    #team_button {
-        display: unset;
-    }
-
     /* --------- CENTER --------- */
 
     .content-wrapper {

@@ -139,7 +139,7 @@ h4 {
 }
 
 .text_container_info {
-    margin-inline-start: 3em;
+    margin-inline-start: 2em;
 }
 
 .upcoming {
@@ -270,10 +270,6 @@ video {
 
 .info_wrapper a {
     text-decoration: underline;
-}
-
-#team_button {
-    display: none;
 }
 
 .exhib_link {
