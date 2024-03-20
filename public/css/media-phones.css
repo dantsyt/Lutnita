@@ -12,6 +12,7 @@
 
     .artists_body {
         height: 100vh;
+        overflow-y: unset;
     }
 
     header {
