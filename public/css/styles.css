@@ -466,6 +466,10 @@ video {
     color: #9f9f9f;
 }
 
+.icinfo_text_center {
+    justify-content: flex-start;
+}
+
 /* --------- RIGHT ---------- */
 
 .right_space {
