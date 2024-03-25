@@ -9,6 +9,8 @@ const artistsDBRouter = require('./routers/artistDBRouter')
 const artistsRouter = require('./routers/artistRouter')
 const exhibDBRouter = require('./routers/exhibitionDBRouter')
 const exhibRouter = require('./routers/exhibitionRouter')
+const newsDBRouter = require('./routers/newsDBRouter')
+const newsRouter = require('./routers/newsRouter')
 
 const app = express()
 
@@ -37,6 +39,7 @@ hbs.registerPartials(partialsPath)
 app.use(express.static(publicPath))
 app.use(artistsDBRouter)
 app.use(exhibDBRouter)
+app.use(newsDBRouter)
 
 app.get('/', (req, res) => {
     res.render('current', {
@@ -44,11 +47,7 @@ app.get('/', (req, res) => {
     })
 })
 app.use('/artists', artistsRouter)
-app.get('/news', (req, res) => {
-    res.render('news', {
-        title: 'News'
-    })
-})
+app.use('/news', newsRouter)
 app.get('/info', (req, res) => {
     res.render('info', {
         title: 'Info'

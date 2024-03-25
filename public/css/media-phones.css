@@ -179,6 +179,22 @@
         display: none;
     }
 
+    .news_name {
+        width: 7.8em;
+        height: unset;
+        margin-top: -0.9em;
+        margin-bottom: 1em;
+    }
+
+    .news_text {
+        line-height: 20rem;
+        margin-top: -1.6em;
+    }
+
+    .news_text>p:first-of-type {
+        margin-top: 4rem;
+    }
+
     /* --------- CENTER --------- */
 
     .content-wrapper {
@@ -280,6 +296,10 @@
         margin-inline-end: unset;
         text-decoration: underline;
         padding: 2rem 0;
+    }
+
+    .icm_news {
+        padding-bottom: 9vh;
     }
 
     /* #captions_desk {

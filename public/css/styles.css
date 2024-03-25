@@ -152,6 +152,11 @@ h4 {
     align-items: flex-end;
 }
 
+.names_wrapper_news {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
 /* .names_container {
     padding-bottom: 1em;
 } */
@@ -159,6 +164,13 @@ h4 {
 .artist_name {
     height: 2.8em;
     margin-top: -1em;
+}
+
+.news_name {
+    width: 10em;
+    height: 2.8em;
+    margin-top: -1.7em;
+    margin-bottom: 0.7em;
 }
 
 #list_wrapper {
@@ -302,6 +314,18 @@ video {
 #artist_exhib_date {
     margin-top: 2rem;
     margin-bottom: 0.2em;
+}
+
+.news_website>a {
+    text-decoration: underline;
+}
+
+.news_text {
+    line-height: 20rem;
+    font-size: 12rem;
+    letter-spacing: 1rem;
+    color: #666;
+    margin-top: -1.4em;
 }
 
 /* --------- CENTER --------- */

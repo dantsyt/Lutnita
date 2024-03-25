@@ -37,26 +37,27 @@ artistsDBRouter.post('/postArtist', async (req, res) => {
 
 artistsDBRouter.post('/editArtist', async (req, res) => {
     try {
-        await Artist.updateOne({ fullname: "dianacepleanu" }, {
-            captions: ["ANCUȚA\noil on paper,  2018\n29 x 41 cm",
-                "ANCUȚA WITH BEADED NECKLACE\noil on paper,  2018\n29 x 41 cm",
-                "PEPINE\noil on paper,  2017\n25 X 25 cm",
-                "PEPINE\noil on paper,  2017\n17 X 25 cm",
-                "SELF-PORTRAIT\noil on cardboard, 2016\n76 x 40 cm",
-                "SELF-PORTRAIT\noil on cardboard, 2013\n70 x 100 cm",
-                "SELF-PORTRAIT\noil on canvas, 2016\n65 x 55 cm",
-                "SELF-PORTRAIT\noil on canvas, 2023\n33 x 41 cm",
-                "UNTITLED\noil on cardboard, 2003\n25 x 20 cm",
-                "UNTITLED\noil on cardboard, 2003\n25 x 15 cm",
-                "PORTRAIT\ntempera and green pen on paper, 2003\n21 x 20 cm",
-                "TWO\noil on paper, 2003\n30 x 40 cm",
-                "J. H.\noil on paper, 2018\n21 x 28 cm",
-                "KRISTINA\noil on cardboard, 2017\n27 x 24 cm",
-                "KRISTINA\noil on paper,  2017\n18 x 20 cm",
-                "IORGU\noil on canvas, 2016\n33 x 34 cm",
-                "IORGU (front)\noil on canvas, 2016\n33 x 34 cm",
-                "IORGU  (back)\noil on canvas, 2016\n30 x 33 cm",
-                "SELF-PORTRAIT\noil on canvas, 2013\n30 x 40 cm"
+        await Artist.updateOne({ fullname: "flaviucacoveanu" }, {
+            captions: ["Exhibition view\nOur Other Us, Art Encounters Biennale, Timișoara, Romania, 2021",
+                "Exhibition view\nOur Other Us, Art Encounters Biennale, Timișoara, Romania, 2021",
+                "Exhibition view\nNotifications, Art Au Centre Liege 11, Belgium, 2023",
+                "Exhibition view\nLazerpresent, Parliament, Paris, France, 2022",
+                "Red Planet\nvideo still, 2019",
+                "Exhibition view\nLazerpresent, Parliament, Paris, France, 2022",
+                "Untitled (60% Water)\nC-print photograph, 2019\n55 x 85 cm",
+                "Fly On Moon\nUV print on plexi-glass, 2019\n150 x 80 cm",
+                "Exhibition view\nLazerpresent, Parliament, Paris, France, 2022",
+                "Untitled (Lazerpresent)\n3 channel video installation with TV screen and 2 projectors, selection of 25 looping videos, 2022\nvariable dimensions",
+                "Exhibition view\nLazerpresent, Parliament, Paris, France, 2022",
+                "News\nsilk-screen on paper bag left on the street, 2022\n40 x 30 x 5 cm",
+                "I Gazed At The Stars But They All Fell Down\nneons, metal frame, 2017\n320 x 20 x 5 cm",
+                "Exhibition view\nTime flies I don’t, White Cuib, Romania, 2022",
+                "Exhibition view\nTime flies I don’t, White Cuib, Romania, 2022",
+                "Untitled (Egg)\nphotograph, tape, 2022\n15 x 20 cm",
+                "Untitled (ParaSinus)\none dollar bill origami, medicine box, magnets, 2022",
+                "Bipolar S\nneon sign, 2019\n35 x 18 x 5 cm",
+                "Chess For Snails\nhorizontal UHD video file, no sound, loop, 31:20 minutes, 2016-2022",
+                "Chess For Snails\nvideo still, 2016-2022"
             ]
         })
         res.status(201).send("Yeah bby")
