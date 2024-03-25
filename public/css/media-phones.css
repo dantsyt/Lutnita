@@ -220,6 +220,7 @@
     .image_container_mob_one {
         display: flex;
         width: unset;
+        height: unset;
         /* position: unset; */
         top: unset;
         justify-content: center;

@@ -394,6 +394,7 @@ video {
 .image_container {
     justify-content: center;
     width: 60vw;
+    height: 71vh;
     position: sticky;
     top: 12vh;
 }
