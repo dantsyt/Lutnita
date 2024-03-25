@@ -45,6 +45,7 @@ async function getOneExhib(exh) {
         `)
         // Append images DESK
         imgContainer.insertAdjacentHTML('afterbegin', `
+        <div id="space_image" class="space_image"></div>
         <img id="main_image" class="center_image_exhib center_image_one_exhib inverted" src="${imgDir}/${imgArr[0]}.webp" alt="center_image">
         `)
         imgContainer.insertAdjacentHTML('beforeend', `
@@ -188,6 +189,7 @@ const videoAdd = () => {
     document.documentElement.classList.toggle('dark_mode')
     document.documentElement.style.cursor = "url('cursors/cursor_white.svg'), pointer;"
     // loadImage.style.top = '15vh'
+    document.querySelector('#space_image').classList.remove('space_image')
     image.style.display = 'none'
     image.classList.remove('fade')
     captions.style.display = 'none'
@@ -227,6 +229,7 @@ const videoRemove = () => {
         videoBtn.style.display = 'unset'
         document.querySelector('#close_video_mob').remove()
     }
+    document.querySelector('#space_image').classList.add('space_image')
     document.documentElement.classList.toggle('dark_mode')
     document.querySelectorAll('.inverted').forEach((res) => {
         res.classList.toggle('invert')

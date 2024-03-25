@@ -470,6 +470,10 @@ video {
     justify-content: flex-start;
 }
 
+.space_image {
+    height: 7%;
+}
+
 /* --------- RIGHT ---------- */
 
 .right_space {
