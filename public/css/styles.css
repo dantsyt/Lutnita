@@ -403,8 +403,8 @@ video {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    width: 67vw;
+    /* justify-content: flex-start; */
+    /* width: 67vw; */
 }
 
 .center_image_index,
@@ -436,6 +436,7 @@ video {
     padding: 12rem 0;
     text-align: center;
     opacity: 0;
+    height: 10%;
 }
 
 .fade_captions {
@@ -473,9 +474,9 @@ video {
     /* align-items: center; */
 }
 
-.gallery {
+/* .gallery {
     width: 13vw;
-}
+} */
 
 .close_video {
     font-size: 12rem;
