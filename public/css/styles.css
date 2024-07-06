@@ -170,7 +170,8 @@ h4 {
     width: 10em;
     height: 2.8em;
     margin-top: -1.7em;
-    margin-bottom: 0.7em;
+    /* margin-bottom: 0.3em; orig: 0.7 */
+    margin-bottom: 0.3em;
 }
 
 #list_wrapper {

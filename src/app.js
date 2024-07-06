@@ -42,8 +42,8 @@ app.use(exhibDBRouter)
 app.use(newsDBRouter)
 
 app.get('/', (req, res) => {
-    res.render('current', {
-        title: 'Current'
+    res.render('upcoming', {
+        title: 'Upcoming'
     })
 })
 app.use('/artists', artistsRouter)
