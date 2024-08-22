@@ -68,6 +68,9 @@ getOneExhib(exhId).then(() => {
     if (document.querySelector('.text_container_nohover').id == 'vbmmrdngmr') {
         vbmmrdngmr()
     }
+    if (document.querySelector('.text_container_nohover').id == 'svitlosalome') {
+        svitlosalome()
+    }
     captions = document.querySelector('#captions_desk')
     const viewsCount = document.querySelector('#counter_num')
     // loadImage = document.querySelector('.load_image')
@@ -185,6 +188,29 @@ const vbmmrdngmr = () => {
     videoBtn.addEventListener('click', videoAdd)
 }
 
+const svitlosalome = () => {
+    const namesWrapper = document.querySelector('.names_wrapper')
+    const namesContainer = document.querySelectorAll('.names_container')
+    if (mob) {
+        document.querySelector('.pdf_mob').insertAdjacentHTML('afterend', `
+        <h6 id="videoBtn1" class="videoBtn vidBtnSvitlo">video I</h6>
+        <h6 id="videoBtn2" class="videoBtn vidBtnSvitlo">video II</h6>
+        `)
+        namesWrapper.style.maxHeight = '9.5em'
+        namesWrapper.style.marginBottom = '-2em'
+        namesWrapper.style.marginTop = '5rem'
+    } else {
+        document.querySelector('.pdf').insertAdjacentHTML('afterend', `
+        <h6 id="videoBtn1" class="videoBtn vidBtnSvitlo">video I</h6>
+        <h6 id="videoBtn2" class="videoBtn vidBtnSvitlo">video II</h6>
+        `)
+    }
+    videoBtn1 = document.querySelector('#videoBtn1')
+    videoBtn2 = document.querySelector('#videoBtn2')
+    videoBtn1.addEventListener('click', videoAdd1)
+    videoBtn2.addEventListener('click', videoAdd2)
+}
+
 const videoAdd = () => {
     document.documentElement.classList.toggle('dark_mode')
     document.documentElement.style.cursor = "url('cursors/cursor_white.svg'), pointer;"
@@ -224,9 +250,109 @@ const videoAdd = () => {
     videoBtn.removeEventListener('click', videoAdd)
 }
 
+const videoAdd1 = () => {
+    document.documentElement.classList.toggle('dark_mode')
+    document.documentElement.style.cursor = "url('cursors/cursor_white.svg'), pointer;"
+    // loadImage.style.top = '15vh'
+    document.querySelector('#space_image').classList.remove('space_image')
+    image.style.display = 'none'
+    image.classList.remove('fade')
+    captions.style.display = 'none'
+    captions.classList.remove('fade_captions')
+    document.querySelector('.image_container_mob_one').insertAdjacentHTML('beforebegin', `
+    <div id="videowrapper" class="videowrapper">
+    <video id="video" controls  controlslist="nofullscreen nodownload" playsinline autoplay loop class="inverted">
+    <source src="${assetUrl}/img/exhibitions/svitlosalome/runaway_svitlo.mp4" type="video/mp4" />
+    </video>
+    <p id="captions_svitlosalome" class="captions">Max Svitlo - The Room of the Fugitive (Runner)</p>
+    </div>
+    `)
+    document.querySelector('.right_space').insertAdjacentHTML('afterbegin', `
+    <p id="close_video" class="close_video">close video  <span id="close_vid_symb"><sup>&#10005;</sup></span></p>
+    `)
+    setTimeout(() => {
+        document.querySelector('#captions_svitlosalome').style.display = 'unset'
+    }, 100)
+    setTimeout(() => {
+        document.querySelector('#captions_svitlosalome').classList.add('fade_captions')
+    }, 1100)
+    if (mob) {
+        videoBtn1.style.display = 'none'
+        videoBtn2.style.display = 'none'
+        document.querySelector('#svitlosalome').insertAdjacentHTML('beforeend', `
+    <p id="close_video_mob" class="close_video">close video</p>
+    `)
+        document.querySelector('#close_video_mob').addEventListener('click', videoRemove)
+    }
+    const video = document.querySelector('video')
+    videoWrapper = document.querySelector('#videowrapper')
+    document.querySelectorAll('.inverted').forEach((res) => {
+        res.classList.toggle('invert')
+    })
+    video.onloadedmetadata = () => {
+        // loadImage.classList.add('load_image_hidden')
+        videoWrapper.classList.add('video_visible')
+    }
+    document.querySelector('#close_video').addEventListener('click', videoRemove)
+    videoBtn1.removeEventListener('click', videoAdd1)
+    videoBtn2.removeEventListener('click', videoAdd2)
+}
+const videoAdd2 = () => {
+    document.documentElement.classList.toggle('dark_mode')
+    document.documentElement.style.cursor = "url('cursors/cursor_white.svg'), pointer;"
+    // loadImage.style.top = '15vh'
+    document.querySelector('#space_image').classList.remove('space_image')
+    image.style.display = 'none'
+    image.classList.remove('fade')
+    captions.style.display = 'none'
+    captions.classList.remove('fade_captions')
+    document.querySelector('.image_container_mob_one').insertAdjacentHTML('beforebegin', `
+    <div id="videowrapper" class="videowrapper">
+    <video id="video" controls controlslist="nofullscreen nodownload" playsinline autoplay loop class="inverted">
+    <source src="${assetUrl}/img/exhibitions/svitlosalome/salt_salome_fate_room.mp4" type="video/mp4" />
+    </video>
+    <p id="captions_svitlosalome" class="captions">Salt Salome - The Room of the Destiny (Fate)</p>
+    </div>
+    `)
+    document.querySelector('.right_space').insertAdjacentHTML('afterbegin', `
+    <p id="close_video" class="close_video">close video  <span id="close_vid_symb"><sup>&#10005;</sup></span></p>
+    `)
+    setTimeout(() => {
+        document.querySelector('#captions_svitlosalome').style.display = 'unset'
+    }, 100)
+    setTimeout(() => {
+        document.querySelector('#captions_svitlosalome').classList.add('fade_captions')
+    }, 1100)
+    if (mob) {
+        videoBtn1.style.display = 'none'
+        videoBtn2.style.display = 'none'
+        document.querySelector('#svitlosalome').insertAdjacentHTML('beforeend', `
+    <p id="close_video_mob" class="close_video">close video</p>
+    `)
+        document.querySelector('#close_video_mob').addEventListener('click', videoRemove)
+    }
+    const video = document.querySelector('video')
+    videoWrapper = document.querySelector('#videowrapper')
+    document.querySelectorAll('.inverted').forEach((res) => {
+        res.classList.toggle('invert')
+    })
+    video.onloadedmetadata = () => {
+        // loadImage.classList.add('load_image_hidden')
+        videoWrapper.classList.add('video_visible')
+    }
+    document.querySelector('#close_video').addEventListener('click', videoRemove)
+    videoBtn1.removeEventListener('click', videoAdd1)
+    videoBtn2.removeEventListener('click', videoAdd2)
+}
+
 const videoRemove = () => {
     if (mob) {
-        videoBtn.style.display = 'unset'
+        if (document.querySelector('.text_container_nohover').id == 'svitlosalome') {
+            videoBtn1.style.display = 'unset'
+            videoBtn2.style.display = 'unset'
+        } else {
+            videoBtn.style.display = 'unset'
+        }
         document.querySelector('#close_video_mob').remove()
     }
     document.querySelector('#space_image').classList.add('space_image')
@@ -245,5 +371,10 @@ const videoRemove = () => {
         captions.classList.add('fade_captions')
     }, 1100)
     document.querySelector('#close_video').remove()
-    videoBtn.addEventListener('click', videoAdd)
+    if (document.querySelector('.text_container_nohover').id == 'svitlosalome') {
+        videoBtn1.addEventListener('click', videoAdd1)
+        videoBtn2.addEventListener('click', videoAdd2)
+    } else {
+        videoBtn.addEventListener('click', videoAdd)
+    }
 }
