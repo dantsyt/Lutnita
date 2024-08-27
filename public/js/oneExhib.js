@@ -196,9 +196,6 @@ const svitlosalome = () => {
         <h6 id="videoBtn1" class="videoBtn vidBtnSvitlo">video I</h6>
         <h6 id="videoBtn2" class="videoBtn vidBtnSvitlo">video II</h6>
         `)
-        namesWrapper.style.maxHeight = '9.5em'
-        namesWrapper.style.marginBottom = '-2em'
-        namesWrapper.style.marginTop = '5rem'
     } else {
         document.querySelector('.pdf').insertAdjacentHTML('afterend', `
         <h6 id="videoBtn1" class="videoBtn vidBtnSvitlo">video I</h6>
