@@ -261,9 +261,7 @@ const videoAdd1 = () => {
     captions.classList.remove('fade_captions')
     document.querySelector('.image_container_mob_one').insertAdjacentHTML('beforebegin', `
     <div id="videowrapper" class="videowrapper">
-    <video id="video" controls  controlslist="nofullscreen nodownload" playsinline autoplay loop class="inverted">
-    <source src="${assetUrl}/img/exhibitions/svitlosalome/runaway_svitlo.mp4" type="video/mp4" />
-    </video>
+    <div id="video" class="inverted" style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1003391273?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Salt Salome: The Room of the Destiny (Fate)"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
     <p id="captions_svitlosalome" class="captions">Max Svitlo - The Room of the Fugitive (Runner)</p>
     </div>
     `)
@@ -284,15 +282,16 @@ const videoAdd1 = () => {
     `)
         document.querySelector('#close_video_mob').addEventListener('click', videoRemove)
     }
-    const video = document.querySelector('video')
+    const video = document.querySelector('#video')
     videoWrapper = document.querySelector('#videowrapper')
     document.querySelectorAll('.inverted').forEach((res) => {
         res.classList.toggle('invert')
     })
-    video.onloadedmetadata = () => {
-        // loadImage.classList.add('load_image_hidden')
-        videoWrapper.classList.add('video_visible')
-    }
+    // video.onloadedmetadata = () => {
+    //     // loadImage.classList.add('load_image_hidden')
+    //     videoWrapper.classList.add('video_visible')
+    // }
+    videoWrapper.classList.add('video_visible')
     document.querySelector('#close_video').addEventListener('click', videoRemove)
     videoBtn1.removeEventListener('click', videoAdd1)
     videoBtn2.removeEventListener('click', videoAdd2)
@@ -308,9 +307,7 @@ const videoAdd2 = () => {
     captions.classList.remove('fade_captions')
     document.querySelector('.image_container_mob_one').insertAdjacentHTML('beforebegin', `
     <div id="videowrapper" class="videowrapper">
-    <video id="video" controls controlslist="nofullscreen nodownload" playsinline autoplay loop class="inverted">
-    <source src="${assetUrl}/img/exhibitions/svitlosalome/salt_salome_fate_room.mp4" type="video/mp4" />
-    </video>
+    <div id="video" class="inverted" style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1003391330?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Salt Salome: The Room of the Destiny (Fate)"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
     <p id="captions_svitlosalome" class="captions">Salt Salome - The Room of the Destiny (Fate)</p>
     </div>
     `)
@@ -331,15 +328,16 @@ const videoAdd2 = () => {
     `)
         document.querySelector('#close_video_mob').addEventListener('click', videoRemove)
     }
-    const video = document.querySelector('video')
+    const video = document.querySelector('#video')
     videoWrapper = document.querySelector('#videowrapper')
     document.querySelectorAll('.inverted').forEach((res) => {
         res.classList.toggle('invert')
     })
-    video.onloadedmetadata = () => {
-        // loadImage.classList.add('load_image_hidden')
-        videoWrapper.classList.add('video_visible')
-    }
+    // video.onloadedmetadata = () => {
+    //     // loadImage.classList.add('load_image_hidden')
+    //     videoWrapper.classList.add('video_visible')
+    // }
+    videoWrapper.classList.add('video_visible')
     document.querySelector('#close_video').addEventListener('click', videoRemove)
     videoBtn1.removeEventListener('click', videoAdd1)
     videoBtn2.removeEventListener('click', videoAdd2)
