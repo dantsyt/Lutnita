@@ -456,6 +456,7 @@ video {
     flex-direction: row;
     justify-content: flex-end;
     margin-inline-start: 4em;
+    transition: opacity .5s cubic-bezier(0.22, 0.02, 1, 1);
 }
 
 #counter_text {

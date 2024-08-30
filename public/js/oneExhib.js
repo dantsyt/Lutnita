@@ -243,6 +243,7 @@ const videoAdd = () => {
         // loadImage.classList.add('load_image_hidden')
         videoWrapper.classList.add('video_visible')
     }
+    document.querySelector('.img_counter').style.opacity = '0'
     document.querySelector('#close_video').addEventListener('click', videoRemove)
     videoBtn.removeEventListener('click', videoAdd)
 }
@@ -290,6 +291,7 @@ const videoAdd1 = () => {
     // }
     videoWrapper.classList.add('video_visible')
     document.querySelector('#close_video').addEventListener('click', videoRemove)
+    document.querySelector('.img_counter').style.opacity = '0'
     videoBtn1.removeEventListener('click', videoAdd1)
     videoBtn2.removeEventListener('click', videoAdd2)
 }
@@ -336,6 +338,7 @@ const videoAdd2 = () => {
     // }
     videoWrapper.classList.add('video_visible')
     document.querySelector('#close_video').addEventListener('click', videoRemove)
+    document.querySelector('.img_counter').style.opacity = '0'
     videoBtn1.removeEventListener('click', videoAdd1)
     videoBtn2.removeEventListener('click', videoAdd2)
 }
@@ -350,6 +353,7 @@ const videoRemove = () => {
         }
         document.querySelector('#close_video_mob').remove()
     }
+    document.querySelector('.img_counter').style.opacity = 'unset'
     document.querySelector('#space_image').classList.add('space_image')
     document.documentElement.classList.toggle('dark_mode')
     document.querySelectorAll('.inverted').forEach((res) => {
