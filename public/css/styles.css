@@ -424,7 +424,7 @@ video {
 
 .center_image_one_exhib {
     max-width: 80%;
-    max-height: 59vh;
+    max-height: 56vh;
     cursor: url('cursors/cursor_empty.svg'), pointer;
     opacity: 0.3;
     transition: unset;

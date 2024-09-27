@@ -389,6 +389,10 @@
         font-size: 18rem;
         color: #d1d1d1;
     }
+
+    #goodlife .names_wrapper {
+        max-height: 8em;
+    }
 }
 
 /* Min-width: 320px (smaller phone viewpoints)
