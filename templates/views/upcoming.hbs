@@ -12,69 +12,23 @@
     <main class="main full_main">
         <section id="text_section" class="text_section">
             <h2 class="title">{{title}}</h2>
-            <div id="text_container" class="text_container" onclick=location.assign('/exhibitions/goodlife')>
+            <div id="text_container" class="text_container" onclick=location.assign('/exhibitions')>
                 <div class="names_wrapper">
                     <div class="names_container">
                         <img class="artist_name"
-                            src="https://d3m5h3ndrov00p.cloudfront.net/img/exhibitions/namepaths/andreinacu.svg">
-                    </div>
-                    <div class="names_container">
-                        <img class="artist_name"
-                            src="https://d3m5h3ndrov00p.cloudfront.net/img/exhibitions/namepaths/catherinemorland.svg">
-                    </div>
-                    <div class="names_container">
-                        <img class="artist_name"
-                            src="https://d3m5h3ndrov00p.cloudfront.net/img/exhibitions/namepaths/ghenadiepopescu.svg">
-                    </div>
-                    <div class="names_container">
-                        <img class="artist_name"
-                            src="https://d3m5h3ndrov00p.cloudfront.net/img/exhibitions/namepaths/irinaboteajondean.svg">
-                    </div>
-                    <div class="names_container">
-                        <img class="artist_name"
-                            src="https://d3m5h3ndrov00p.cloudfront.net/img/exhibitions/namepaths/marinasulima.svg">
-                    </div>
-                    <div class="names_container">
-                        <img class="artist_name"
-                            src="https://d3m5h3ndrov00p.cloudfront.net/img/exhibitions/namepaths/nikitakadan.svg">
-                    </div>
-                    <div class="names_container">
-                        <img class="artist_name"
-                            src="https://d3m5h3ndrov00p.cloudfront.net/img/exhibitions/namepaths/pavelbraila.svg">
-                    </div>
-                    <div class="names_container">
-                        <img class="artist_name"
-                            src="https://d3m5h3ndrov00p.cloudfront.net/img/exhibitions/namepaths/ralucapopa.svg">
-                    </div>
-                    <div class="names_container">
-                        <img class="artist_name"
-                            src="https://d3m5h3ndrov00p.cloudfront.net/img/exhibitions/namepaths/tatianafiodorova.svg">
+                            src="https://d3m5h3ndrov00p.cloudfront.net/img/exhibitions/namepaths/doinamardari.svg">
                     </div>
                 </div>
-                <h4 class="exhibition_date">14 Sep 2024 — 28 Sep 2024</h4>
+                <h4 class="exhibition_date">04.10</h4>
             </div>
         </section>
         <section class="image_container"><img class="center_image_index"
-                src="https://d3m5h3ndrov00p.cloudfront.net/img/exhibitions/goodlife.webp"
-                alt="Images of the Good Life in The East" onclick=location.assign('/exhibitions/goodlife')>
+                src="https://d3m5h3ndrov00p.cloudfront.net/img/exhibitions/doinamardari.webp" alt="Doina Mardari"
+                onclick=location.assign('/exhibitions')>
         </section>
         <section class="right_space"></section>
     </main>
     {{>footer}}
-    <script>
-        const namesWrapper = document.querySelector('.names_wrapper')
-        const namesContainer = document.querySelectorAll('.names_container')
-        if (mediaQueryList.matches) {
-            namesWrapper.style.maxHeight = '9.5em'
-            namesWrapper.style.marginBottom = '-2em'
-            namesWrapper.style.marginTop = '5rem'
-            namesContainer[4].insertAdjacentHTML('afterend', `
-            <div class="names_container">
-                <img class="artist_name" src="https://d3m5h3ndrov00p.cloudfront.net/img/exhibitions/namepaths/empty.png">
-            </div>
-            `)
-        }
-    </script>
     <script src="js/menu_index.js"></script>
 </body>
 
