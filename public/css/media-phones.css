@@ -283,10 +283,19 @@
         padding: 12rem 8vw;
     }
 
+    .captions_doina {
+        padding: unset;
+    }
+
     .videowrapper {
         width: unset;
         margin-top: unset;
         padding: 0 8vw;
+    }
+
+    .video_doina {
+        width: 80vw;
+        padding: unset;
     }
 
     #close_video {
