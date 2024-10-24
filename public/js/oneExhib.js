@@ -57,6 +57,7 @@ async function getOneExhib(exh) {
 }
 
 getOneExhib(exhId).then(() => {
+    document.querySelector('footer').style.backgroundColor = 'unset'
     if (mediaQueryList.matches) {
         mob = true
         image = document.querySelector('.mob_one_exhib')
