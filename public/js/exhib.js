@@ -1,5 +1,5 @@
 const title = document.getElementById('title')
-const assetUrl = "https://d3m5h3ndrov00p.cloudfront.net"
+const assetUrl = "https://d23fd8t3cgh0wq.cloudfront.net"
 
 getExhibs().then(() => {
     const names = document.querySelectorAll('.text_container')

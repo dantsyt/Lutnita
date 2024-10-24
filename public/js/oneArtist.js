@@ -5,7 +5,7 @@ const imgContainer = document.querySelector('.image_container')
 videoWrapper = document.querySelector('#videowrapper')
 const textSection = document.querySelector('.text_section')
 linked = false
-const assetUrl = "https://d3m5h3ndrov00p.cloudfront.net"
+const assetUrl = "https://d23fd8t3cgh0wq.cloudfront.net"
 
 getOneArtist(artistId).then(() => {
     if (mediaQueryList.matches) {

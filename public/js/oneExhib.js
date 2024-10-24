@@ -2,7 +2,7 @@ const title = document.querySelector('#title')
 const exhPath = window.location.pathname
 const exhId = exhPath.substring(exhPath.indexOf('/', 1) + 1, exhPath.length)
 const imgContainer = document.querySelector('.image_container')
-const assetUrl = "https://d3m5h3ndrov00p.cloudfront.net"
+const assetUrl = "https://d23fd8t3cgh0wq.cloudfront.net"
 
 async function getOneExhib(exh) {
     try {
