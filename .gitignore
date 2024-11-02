@@ -3,3 +3,4 @@ resources/
 README.md
 artists_*.json
 exhibs_*.json
+src/db/mongoose.js
