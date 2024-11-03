@@ -3,7 +3,7 @@ const express = require('express')
 const hbs = require('hbs')
 const port = process.env.PORT || 3000
 
-// DB and routers
+// DB, routers, logger
 require('./db/mongoose')
 const artistsDBRouter = require('./routers/artistDBRouter')
 const artistsRouter = require('./routers/artistRouter')
@@ -11,6 +11,8 @@ const exhibDBRouter = require('./routers/exhibitionDBRouter')
 const exhibRouter = require('./routers/exhibitionRouter')
 const newsDBRouter = require('./routers/newsDBRouter')
 const newsRouter = require('./routers/newsRouter')
+const logger = require('./logger')
+const morganMiddleware = require('./morganMiddleware')
 
 const app = express()
 
@@ -40,8 +42,10 @@ app.use(express.static(publicPath))
 app.use(artistsDBRouter)
 app.use(exhibDBRouter)
 app.use(newsDBRouter)
+app.use(morganMiddleware)
 
 app.get('/', (req, res) => {
+    logger.info('Request for home page')
     res.render('upcoming', {
         title: 'Current'
     })
@@ -68,6 +72,17 @@ app.get('*', (req, res) => {
     })
 })
 
+app.use((err, req, res, next) => {
+    logger.error(
+        err.message,
+        {
+            error: err,
+            stackTrace: err.stack
+        }
+    ),
+        res.status(500).send('Internal server error')
+})
+
 app.listen(port, () => {
-    console.log(`LISTENING on ${port}`)
+    logger.info(`LISTENING on ${port}`)
 })
