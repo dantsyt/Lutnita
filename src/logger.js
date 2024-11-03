@@ -8,9 +8,8 @@ const logger = winston.createLogger({
         winston.format.json()
     ),
     defaultMeta: {
-        buildInfo: {
-            nodeVersion: process.version
-        }
+        environment: process.env.NODE_ENV,
+        nodeVersion: process.version
     },
     transports: [
         new winston.transports.Console({
