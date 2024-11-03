@@ -1,5 +1,4 @@
 const winston = require('winston')
-const ip = require('ip')
 
 const logger = winston.createLogger({
     level: process.env.LOG_LEVEL || 'info',
@@ -11,8 +10,7 @@ const logger = winston.createLogger({
     defaultMeta: {
         buildInfo: {
             nodeVersion: process.version
-        },
-        originalsourceip: ip.address()
+        }
     },
     transports: [
         new winston.transports.Console({
