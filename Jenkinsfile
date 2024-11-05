@@ -1,8 +1,10 @@
 pipeline {
-  agent any
-  environment {
-    NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
-}
+agent {
+    docker {
+            image 'alpine:3.12.0'
+            args '-u root'
+        }
+    }
   stages {
     stage('Checkout') {
       steps {
