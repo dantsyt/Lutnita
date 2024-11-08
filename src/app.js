@@ -47,7 +47,7 @@ app.use(morganMiddleware)
 app.get('/', (req, res) => {
     logger.info('Request for home page')
     res.render('upcoming', {
-        title: 'Current'
+        title: 'New title coming up'
     })
 })
 app.use('/artists', artistsRouter)
