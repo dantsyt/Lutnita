@@ -402,6 +402,14 @@
     #goodlife .names_wrapper {
         max-height: 8em;
     }
+
+    #winter .names_wrapper {
+        max-height: 13em;
+    }
+
+    #empty_w {
+        display: flex;
+    }
 }
 
 /* Min-width: 320px (smaller phone viewpoints)

@@ -480,6 +480,10 @@ video {
     height: 7%;
 }
 
+#empty_w {
+    display: none;
+}
+
 /* --------- RIGHT ---------- */
 
 .right_space {
