@@ -75,6 +75,9 @@ getOneExhib(exhId).then(() => {
     if (document.querySelector('.text_container_nohover').id == 'doinamardari') {
         doinamardari()
     }
+    if (document.querySelector('.text_container_nohover').id == 'winter') {
+        winter()
+    }
     captions = document.querySelector('#captions_desk')
     const viewsCount = document.querySelector('#counter_num')
     // loadImage = document.querySelector('.load_image')
@@ -170,6 +173,12 @@ getOneExhib(exhId).then(() => {
         }
     }
 }).catch((e) => { console.log(e.message) })
+
+const winter = () => {
+    const namesContainer = document.querySelectorAll('.names_container')
+    namesContainer[7].id = 'empty_w'
+    document.querySelector('footer').style.backgroundColor = 'white'
+}
 
 const vbmmrdngmr = () => {
     const namesWrapper = document.querySelector('.names_wrapper')

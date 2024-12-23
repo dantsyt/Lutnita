@@ -12,6 +12,15 @@ getExhibs().then(() => {
             }
         })
     }
+    const winter = () => {
+        const emptyContainer = document.querySelector('#winter').childNodes[3].children
+        emptyContainer[7].id = 'empty_w'
+        // document.querySelector('footer').style.backgroundColor = 'white'
+    }
+    if (document.querySelector('#winter')) {
+        console.log('winter is here')
+        winter()
+    }
 })
 
 async function getExhibs() {
