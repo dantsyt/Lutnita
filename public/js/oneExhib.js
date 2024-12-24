@@ -107,71 +107,89 @@ getOneExhib(exhId).then(() => {
             prevImage()
         }
     }
+
+    // Image preloading
+    let nextImageElement = new Image()
+    let prevImageElement = new Image()
+
+    const preloadNextImage = (src) => {
+        nextImageElement.src = src
+    }
+
+    const preloadPrevImage = (src) => {
+        prevImageElement.src = src
+    }
+
+    const initPrevCounter = (imgArr.length - 1)
+    const initPrevImageUrl = mob ? `${imgDirMob}/${imgArr[initPrevCounter]}_450px.webp` : `${imgDir}/${imgArr[initPrevCounter]}.webp`
+    preloadPrevImage(initPrevImageUrl)
+
+    const initNextCounter = 1
+    const initNextNextImageUrl = mob ? `${imgDirMob}/${imgArr[initNextCounter]}_450px.webp` : `${imgDir}/${imgArr[initNextCounter]}.webp`
+    preloadNextImage(initNextNextImageUrl)
+
     const nextImage = () => {
-        // loadImage.classList.remove('load_image_hidden')
         counter++
-        image.classList.remove('fade')
         if (counter == imgArr.length) {
             counter = 0
         }
-        if (mob == true) {
-            image.src = `${imgDirMob}/${imgArr[counter]}_450px.webp`
-        } else {
-            image.src = `${imgDir}/${imgArr[counter]}.webp`
-        }
+        const nextImageUrl = mob ? `${imgDirMob}/${imgArr[counter]}_450px.webp` : `${imgDir}/${imgArr[counter]}.webp`
+
+        preloadNextImage(nextImageUrl)  // Preload the next image
+
+        image.classList.remove('fade')
+        image.onload = null  // Remove the previous onload event
+        image.src = nextImageUrl  // Update the image source with the preloaded image
+
         captions.classList.remove('fade_captions')
         image.onload = () => {
-            checkImageLoaded()
-        }
-        const checkImageLoaded = () => {
-            if (image.complete) {
-                // loadImage.classList.add('load_image_hidden')
-                setTimeout(() => {
-                    image.classList.add('fade')
-                }, 1)
-                setTimeout(() => {
-                    captions.classList.add('fade_captions')
-                }, 700)
-                captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
-                viewsCount.innerText = ` ${counter + 1}`
-            } else {
-                setTimeout(checkImageLoaded, 50)
-            }
-        }
+            setTimeout(() => {
+                image.classList.add('fade')
+            }, 1)
+            setTimeout(() => {
+                captions.classList.add('fade_captions')
+            }, 700)
+            captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
+            viewsCount.innerText = ` ${counter + 1}`
 
+            // Preload the next image again after the current image is loaded
+            const nextCounter = (counter + 1) % imgArr.length
+            const nextNextImageUrl = mob ? `${imgDirMob}/${imgArr[nextCounter]}_450px.webp` : `${imgDir}/${imgArr[nextCounter]}.webp`
+            preloadNextImage(nextNextImageUrl)
+        }
     }
+
     const prevImage = () => {
-        // loadImage.classList.remove('load_image_hidden')
         counter--
-        image.classList.remove('fade')
         if (counter == -1) {
             counter = imgArr.length - 1
         }
-        if (mob == true) {
-            image.src = `${imgDirMob}/${imgArr[counter]}_450px.webp`
-        } else {
-            image.src = `${imgDir}/${imgArr[counter]}.webp`
-        }
+        const prevImageUrl = mob ? `${imgDirMob}/${imgArr[counter]}_450px.webp` : `${imgDir}/${imgArr[counter]}.webp`
+
+        preloadNextImage(prevImageUrl)  // Preload the previous image
+
+        image.classList.remove('fade')
+        image.onload = null  // Remove the previous onload event
+        image.src = prevImageUrl  // Update the image source with the preloaded image
+
         captions.classList.remove('fade_captions')
         image.onload = () => {
-            checkImageLoaded()
-        }
-        const checkImageLoaded = () => {
-            if (image.complete) {
-                // loadImage.classList.add('load_image_hidden')
-                setTimeout(() => {
-                    image.classList.add('fade')
-                }, 1)
-                setTimeout(() => {
-                    captions.classList.add('fade_captions')
-                }, 700)
-                captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
-                viewsCount.innerText = ` ${counter + 1}`
-            } else {
-                setTimeout(checkImageLoaded, 50)
-            }
+            setTimeout(() => {
+                image.classList.add('fade')
+            }, 1)
+            setTimeout(() => {
+                captions.classList.add('fade_captions')
+            }, 700)
+            captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
+            viewsCount.innerText = ` ${counter + 1}`
+
+            // Preload the next image again after the current image is loaded
+            const prevCounter = (counter - 1) % imgArr.length
+            const prevPrevImageUrl = mob ? `${imgDirMob}/${imgArr[prevCounter]}_450px.webp` : `${imgDir}/${imgArr[prevCounter]}.webp`
+            preloadNextImage(prevPrevImageUrl)
         }
     }
+
 }).catch((e) => { console.log(e.message) })
 
 const winter = () => {
