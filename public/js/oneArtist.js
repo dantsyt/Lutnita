@@ -59,100 +59,51 @@ getOneArtist(artistId).then(() => {
             location.assign(`/exhibitions/${oneExhib.exhibname}`)
         }
     }
-    //Next-Prev img funk
+    // Image and video preloading
+    let nextImageElement = new Image()
+    let prevImageElement = new Image()
+    let nextVideoElement = document.createElement('video')
+    let prevVideoElement = document.createElement('video')
+
+    const preloadNextMedia = (src) => {
+        if (src.endsWith('.mp4')) {
+            nextVideoElement.src = src
+        } else {
+            nextImageElement.src = src
+        }
+    }
+
+    const preloadPrevMedia = (src) => {
+        if (src.endsWith('.mp4')) {
+            prevVideoElement.src = src
+        } else {
+            prevImageElement.src = src
+        }
+    }
+
+    const initPrevCounter = (imgArr.length - 1)
+    const initPrevMediaUrl = mob ? `${imgDirMob}/${imgArrMob[initPrevCounter]}` : `${imgDir}/${imgArr[initPrevCounter]}`
+    preloadPrevMedia(initPrevMediaUrl)
+
+    const initNextCounter = 1
+    const initNextMediaUrl = mob ? `${imgDirMob}/${imgArrMob[initNextCounter]}` : `${imgDir}/${imgArr[initNextCounter]}`
+    preloadNextMedia(initNextMediaUrl)
+
     const nextImage = () => {
         counter++
         if (videoWrapper) {
             videoWrapper.remove()
             image.style.display = 'unset'
         }
-        image.classList.remove('fade')
         if (counter == imgArr.length) {
             counter = 0
         }
-        if (mob == true) {
-            image.src = `${imgDirMob}/${imgArrMob[counter]}`
-        } else {
-            image.src = `${imgDir}/${imgArr[counter]}`
-        }
-        captions.classList.remove('fade_captions')
-        // Video
-        if (imgArr[counter].substring(imgArr[counter].indexOf('.', 1) + 1, imgArr[counter].length) == "mp4") {
-            if (document.querySelector('.content-wrapper')) {
-                document.querySelector('.content-wrapper').remove()
-            }
-            image.style.display = 'none'
-            document.querySelector('.image_container_mob_one').insertAdjacentHTML('beforebegin', `
-                    <div class="content-wrapper">
-                    <div class="placeholder">
-                    <div class="animated-background"></div>
-                    </div>
-                    </div>
-                    <div id="videowrapper" class="videowrapper artist_video">
-                    <video id="video" autoplay loop playsinline class="inverted">
-                    <source src=${imgDir}/${imgArr[counter]} type="video/mp4" />
-                    </video>
-                    </div>
-                    `)
-            const video = document.querySelector('video')
-            video.onloadedmetadata = () => {
-                document.querySelector('.content-wrapper').classList.add('load_image_hidden')
-                videoWrapper = document.querySelector('#videowrapper')
-                setTimeout(() => {
-                    videoWrapper.classList.add('video_visible')
-                }, 1)
-                setTimeout(() => {
-                    captions.classList.add('fade_captions')
-                    document.querySelector('.content-wrapper').remove()
-                }, 700)
-                captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
-                viewsCount.innerText = ` ${counter + 1}`
-            }
-            video.onclick = (e) => {
-                let center = video.clientWidth / 2
-                if (e.offsetX > center) {
-                    nextImage()
-                } else {
-                    prevImage()
-                }
-            }
-        }
-        image.onload = () => {
-            checkImageLoaded()
-        }
-        const checkImageLoaded = () => {
-            if (image.complete) {
-                setTimeout(() => {
-                    image.classList.add('fade')
-                }, 1)
-                setTimeout(() => {
-                    captions.classList.add('fade_captions')
-                }, 700)
-                captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
-                viewsCount.innerText = ` ${counter + 1}`
-            } else {
-                setTimeout(checkImageLoaded, 50)
-            }
-        }
-    }
-    const prevImage = () => {
-        counter--
-        if (videoWrapper) {
-            videoWrapper.remove()
-            image.style.display = 'unset'
-        }
         image.classList.remove('fade')
-        if (counter == -1) {
-            counter = imgArr.length - 1
-        }
-        if (mob == true) {
-            image.src = `${imgDirMob}/${imgArrMob[counter]}`
-        } else {
-            image.src = `${imgDir}/${imgArr[counter]}`
-        }
+        const nextMediaUrl = mob ? `${imgDirMob}/${imgArrMob[counter]}` : `${imgDir}/${imgArr[counter]}`
         captions.classList.remove('fade_captions')
-        // Video
-        if (imgArr[counter].substring(imgArr[counter].indexOf('.', 1) + 1, imgArr[counter].length) == "mp4") {
+        preloadNextMedia(nextMediaUrl)  // Preload the next media
+
+        if (nextMediaUrl.endsWith('.mp4')) {
             if (document.querySelector('.content-wrapper')) {
                 document.querySelector('.content-wrapper').remove()
             }
@@ -164,8 +115,8 @@ getOneArtist(artistId).then(() => {
                 </div>
                 </div>
                 <div id="videowrapper" class="videowrapper artist_video">
-                <video id="video" playsinline autoplay loop class="inverted">
-                <source src=${imgDir}/${imgArr[counter]} type="video/mp4" />
+                <video id="video" autoplay loop playsinline class="inverted">
+                <source src=${nextMediaUrl} type="video/mp4" />
                 </video>
                 </div>
                 `)
@@ -182,6 +133,9 @@ getOneArtist(artistId).then(() => {
                 }, 700)
                 captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
                 viewsCount.innerText = ` ${counter + 1}`
+                const nextCounter = (counter + 1) % imgArr.length
+                const nextNextMediaUrl = mob ? `${imgDirMob}/${imgArrMob[nextCounter]}` : `${imgDir}/${imgArr[nextCounter]}`
+                preloadNextMedia(nextNextMediaUrl)
             }
             video.onclick = (e) => {
                 let center = video.clientWidth / 2
@@ -191,13 +145,9 @@ getOneArtist(artistId).then(() => {
                     prevImage()
                 }
             }
-        }
-        image.onload = () => {
-            checkImageLoaded()
-        }
-        const checkImageLoaded = () => {
-            if (image.complete) {
-
+        } else {
+            image.src = nextMediaUrl
+            image.onload = () => {
                 setTimeout(() => {
                     image.classList.add('fade')
                 }, 1)
@@ -206,8 +156,83 @@ getOneArtist(artistId).then(() => {
                 }, 700)
                 captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
                 viewsCount.innerText = ` ${counter + 1}`
-            } else {
-                setTimeout(checkImageLoaded, 50)
+                const nextCounter = (counter + 1) % imgArr.length
+                const nextNextMediaUrl = mob ? `${imgDirMob}/${imgArrMob[nextCounter]}` : `${imgDir}/${imgArr[nextCounter]}`
+                preloadNextMedia(nextNextMediaUrl)
+            }
+        }
+    }
+
+    const prevImage = () => {
+        counter--
+        if (videoWrapper) {
+            videoWrapper.remove()
+            image.style.display = 'unset'
+        }
+        image.classList.remove('fade')
+        if (counter == -1) {
+            counter = imgArr.length - 1
+        }
+        captions.classList.remove('fade_captions')
+        const prevMediaUrl = mob ? `${imgDirMob}/${imgArrMob[counter]}` : `${imgDir}/${imgArr[counter]}`
+        preloadPrevMedia(prevMediaUrl)  // Preload the previous media
+
+        if (prevMediaUrl.endsWith('.mp4')) {
+            if (document.querySelector('.content-wrapper')) {
+                document.querySelector('.content-wrapper').remove()
+            }
+            image.style.display = 'none'
+            document.querySelector('.image_container_mob_one').insertAdjacentHTML('beforebegin', `
+                <div class="content-wrapper">
+                <div class="placeholder">
+                <div class="animated-background"></div>
+                </div>
+                </div>
+                <div id="videowrapper" class="videowrapper artist_video">
+                <video id="video" playsinline autoplay loop class="inverted">
+                <source src=${prevMediaUrl} type="video/mp4" />
+                </video>
+                </div>
+                `)
+            const video = document.querySelector('video')
+            video.onloadedmetadata = () => {
+                document.querySelector('.content-wrapper').classList.add('load_image_hidden')
+                videoWrapper = document.querySelector('#videowrapper')
+                setTimeout(() => {
+                    videoWrapper.classList.add('video_visible')
+                }, 1)
+                setTimeout(() => {
+                    captions.classList.add('fade_captions')
+                    document.querySelector('.content-wrapper').remove()
+                }, 700)
+                captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
+                viewsCount.innerText = ` ${counter + 1}`
+                const prevCounter = (counter - 1) % imgArr.length
+                const prevPrevMediaUrl = mob ? `${imgDirMob}/${imgArrMob[prevCounter]}` : `${imgDir}/${imgArr[prevCounter]}`
+                preloadPrevMedia(prevPrevMediaUrl)
+            }
+            video.onclick = (e) => {
+                let center = video.clientWidth / 2
+                if (e.offsetX > center) {
+                    nextImage()
+                } else {
+                    prevImage()
+                }
+            }
+        } else {
+            image.src = prevMediaUrl
+            image.onload = () => {
+                setTimeout(() => {
+                    image.classList.add('fade')
+                }, 1)
+                setTimeout(() => {
+                    captions.classList.add('fade_captions')
+                }, 700)
+                captions.innerText = captionsArr[counter].replace(/\\n/g, '\n')
+                viewsCount.innerText = ` ${counter + 1}`
+                const prevCounter = (counter - 1) % imgArr.length
+                const prevPrevMediaUrl = mob ? `${imgDirMob}/${imgArrMob[prevCounter]}` : `${imgDir}/${imgArr[prevCounter]}`
+                preloadPrevMedia(prevPrevMediaUrl)
             }
         }
     }
