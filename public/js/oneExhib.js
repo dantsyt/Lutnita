@@ -132,7 +132,7 @@ getOneExhib(exhId).then(() => {
             swipe_det.eX = t.screenX
             swipe_det.eY = t.screenY
             const dX = swipe_det.eX - swipe_det.sX
-            if (Math.abs(dX) > min_x && e.cancealable) {
+            if (Math.abs(dX) > min_x) {
                 e.preventDefault();
             }
         }, false)
