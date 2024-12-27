@@ -125,14 +125,15 @@ getOneExhib(exhId).then(() => {
             swipe_det.sX = t.screenX
             swipe_det.sY = t.screenY
             startTime = new Date().getTime()
-            e.preventDefault()
         }, false)
 
         el.addEventListener('touchmove', function (e) {
             const t = e.touches[0]
             swipe_det.eX = t.screenX
             swipe_det.eY = t.screenY
-            e.preventDefault()
+            if (Math.abs(dX) > Math.abs(dY) && Math.abs(dX) > min_x && Math.abs(dY) < max_y) {
+                e.preventDefault();
+            }
         }, false)
 
         el.addEventListener('touchend', function (e) {
