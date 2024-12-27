@@ -108,60 +108,56 @@ getOneExhib(exhId).then(() => {
         }
     }
 
-    // Existing code...
-
     // Swipe detection code
     function detectSwipe(el, func) {
-        let swipe_det = {};
-        swipe_det.sX = 0; // Start X
-        swipe_det.sY = 0; // Start Y
-        swipe_det.eX = 0; // End X
-        swipe_det.eY = 0; // End Y
-        const min_x = 20; // Min X swipe distance to be considered a swipe
-        const max_y = 40; // Max Y deviation allowed
-        const max_time = 700; // Max time allowed to consider swipe
-        let startTime = 0;
+        let swipe_det = {}
+        swipe_det.sX = 0
+        swipe_det.sY = 0
+        swipe_det.eX = 0
+        swipe_det.eY = 0
+        const min_x = 20
+        const max_y = 40
+        const max_time = 700
+        let startTime = 0
 
         el.addEventListener('touchstart', function (e) {
-            const t = e.touches[0];
-            swipe_det.sX = t.screenX;
-            swipe_det.sY = t.screenY;
-            startTime = new Date().getTime();
-        }, false);
+            const t = e.touches[0]
+            swipe_det.sX = t.screenX
+            swipe_det.sY = t.screenY
+            startTime = new Date().getTime()
+            e.preventDefault()
+        }, false)
 
         el.addEventListener('touchmove', function (e) {
-            const t = e.touches[0];
-            swipe_det.eX = t.screenX;
-            swipe_det.eY = t.screenY;
-        }, false);
+            const t = e.touches[0]
+            swipe_det.eX = t.screenX
+            swipe_det.eY = t.screenY
+            e.preventDefault()
+        }, false)
 
         el.addEventListener('touchend', function (e) {
-            const dX = swipe_det.eX - swipe_det.sX;
-            const dY = swipe_det.eY - swipe_det.sY;
-            const elapsedTime = new Date().getTime() - startTime;
+            const dX = swipe_det.eX - swipe_det.sX
+            const dY = swipe_det.eY - swipe_det.sY
+            const elapsedTime = new Date().getTime() - startTime
 
             if (Math.abs(dX) > min_x && Math.abs(dY) < max_y && elapsedTime <= max_time) {
                 if (dX > 0) {
-                    func('right');
+                    func('right')
                 } else {
-                    func('left');
+                    func('left')
                 }
             }
-        }, false);
+            e.preventDefault()
+        }, false)
     }
 
-    // Existing code...
-
-    // Initialize swipe detection
     detectSwipe(image, function (direction) {
         if (direction === 'left') {
-            nextImage();
+            nextImage()
         } else if (direction === 'right') {
-            prevImage();
+            prevImage()
         }
-    });
-
-    // Existing code...
+    })
 
     // Image preloading
     let nextImageElement = new Image()
