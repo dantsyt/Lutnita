@@ -131,7 +131,8 @@ getOneExhib(exhId).then(() => {
             const t = e.touches[0]
             swipe_det.eX = t.screenX
             swipe_det.eY = t.screenY
-            if (Math.abs(dX) > Math.abs(dY) && Math.abs(dX) > min_x && Math.abs(dY) < max_y) {
+            const dX = swipe_det.eX - swipe_det.sX
+            if (Math.abs(dX) > min_x && e.cancealable) {
                 e.preventDefault();
             }
         }, false)
@@ -148,7 +149,6 @@ getOneExhib(exhId).then(() => {
                     func('left')
                 }
             }
-            e.preventDefault()
         }, false)
     }
 
