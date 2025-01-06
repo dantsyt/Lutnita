@@ -19,7 +19,7 @@ getOneArtist(artistId).then(() => {
     const viewsCount = document.querySelector('#counter_num')
     setTimeout(() => {
         image.classList.add('fade')
-    }, 100)
+    }, 50)
     setTimeout(() => {
         captions.classList.add('fade_captions')
     }, 500)
@@ -184,7 +184,7 @@ getOneArtist(artistId).then(() => {
                 videoWrapper = document.querySelector('#videowrapper')
                 setTimeout(() => {
                     videoWrapper.classList.add('video_visible')
-                }, 100)
+                }, 50)
                 setTimeout(() => {
                     captions.classList.add('fade_captions')
                     document.querySelector('.content-wrapper').remove()
@@ -203,12 +203,19 @@ getOneArtist(artistId).then(() => {
                     prevImage()
                 }
             }
+            detectSwipe(video, function (direction) {
+                if (direction === 'left') {
+                    nextImage()
+                } else if (direction === 'right') {
+                    prevImage()
+                }
+            })
         } else {
             image.src = nextMediaUrl
             image.onload = () => {
                 setTimeout(() => {
                     image.classList.add('fade')
-                }, 100)
+                }, 50)
                 setTimeout(() => {
                     captions.classList.add('fade_captions')
                 }, 700)
@@ -258,7 +265,7 @@ getOneArtist(artistId).then(() => {
                 videoWrapper = document.querySelector('#videowrapper')
                 setTimeout(() => {
                     videoWrapper.classList.add('video_visible')
-                }, 100)
+                }, 50)
                 setTimeout(() => {
                     captions.classList.add('fade_captions')
                     document.querySelector('.content-wrapper').remove()
@@ -277,12 +284,19 @@ getOneArtist(artistId).then(() => {
                     prevImage()
                 }
             }
+            detectSwipe(video, function (direction) {
+                if (direction === 'left') {
+                    nextImage()
+                } else if (direction === 'right') {
+                    prevImage()
+                }
+            })
         } else {
             image.src = prevMediaUrl
             image.onload = () => {
                 setTimeout(() => {
                     image.classList.add('fade')
-                }, 100)
+                }, 50)
                 setTimeout(() => {
                     captions.classList.add('fade_captions')
                 }, 700)
