@@ -83,7 +83,7 @@ getOneExhib(exhId).then(() => {
     // loadImage = document.querySelector('.load_image')
     setTimeout(() => {
         image.classList.add('fade')
-    }, 1)
+    }, 100)
     setTimeout(() => {
         captions.classList.add('fade_captions')
     }, 500)
@@ -202,7 +202,7 @@ getOneExhib(exhId).then(() => {
         image.onload = () => {
             setTimeout(() => {
                 image.classList.add('fade')
-            }, 1)
+            }, 100)
             setTimeout(() => {
                 captions.classList.add('fade_captions')
             }, 700)
@@ -233,7 +233,7 @@ getOneExhib(exhId).then(() => {
         image.onload = () => {
             setTimeout(() => {
                 image.classList.add('fade')
-            }, 1)
+            }, 100)
             setTimeout(() => {
                 captions.classList.add('fade_captions')
             }, 700)
