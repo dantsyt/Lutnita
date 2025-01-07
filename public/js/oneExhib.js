@@ -4,6 +4,16 @@ const exhId = exhPath.substring(exhPath.indexOf('/', 1) + 1, exhPath.length)
 const imgContainer = document.querySelector('.image_container')
 const assetUrl = "https://d23fd8t3cgh0wq.cloudfront.net"
 
+function sendLog(message) {
+    fetch('/log', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message })
+    }).catch(error => console.error('Error logging message:', error))
+}
+
 async function getOneExhib(exh) {
     try {
         const response = await fetch(`/getOneExhib/${exh}`)
@@ -214,6 +224,7 @@ getOneExhib(exhId).then(() => {
             const nextNextImageUrl = mob ? `${imgDirMob}/${imgArr[nextCounter]}_450px.webp` : `${imgDir}/${imgArr[nextCounter]}.webp`
             preloadNextImage(nextNextImageUrl)
         }
+        sendLog(`nextImage function called on exhibition: ${exhId}, counter: ${counter + 1}`)
     }
 
     const prevImage = () => {
@@ -245,8 +256,8 @@ getOneExhib(exhId).then(() => {
             const prevPrevImageUrl = mob ? `${imgDirMob}/${imgArr[prevCounter]}_450px.webp` : `${imgDir}/${imgArr[prevCounter]}.webp`
             preloadNextImage(prevPrevImageUrl)
         }
+        sendLog(`prevImage function called on exhibition: ${exhId}, counter: ${counter + 1}`)
     }
-
 }).catch((e) => { console.log(e.message) })
 
 const winter = () => {
@@ -313,6 +324,7 @@ const doinamardari = () => {
 }
 
 const videoAdd = () => {
+    sendLog(`videoAdd function called on exhibition: ${exhId}`)
     document.documentElement.classList.toggle('dark_mode')
     document.documentElement.style.cursor = "url('cursors/cursor_white.svg'), pointer;"
     // loadImage.style.top = '15vh'
@@ -353,6 +365,7 @@ const videoAdd = () => {
 }
 
 const videoAdd1 = () => {
+    sendLog(`videoAdd function called on exhibition: ${exhId} video 1`)
     document.documentElement.classList.toggle('dark_mode')
     document.documentElement.style.cursor = "url('cursors/cursor_white.svg'), pointer;"
     // loadImage.style.top = '15vh'
@@ -400,6 +413,7 @@ const videoAdd1 = () => {
     videoBtn2.removeEventListener('click', videoAdd2)
 }
 const videoAdd2 = () => {
+    sendLog(`videoAdd function called on exhibition: ${exhId} video 2`)
     document.documentElement.classList.toggle('dark_mode')
     document.documentElement.style.cursor = "url('cursors/cursor_white.svg'), pointer;"
     // loadImage.style.top = '15vh'
@@ -447,6 +461,7 @@ const videoAdd2 = () => {
     videoBtn2.removeEventListener('click', videoAdd2)
 }
 const videoAddDoina = () => {
+    sendLog(`videoAdd function called on exhibition: ${exhId}`)
     document.documentElement.classList.toggle('dark_mode')
     document.documentElement.style.cursor = "url('cursors/cursor_white.svg'), pointer;"
     // loadImage.style.top = '15vh'
@@ -493,6 +508,7 @@ const videoAddDoina = () => {
 }
 
 const videoRemove = () => {
+    sendLog(`videoRemove function called on exhibition: ${exhId}`)
     if (mob) {
         if (document.querySelector('.text_container_nohover').id == 'svitlosalome') {
             videoBtn1.style.display = 'unset'

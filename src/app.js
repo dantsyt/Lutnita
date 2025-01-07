@@ -12,7 +12,7 @@ const exhibRouter = require('./routers/exhibitionRouter')
 const newsDBRouter = require('./routers/newsDBRouter')
 const newsRouter = require('./routers/newsRouter')
 const logger = require('./logger')
-const morganMiddleware = require('./morganMiddleware')
+const { morganMiddleware, ipMiddleware } = require('./morganMiddleware')
 
 const app = express()
 
@@ -39,13 +39,24 @@ hbs.registerPartials(partialsPath)
 // Set static directory and routers
 
 app.use(express.static(publicPath))
+app.use(ipMiddleware)
 app.use(artistsDBRouter)
 app.use(exhibDBRouter)
 app.use(newsDBRouter)
 app.use(morganMiddleware)
 
+app.post('/log', (req, res) => {
+    const { message } = req.body
+    if (message) {
+        logger.info(message, { originalsourceip: req.originalsourceip })
+        res.status(200).send('Log received')
+    } else {
+        res.status(400).send('No message provided')
+    }
+})
+
 app.get('/', (req, res) => {
-    logger.info('Request for home page')
+    logger.info('Request for home page', { originalsourceip: req.originalsourceip })
     res.render('upcoming', {
         title: 'Current'
     })

@@ -7,7 +7,9 @@ morgan.token('header-ip', function (req, res) {
     return ffHeaderValue || req.socket.remoteAddress
 })
 
-morgan.token('trueIp', req => requestIp.getClientIp(req))
+morgan.token('trueIp', function (req) {
+    return requestIp.getClientIp(req)
+})
 
 const morganFormat = `{
     "@timestamp": ":date[iso]",
@@ -35,4 +37,9 @@ const morganMiddleware = morgan(
     }
 )
 
-module.exports = morganMiddleware
+const ipMiddleware = (req, res, next) => {
+    req.originalsourceip = requestIp.getClientIp(req)
+    next()
+}
+
+module.exports = { morganMiddleware, ipMiddleware }

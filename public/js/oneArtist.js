@@ -147,6 +147,16 @@ getOneArtist(artistId).then(() => {
     const initNextMediaUrl = mob ? `${imgDirMob}/${imgArrMob[initNextCounter]}` : `${imgDir}/${imgArr[initNextCounter]}`
     preloadNextMedia(initNextMediaUrl)
 
+    function sendLog(message) {
+        fetch('/log', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message })
+        }).catch(error => console.error('Error logging message:', error))
+    }
+
     const nextImage = () => {
         counter++
         if (videoWrapper) {
@@ -226,6 +236,7 @@ getOneArtist(artistId).then(() => {
                 preloadNextMedia(nextNextMediaUrl)
             }
         }
+        sendLog(`nextImage function called on artist: ${artistId}, counter: ${counter + 1}`)
     }
 
     const prevImage = () => {
@@ -307,6 +318,7 @@ getOneArtist(artistId).then(() => {
                 preloadPrevMedia(prevPrevMediaUrl)
             }
         }
+        sendLog(`prevImage function called on artist: ${artistId}, counter: ${counter + 1}`)
     }
 }).catch((e) => { console.log(e.message) })
 
