@@ -108,6 +108,7 @@ getOneExhib(exhId).then(() => {
                 nextImage()
                 break
         }
+        sendLog("keydown")
     })
     image.onclick = (e) => {
         let center = image.width / 2
@@ -116,6 +117,7 @@ getOneExhib(exhId).then(() => {
         } else {
             prevImage()
         }
+        mob ? sendLog("tap") : sendLog("click")
     }
 
     // Swipe detection code
@@ -173,6 +175,7 @@ getOneExhib(exhId).then(() => {
         } else if (direction === 'right') {
             prevImage()
         }
+        sendLog("swipe")
     })
 
     // Image preloading

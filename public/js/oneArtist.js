@@ -34,6 +34,7 @@ getOneArtist(artistId).then(() => {
                 nextImage()
                 break
         }
+        sendLog("keydown")
     })
     image.onclick = (e) => {
         let center = image.width / 2
@@ -42,6 +43,7 @@ getOneArtist(artistId).then(() => {
         } else {
             prevImage()
         }
+        mob ? sendLog("tap") : sendLog("click")
     }
     // ExhibLink Mob
     if (linked && mob) {
@@ -115,6 +117,7 @@ getOneArtist(artistId).then(() => {
         } else if (direction === 'right') {
             prevImage()
         }
+        sendLog("swipe")
     })
 
     // Image and video preloading
