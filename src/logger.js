@@ -1,10 +1,18 @@
 const winston = require('winston')
 const moment = require('moment')
 
+const removeTimestamp = winston.format((info, opts) => {
+    if (info.timestamp) {
+        delete info.timestamp;
+        return info;
+    }
+})
+
 const customFormat = winston.format.combine(
     winston.format.timestamp({
-        format: () => moment().utc().format('YYYY-MM-DDTHH:mm:ss.SSS[Z]')
+        format: () => moment().utc().format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'), alias: '@timestamp'
     }),
+    removeTimestamp(),
     winston.format.errors({ stack: true }),
     winston.format.splat(),
     winston.format.json(),
