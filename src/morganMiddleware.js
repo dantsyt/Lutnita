@@ -12,7 +12,6 @@ morgan.token('trueIp', function (req) {
 })
 
 const morganFormat = `{
-    "@timestamp": ":date[iso]",
     "headerIp": ":header-ip",
     "originalsourceip": ":trueIp",
     "httpVersion": "HTTP/:http-version",
