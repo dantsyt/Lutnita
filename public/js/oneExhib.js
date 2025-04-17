@@ -553,7 +553,7 @@ const videoAddAnna = () => {
     }, 1100)
     if (mob) {
         videoBtn.style.display = 'none'
-        document.querySelector('#doinamardari').insertAdjacentHTML('beforeend', `
+        document.querySelector('#annagodzina').insertAdjacentHTML('beforeend', `
     <p id="close_video_mob" class="close_video">close video</p>
     `)
         document.querySelector('#close_video_mob').addEventListener('click', videoRemove)
