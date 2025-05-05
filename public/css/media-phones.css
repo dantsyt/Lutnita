@@ -410,6 +410,10 @@
     #empty_w {
         display: flex;
     }
+
+    #removemeafterrelocation {
+        display: none;
+    }
 }
 
 /* Min-width: 320px (smaller phone viewpoints)

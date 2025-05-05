@@ -140,6 +140,8 @@ h4 {
 
 .text_container_info {
     margin-inline-start: 2em;
+    /* padding-top: 1.5em; */
+    /* remove 1.5em padding-top after relocation */
 }
 
 .upcoming {
@@ -576,4 +578,12 @@ video {
 .dark_mode a,
 .dark_mode h6 {
     cursor: url('cursors/cursor_white.svg'), default !important;
+}
+
+#relocating_date {
+    margin-top: -0.5em;
+}
+
+#removemeafterrelocation {
+    color: #ffffff;
 }
