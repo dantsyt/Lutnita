@@ -18,7 +18,6 @@ getExhibs().then(() => {
         // document.querySelector('footer').style.backgroundColor = 'white'
     }
     if (document.querySelector('#winter')) {
-        console.log('winter is here')
         winter()
     }
 })
