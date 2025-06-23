@@ -140,8 +140,6 @@ h4 {
 
 .text_container_info {
     margin-inline-start: 2em;
-    /* padding-top: 1.5em; */
-    /* remove 1.5em padding-top after relocation */
 }
 
 .upcoming {
@@ -494,9 +492,29 @@ video {
     /* align-items: center; */
 }
 
-/* .gallery {
-    width: 13vw;
-} */
+.year_container {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    margin-inline-end: 4.5vw;
+    color: #c6c6c6;
+    line-height: 27rem;
+    font-size: 0.85em;
+}
+
+.year_container:hover {
+    cursor: url('cursors/cursor_empty.svg'), pointer;
+}
+
+.year {
+    transform: scaleY(1.10);
+    transition: color 0.2s ease-out
+}
+
+.year.hovered,
+.year:hover {
+    color: #666;
+}
 
 .close_video {
     font-size: 12rem;
