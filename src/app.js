@@ -3,7 +3,7 @@ const express = require('express')
 const hbs = require('hbs')
 const port = process.env.PORT || 3000
 
-// DB, routers, logger
+// DB, routers, loggers
 require('./db/mongoose')
 const artistsDBRouter = require('./routers/artistDBRouter')
 const artistsRouter = require('./routers/artistRouter')
