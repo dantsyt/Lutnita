@@ -25,7 +25,7 @@ getOneArtist(artistId).then(() => {
     }, 500)
     let counter = 0
     window.addEventListener('keydown', function (event) {
-        const key = event.key // "ArrowRight", "ArrowLeft"
+        const key = event.key
         switch (event.key) {
             case "ArrowLeft":
                 prevImage()
