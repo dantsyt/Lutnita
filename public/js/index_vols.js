@@ -1,14 +1,16 @@
-const assetUrl = "https://d23fd8t3cgh0wq.cloudfront.net"
+if (!mediaQueryList.matches) {
+    const assetUrl = "https://d23fd8t3cgh0wq.cloudfront.net"
+    const vols = document.querySelectorAll('.vols_wrapper')
+    const image = document.querySelector('.center_image_index')
 
-const vols = document.querySelectorAll('.vols_wrapper')
-const image = document.querySelector('.center_image_index')
-for (let i = 0; i < 2; i++) {
-    vols[i].addEventListener('mouseenter', () => {
-        image.src = `${assetUrl}/img/exhibitions/pavelbrailav${i+1}.webp`
-        image.onclick = () => {
-            location.assign(`/exhibitions/`)
-        }
-    })
+    for (let i = 0; i < 2; i++) {
+        vols[i].addEventListener('mouseenter', () => {
+            image.src = `${assetUrl}/img/exhibitions/pavelbrailav${i+1}.webp`
+            image.onclick = () => {
+                location.assign(`/exhibitions/`)
+            }
+        })
+    }
 }
 
 

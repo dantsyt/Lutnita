@@ -12,7 +12,7 @@
     <main class="main full_main">
         <section id="text_section" class="text_section">
             <h2 class="title">{{title}}</h2>
-            <div class="text_container_nohover" onclick=location.assign('/exhibitions')>
+            <div class="text_container_nohover tc_index" onclick=location.assign('/exhibitions')>
                 <div class="names_wrapper">
                     <div class="names_container">
                         <img class="artist_name"
@@ -24,16 +24,20 @@
                     <h4 class="exhibition_date">26 Sep 2025 — 16 Nov 2025</h4>
                     <h3 class="loc">Chișinău</h3>
                 </div>
+                <div class="image_container_mob_index">
+                    <img class="center_image_mob" src="https://d23fd8t3cgh0wq.cloudfront.net/img/exhibitions/pavelbrailav1.webp" alt="center_image" onclick=location.assign('/exhibitions/${one.exhibname}')>
+                </div>
+            </div>
+            <div class="text_container_nohover tc_index" onclick=location.assign('/exhibitions')>
                 <div class="vols_wrapper">
                     <h3 class="vol">vol. II</h3>
                     <h4 class="exhibition_date">11 Oct 2025 — 16 Nov 2025</h4>
                     <h3 class="loc">Ustia</h3>
                 </div>
+                <div class="image_container_mob_index">
+                    <img class="center_image_mob" src="https://d23fd8t3cgh0wq.cloudfront.net/img/exhibitions/pavelbrailav2.webp" alt="center_image" onclick=location.assign('/exhibitions/${one.exhibname}')>
+                </div>
             </div>
-            <div class="image_container_mob">
-        <img class="center_image_mob" src="https://d23fd8t3cgh0wq.cloudfront.net/img/exhibitions/pavelbrailav1.webp" alt="center_image" onclick=location.assign('/exhibitions/${one.exhibname}')>
-        <img class="center_image_mob" src="https://d23fd8t3cgh0wq.cloudfront.net/img/exhibitions/pavelbrailav2.webp" alt="center_image" onclick=location.assign('/exhibitions/${one.exhibname}')>
-        </div>
         </section>
         <section class="image_container"><img class="center_image_index"
                 src="https://d23fd8t3cgh0wq.cloudfront.net/img/exhibitions/pavelbrailav1.webp" alt="RELOCATING"
