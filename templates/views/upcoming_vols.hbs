@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" class="full_height">
+
+<head>
+    <title>L U T N I Ț A | Home</title>
+    <meta name="description" content="LUTNIȚA Gallery | Home">
+    {{>head}}
+</head>
+
+<body class="full_body">
+    {{>header}}
+    <main class="main full_main">
+        <section id="text_section" class="text_section">
+            <h2 class="title">{{title}}</h2>
+            <div class="text_container_nohover" onclick=location.assign('/exhibitions')>
+                <div class="names_wrapper">
+                    <div class="names_container">
+                        <img class="artist_name"
+                            src="https://d23fd8t3cgh0wq.cloudfront.net/img/exhibitions/namepaths/pavelbrailavols.svg">
+                    </div>
+                </div>
+                <div class="vols_wrapper">
+                    <h3 class="vol">vol. I</h3>
+                    <h4 class="exhibition_date">26 Sep 2025 — 16 Nov 2025</h4>
+                    <h3 class="loc">Chișinău</h3>
+                </div>
+                <div class="vols_wrapper">
+                    <h3 class="vol">vol. II</h3>
+                    <h4 class="exhibition_date">11 Oct 2025 — 16 Nov 2025</h4>
+                    <h3 class="loc">Ustia</h3>
+                </div>
+            </div>
+            <div class="image_container_mob">
+        <img class="center_image_mob" src="https://d23fd8t3cgh0wq.cloudfront.net/img/exhibitions/pavelbrailav1.webp" alt="center_image" onclick=location.assign('/exhibitions/${one.exhibname}')>
+        <img class="center_image_mob" src="https://d23fd8t3cgh0wq.cloudfront.net/img/exhibitions/pavelbrailav2.webp" alt="center_image" onclick=location.assign('/exhibitions/${one.exhibname}')>
+        </div>
+        </section>
+        <section class="image_container"><img class="center_image_index"
+                src="https://d23fd8t3cgh0wq.cloudfront.net/img/exhibitions/pavelbrailav1.webp" alt="RELOCATING"
+                onclick=location.assign('/exhibitions')>
+        </section>
+        <section class="right_space"></section>
+    </main>
+    {{>footer}}
+    <script src="js/menu_index.js"></script>
+    <script src="js/index_vols.js"></script>
+</body>
+
+</html>

@@ -81,9 +81,8 @@ h2 {
 }
 
 h3 {
-    line-height: 1em;
-    font-size: 1.5em;
-    /* font-weight: 600; */
+    font-size: 1.05em;
+    color: #3d3d3d
 }
 
 h4:first-of-type {
@@ -120,11 +119,13 @@ h4 {
 }
 
 .text_container,
-.exhib_link {
+.exhib_link,
+.vols_wrapper {
     transition: border 0.3s ease-out;
 }
 
-.text_container:hover {
+.text_container:hover,
+.vols_wrapper:hover {
     border: 1px solid #666;
     border-left: none;
     border-right: none;
@@ -155,6 +156,15 @@ h4 {
 .names_wrapper_news {
     display: flex;
     flex-direction: row-reverse;
+}
+
+.vols_wrapper {
+    border: 1px solid #ffffff;
+    border-left: none;
+    border-right: none;
+    margin-top: 1em;
+    padding-bottom: 1em;
+    padding-top: 1em;
 }
 
 /* .names_container {
