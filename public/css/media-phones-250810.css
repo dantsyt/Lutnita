@@ -81,6 +81,14 @@
         margin-bottom: unset;
     }
 
+    .tc_index {
+        padding: 1.9vh 8vw;
+    }
+
+    .vols_wrapper {
+        padding-top: unset;
+    }
+
     .text_container:hover,
     .vols_wrapper:hover {
         border: unset;
