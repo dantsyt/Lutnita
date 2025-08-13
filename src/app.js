@@ -57,8 +57,8 @@ app.post('/log', (req, res) => {
 
 app.get('/', (req, res) => {
     logger.info('Request for home page', { originalsourceip: req.originalsourceip })
-    res.render('upcoming', {
-        title: 'Current'
+    res.render('upcoming_vols', {
+        title: 'Upcoming'
     })
 })
 app.use('/artists', artistsRouter)
